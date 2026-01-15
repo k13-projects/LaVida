@@ -1,0 +1,204 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* La Vida Design System - Beachy, Fresh, San Diego Vibes */
+
+@layer base {
+  :root {
+    /* La Vida Brand Colors - from official brand PDF */
+    /* Off-white background: #FFF6F0 */
+    --background: 24 100% 97%;
+    --foreground: 63 21% 30%;
+
+    --card: 0 0% 100%;
+    --card-foreground: 63 21% 30%;
+
+    --popover: 0 0% 100%;
+    --popover-foreground: 63 21% 30%;
+
+    /* Primary - Olive Green: #9F9D58 */
+    --primary: 59 29% 48%;
+    --primary-foreground: 0 0% 100%;
+
+    /* Secondary - Light Peach: #FEBDBA */
+    --secondary: 2 97% 86%;
+    --secondary-foreground: 63 21% 30%;
+
+    --muted: 36 65% 90%;
+    --muted-foreground: 63 21% 40%;
+
+    /* Accent - Coral: #F28383 */
+    --accent: 0 80% 73%;
+    --accent-foreground: 0 0% 100%;
+
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 36 30% 88%;
+    --input: 36 30% 88%;
+    --ring: 59 29% 48%;
+
+    --radius: 0.5rem;
+
+    /* Custom brand tokens - exact hex values */
+    /* Olive Green: #9F9D58 */
+    --olive: 59 29% 48%;
+    /* Forest Green: #535A3D */
+    --olive-dark: 63 21% 30%;
+    --olive-light: 59 20% 60%;
+    /* Light Peach: #FEBDBA */
+    --blush: 2 97% 86%;
+    /* Coral: #F28383 */
+    --coral: 0 80% 73%;
+    /* Cream: #F4E1C1 */
+    --cream: 36 65% 86%;
+    /* Muted Gold: #E2D58F */
+    --gold: 51 55% 72%;
+    --sand: 35 40% 85%;
+
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 240 5.3% 26.1%;
+    --sidebar-primary: 240 5.9% 10%;
+    --sidebar-primary-foreground: 0 0% 98%;
+    --sidebar-accent: 240 4.8% 95.9%;
+    --sidebar-accent-foreground: 240 5.9% 10%;
+    --sidebar-border: 220 13% 91%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+  .dark {
+    --background: 63 21% 12%;
+    --foreground: 24 100% 97%;
+
+    --card: 63 21% 15%;
+    --card-foreground: 24 100% 97%;
+
+    --popover: 63 21% 15%;
+    --popover-foreground: 24 100% 97%;
+
+    --primary: 59 29% 55%;
+    --primary-foreground: 63 21% 10%;
+
+    --secondary: 2 50% 25%;
+    --secondary-foreground: 24 100% 97%;
+
+    --muted: 63 15% 20%;
+    --muted-foreground: 36 20% 70%;
+
+    --accent: 0 60% 40%;
+    --accent-foreground: 24 100% 97%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 63 15% 25%;
+    --input: 63 15% 25%;
+    --ring: 59 29% 55%;
+
+    --sidebar-background: 240 5.9% 10%;
+    --sidebar-foreground: 240 4.8% 95.9%;
+    --sidebar-primary: 224.3 76.3% 48%;
+    --sidebar-primary-foreground: 0 0% 100%;
+    --sidebar-accent: 240 3.7% 15.9%;
+    --sidebar-accent-foreground: 240 4.8% 95.9%;
+    --sidebar-border: 240 3.7% 15.9%;
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'Montserrat', sans-serif;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 700;
+  }
+}
+
+@layer components {
+  .section-pink {
+    @apply bg-secondary;
+  }
+
+  .section-olive {
+    @apply bg-primary text-primary-foreground;
+  }
+
+  .text-brand {
+    @apply text-primary;
+  }
+
+  .organic-shape {
+    border-radius: 60% 40% 50% 50% / 50% 50% 40% 60%;
+  }
+
+  .wave-divider {
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23f5dde0' d='M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E");
+    background-size: cover;
+    background-repeat: no-repeat;
+  }
+}
+
+@layer utilities {
+  .animate-fade-up {
+    animation: fadeUp 0.8s ease-out forwards;
+  }
+
+  .animate-fade-in {
+    animation: fadeIn 0.6s ease-out forwards;
+  }
+
+  .animate-scale-in {
+    animation: scaleIn 0.5s ease-out forwards;
+  }
+
+  @keyframes fadeUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes scaleIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  .delay-100 { animation-delay: 0.1s; }
+  .delay-200 { animation-delay: 0.2s; }
+  .delay-300 { animation-delay: 0.3s; }
+  .delay-400 { animation-delay: 0.4s; }
+}
