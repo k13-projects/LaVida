@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Menu, X, Phone } from "lucide-react";
 
 const leftNavLinks = [
   { name: "About Us", href: "#about" },
@@ -69,21 +69,25 @@ const Navbar = () => {
             ))}
           </div>
 
-          {/* Contact Link - subtle placement */}
-          <a
-            href="#contact"
-            className="absolute right-0 top-1/2 -translate-y-1/2 text-foreground/70 hover:text-primary transition-all duration-300 text-sm font-medium tracking-wide"
-          >
-            Contact
-          </a>
+          {/* Right side actions */}
+          <div className="absolute right-0 top-1/2 -translate-y-1/2 flex items-center gap-4">
+            {/* Contact Icon */}
+            <a
+              href="#contact"
+              className="w-10 h-10 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
+              aria-label="Contact us"
+            >
+              <Phone size={18} className="text-foreground group-hover:text-white transition-colors duration-300" />
+            </a>
 
-          {/* Order Button - floating accent */}
-          <a
-            href="#order"
-            className="absolute right-0 -bottom-5 bg-primary hover:bg-olive-dark text-primary-foreground px-8 py-3 rounded-full font-bold text-base transition-all duration-300 hover:shadow-xl shadow-lg hover:-translate-y-1"
-          >
-            ORDER ONLINE
-          </a>
+            {/* Order Button */}
+            <a
+              href="#order"
+              className="bg-primary hover:bg-olive-dark text-primary-foreground px-7 py-2.5 rounded-full font-bold text-base transition-all duration-300 hover:shadow-xl shadow-lg"
+            >
+              ORDER ONLINE
+            </a>
+          </div>
         </div>
 
         {/* Mobile Header */}
