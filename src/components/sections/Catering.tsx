@@ -1,6 +1,6 @@
 const Catering = () => {
   return (
-    <section id="catering" className="relative bg-secondary py-16 md:py-20">
+    <section id="catering" className="relative bg-[#FDF8F5] py-16 md:py-20">
       <div className="container mx-auto px-4 text-center">
         <p className="text-xl md:text-2xl text-foreground mb-2 font-medium">
           Good food, good mood, made for sharing
