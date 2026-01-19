@@ -185,7 +185,7 @@ const Instagram = () => {
     </section>
 
     {/* Wave transition from olive to pink */}
-    <section className="relative w-full bg-primary">
+    <section className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48">
       <svg
         className="w-full h-32 md:h-48 lg:h-56"
         viewBox="0 0 1440 230"
@@ -194,7 +194,7 @@ const Instagram = () => {
       >
         <path
           d="M0,0 L0,150 C200,80 400,50 600,50 C840,50 960,150 1440,150 L1440,230 L0,230 Z"
-          fill="hsl(var(--secondary))"
+          fill="hsl(var(--primary))"
         />
       </svg>
     </section>
