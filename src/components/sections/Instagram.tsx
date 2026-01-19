@@ -7,13 +7,6 @@ const Instagram = () => {
 
   return (
     <section className="relative bg-primary min-h-[400px] md:min-h-[450px] flex items-center">
-      {/* Wave Top - deep curve, image section flowing into olive */}
-      <Wave
-        position="top"
-        variant="deep"
-        fillColor="hsl(var(--background))"
-      />
-
       <div className="container mx-auto px-4 relative z-10 py-20 md:py-24">
         {/* Preview Images Grid - 4 columns desktop, 2 mobile */}
         <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 mb-10 max-w-4xl mx-auto">
