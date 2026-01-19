@@ -1,12 +1,64 @@
 interface WaveProps {
   position: 'top' | 'bottom';
-  variant?: 'soft' | 'blobLeft' | 'blobRight' | 'deep';
+  variant?: 'soft' | 'blobLeft' | 'blobRight' | 'deep' | 'plateSync';
   fillColor: string;
   className?: string;
   height?: string;
 }
 
 const Wave = ({ position, variant = 'soft', fillColor, className = '', height }: WaveProps) => {
+  // plateSync variant: wave that syncs with plate position across all viewports
+  // Uses consistent wave shape with height matching plate overlap
+  if (variant === 'plateSync') {
+    // Wave path: starts at left edge (y=200), curves up to meet plate on right (y=50), fills to bottom
+    // The wave rises from left to right where the plate is positioned
+    const path = "M0,180 C300,180 600,100 900,60 C1100,35 1300,30 1440,30 L1440,230 L0,230 Z";
+
+    return (
+      <>
+        {/* Mobile: h-40 to match -mt-40 plate overlap */}
+        <svg
+          className={`absolute w-full h-40 sm:hidden ${className}`}
+          viewBox="0 0 1440 230"
+          preserveAspectRatio="none"
+          style={{ bottom: '-2px', left: 0, right: 0 }}
+        >
+          <path d={path} fill={fillColor} />
+        </svg>
+
+        {/* SM: h-52 to match -mt-52 plate overlap */}
+        <svg
+          className={`absolute w-full hidden sm:block md:hidden h-52 ${className}`}
+          viewBox="0 0 1440 230"
+          preserveAspectRatio="none"
+          style={{ bottom: '-2px', left: 0, right: 0 }}
+        >
+          <path d={path} fill={fillColor} />
+        </svg>
+
+        {/* MD: h-72 to match -mt-72 plate overlap */}
+        <svg
+          className={`absolute w-full hidden md:block lg:hidden h-72 ${className}`}
+          viewBox="0 0 1440 230"
+          preserveAspectRatio="none"
+          style={{ bottom: '-2px', left: 0, right: 0 }}
+        >
+          <path d={path} fill={fillColor} />
+        </svg>
+
+        {/* LG+: h-88 to match -mt-88 plate overlap */}
+        <svg
+          className={`absolute w-full hidden lg:block h-88 ${className}`}
+          viewBox="0 0 1440 230"
+          preserveAspectRatio="none"
+          style={{ bottom: '-2px', left: 0, right: 0 }}
+        >
+          <path d={path} fill={fillColor} />
+        </svg>
+      </>
+    );
+  }
+
   const getPath = () => {
     switch (variant) {
       case 'soft':

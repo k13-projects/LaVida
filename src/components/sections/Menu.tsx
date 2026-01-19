@@ -10,15 +10,15 @@ const Menu = () => {
         <img
           src="/images/about/salad.png"
           alt="Fresh salad bowl"
-          className="absolute top-0 right-0 z-20 w-[90vw] sm:w-[82vw] md:w-[75vw] lg:w-[67vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
+          className="absolute top-0 right-0 z-20 w-[81vw] sm:w-[74vw] md:w-[68vw] lg:w-[60vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
         />
 
         {/* Content wrapper with min-height to ensure plate has space */}
         <div className="min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px] pt-8 md:pt-12 pb-8 md:pb-12">
           <div className="container mx-auto px-4 md:px-6">
-            {/* Text content - left 50% of screen */}
-            <div className="w-full sm:w-[65%] md:w-[60%] lg:w-[55%] -mt-16 sm:-mt-24 md:-mt-16 lg:-mt-8">
-              <p className="text-lg sm:text-xl md:text-2xl text-foreground leading-relaxed italic mb-6 md:mb-8">
+            {/* Text content - left side only, avoiding plate on right */}
+            <div className="w-full sm:w-[61%] md:w-[56%] lg:w-[51%] text-center -mt-8 sm:-mt-16 md:-mt-12 lg:-mt-4">
+              <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-foreground leading-relaxed italic mb-6 md:mb-8">
                 Your favorites, just a click away.
                 <br />
                 Order now for a seamless way to
@@ -32,7 +32,7 @@ const Menu = () => {
             </div>
 
             {/* Centered text and buttons - positioned below the plate area */}
-            <div className="text-center mt-8 sm:mt-12 md:mt-16 lg:mt-[200px] xl:mt-[240px]">
+            <div className="text-center mt-4 sm:mt-6 md:mt-8 lg:mt-[140px] xl:mt-[160px]">
               <p className="text-base sm:text-lg md:text-xl text-foreground mb-6">
                 Explore our menu and find your next favorite!
               </p>
