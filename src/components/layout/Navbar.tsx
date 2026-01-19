@@ -38,12 +38,16 @@ const Navbar = () => {
             href="#"
             className="relative z-10 mx-4 group translate-y-1/2"
           >
-            <div className="w-28 h-28 lg:w-32 lg:h-32 bg-primary rounded-full flex items-center justify-center p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105">
+            <div className="w-28 h-28 lg:w-32 lg:h-32 bg-primary rounded-full flex items-center justify-center p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
               <img
                 src="/images/logo/logo-white.png"
                 alt="La Vida"
-                className="w-full h-full object-contain"
+                className="w-full h-full object-contain relative z-10"
               />
+              {/* Coin shine effect - moves left to right */}
+              <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+              </div>
             </div>
             {/* Subtle glow effect */}
             <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -62,9 +66,11 @@ const Navbar = () => {
               </a>
               <a
                 href="#order"
-                className="bg-primary hover:bg-olive-dark text-primary-foreground px-5 py-1.5 rounded-full font-bold text-xs transition-all duration-300 hover:shadow-xl shadow-lg"
+                className="bg-primary hover:bg-olive-dark text-primary-foreground px-5 py-1.5 rounded-full font-bold text-xs transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
               >
-                ORDER ONLINE
+                <span className="relative z-10">ORDER ONLINE</span>
+                {/* Button shine effect */}
+                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
               </a>
             </div>
             {/* Nav links */}
@@ -93,9 +99,11 @@ const Navbar = () => {
             </a>
             <a
               href="#order"
-              className="bg-primary hover:bg-olive-dark text-primary-foreground px-7 py-2.5 rounded-full font-bold text-base transition-all duration-300 hover:shadow-xl shadow-lg"
+              className="bg-primary hover:bg-olive-dark text-primary-foreground px-7 py-2.5 rounded-full font-bold text-base transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
             >
-              ORDER ONLINE
+              <span className="relative z-10">ORDER ONLINE</span>
+              {/* Button shine effect */}
+              <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
             </a>
           </div>
         </div>

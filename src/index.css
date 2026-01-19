@@ -116,7 +116,7 @@
 
   html {
     scroll-behavior: smooth;
-    font-size: 17px;
+    font-size: 18px;
   }
 
   body {
@@ -202,4 +202,127 @@
   .delay-200 { animation-delay: 0.2s; }
   .delay-300 { animation-delay: 0.3s; }
   .delay-400 { animation-delay: 0.4s; }
+
+  /*
+   * Wave of light animation - 15s cycle
+   * Forward: Logo (2-10%) -> travel gap -> Button (12-22%)
+   * Reverse: Button (24-34%) -> travel gap -> Logo (36-44%)
+   * Button animation is slower (10% duration vs 8%) to match perceived speed on wider element
+   * Rest until next cycle
+   */
+
+  .animate-coin-shine {
+    animation: coinShine 15s linear infinite;
+    opacity: 0;
+  }
+
+  .group:hover .animate-coin-shine {
+    animation: coinShineHover 1s ease-out forwards;
+  }
+
+  @keyframes coinShine {
+    /* Forward pass - logo */
+    0%, 1% {
+      left: -60%;
+      opacity: 0;
+    }
+    2% {
+      left: -60%;
+      opacity: 1;
+    }
+    10% {
+      left: 150%;
+      opacity: 1;
+    }
+    11% {
+      left: 150%;
+      opacity: 0;
+    }
+    /* Reverse pass - logo receives from button (after button finishes at 35%) */
+    35% {
+      left: 150%;
+      opacity: 0;
+    }
+    36% {
+      left: 150%;
+      opacity: 1;
+    }
+    44% {
+      left: -60%;
+      opacity: 1;
+    }
+    45%, 100% {
+      left: -60%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes coinShineHover {
+    0% {
+      left: -60%;
+      opacity: 1;
+    }
+    100% {
+      left: 150%;
+      opacity: 1;
+    }
+  }
+
+  /* Button shine - forward after logo, reverse before logo */
+  .animate-button-shine {
+    animation: buttonShine 15s linear infinite;
+    opacity: 0;
+  }
+
+  .group:hover .animate-button-shine {
+    animation: buttonShineHover 0.875s ease-out 0.625s forwards;
+  }
+
+  @keyframes buttonShine {
+    /* Forward pass - button receives from logo (slower to match perceived speed) */
+    0%, 11% {
+      left: -60%;
+      opacity: 0;
+    }
+    12% {
+      left: -60%;
+      opacity: 1;
+    }
+    22% {
+      left: 150%;
+      opacity: 1;
+    }
+    23% {
+      left: 150%;
+      opacity: 0;
+    }
+    /* Reverse pass - button starts (slower to match perceived speed) */
+    23.5% {
+      left: 150%;
+      opacity: 0;
+    }
+    24% {
+      left: 150%;
+      opacity: 1;
+    }
+    34% {
+      left: -60%;
+      opacity: 1;
+    }
+    35%, 100% {
+      left: -60%;
+      opacity: 0;
+    }
+  }
+
+  @keyframes buttonShineHover {
+    0% {
+      left: -60%;
+      opacity: 1;
+    }
+    100% {
+      left: 150%;
+      opacity: 1;
+    }
+  }
 }
