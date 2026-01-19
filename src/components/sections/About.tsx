@@ -7,7 +7,7 @@ const About = () => {
 
       {/* Content Container - vertically centered */}
       <div className="container mx-auto px-4 md:px-6 relative z-10 py-24 md:py-28">
-        <div className="max-w-2xl mx-auto text-center">
+        <div className="max-w-4xl mx-auto text-center">
           {/* Centered paragraph - white text on olive */}
           <p className="text-lg md:text-xl text-white leading-relaxed mb-8">
             Born in sunny San Diego, we bring fresh, feel-good food made with real
@@ -20,7 +20,7 @@ const About = () => {
           {/* Single CTA button */}
           <a
             href="#about-full"
-            className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 py-3 rounded-full font-semibold transition-all text-base"
+            className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-20 py-3 rounded-full font-semibold transition-all text-base"
           >
             ABOUT US
           </a>
