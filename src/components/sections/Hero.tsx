@@ -57,13 +57,11 @@ const Hero = () => {
         </Carousel>
       </div>
 
-      {/* Content Overlay - Just the heading */}
+      {/* Content Overlay - Just the heading on ONE line */}
       <div className="absolute inset-0 flex items-center justify-start">
         <div className="container mx-auto px-4 pt-16">
-          <h1 className="text-5xl md:text-7xl lg:text-8xl text-white leading-tight font-bold tracking-tight drop-shadow-lg">
-            ALL DAY
-            <br />
-            <span className="text-primary">HEALTH</span>
+          <h1 className="text-4xl md:text-6xl lg:text-8xl text-white font-bold tracking-tight drop-shadow-lg whitespace-nowrap">
+            ALL DAY HEALTH
           </h1>
         </div>
       </div>

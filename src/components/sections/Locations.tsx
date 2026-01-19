@@ -1,10 +1,18 @@
 import { locations } from "@/data/locations";
+import Wave from "@/components/common/Wave";
 
 const Locations = () => {
   return (
-    <section id="locations" className="py-16 md:py-24 bg-secondary relative overflow-hidden">
-      {/* Decorative Map Pattern - adjusted for pink background */}
-      <div className="absolute inset-0 opacity-30">
+    <section id="locations" className="relative min-h-[520px] md:min-h-[600px] bg-secondary overflow-hidden">
+      {/* Wave Top */}
+      <Wave
+        position="top"
+        variant="soft"
+        fillColor="hsl(var(--background))"
+      />
+
+      {/* Background Map Pattern */}
+      <div className="absolute inset-0 opacity-25">
         <svg viewBox="0 0 1440 600" className="w-full h-full" preserveAspectRatio="xMidYMid slice">
           {/* Road-like curved paths */}
           <path
@@ -36,53 +44,45 @@ const Locations = () => {
             strokeLinecap="round"
           />
           {/* Decorative circles */}
-          <circle cx="350" cy="250" r="80" fill="hsl(var(--primary))" opacity="0.15" />
-          <circle cx="900" cy="350" r="60" fill="hsl(var(--primary))" opacity="0.1" />
-          <circle cx="1200" cy="150" r="50" fill="hsl(var(--primary))" opacity="0.12" />
+          <circle cx="600" cy="300" r="100" fill="hsl(var(--primary))" opacity="0.12" />
+          <circle cx="1000" cy="200" r="70" fill="hsl(var(--primary))" opacity="0.1" />
+          <circle cx="200" cy="400" r="50" fill="hsl(var(--primary))" opacity="0.08" />
           {/* Location markers */}
-          <circle cx="350" cy="250" r="12" fill="hsl(var(--primary))" />
-          <circle cx="900" cy="350" r="12" fill="hsl(var(--primary))" />
+          <circle cx="400" cy="280" r="15" fill="hsl(var(--primary))" opacity="0.6" />
+          <circle cx="900" cy="350" r="15" fill="hsl(var(--primary))" opacity="0.6" />
         </svg>
       </div>
 
-      <div className="container mx-auto px-4 relative z-10">
-        <div className="grid md:grid-cols-2 gap-8 items-start">
-          {/* Left side - Heading in a box */}
-          <div>
-            <div className="inline-block bg-blush/50 px-8 py-4 rounded-2xl">
-              <h2 className="text-3xl md:text-4xl lg:text-5xl text-foreground font-bold">
-                Locations
-              </h2>
-            </div>
-          </div>
+      {/* Overlay Card - positioned absolute on left */}
+      <div className="absolute left-4 md:left-16 lg:left-24 top-28 md:top-36 z-10 w-[calc(100%-32px)] max-w-sm md:max-w-[340px]">
+        <div className="bg-secondary/95 backdrop-blur-sm p-6 md:p-8 rounded-2xl shadow-lg">
+          <h2 className="text-3xl md:text-4xl text-foreground font-bold mb-6">
+            Locations
+          </h2>
 
-          {/* Right side - Location cards */}
-          <div className="space-y-5">
+          <div className="space-y-6">
             {locations.map((location) => (
-              <div
-                key={location.id}
-                className="bg-white p-5 md:p-6 rounded-2xl shadow-md"
-              >
-                <div className="flex items-center justify-between mb-3">
-                  <h3 className="text-xl md:text-2xl font-bold text-foreground">
+              <div key={location.id}>
+                <div className="flex items-center gap-3 mb-2">
+                  <h3 className="text-lg md:text-xl font-bold text-foreground">
                     {location.name.toUpperCase()}
                   </h3>
                   {location.comingSoon && (
-                    <span className="text-coral font-semibold text-sm">
-                      COMING SOON
+                    <span className="text-coral font-semibold text-xs uppercase">
+                      Coming Soon
                     </span>
                   )}
                 </div>
 
                 {!location.comingSoon && (
-                  <p className="text-muted-foreground mb-2">Windmill Food Hall</p>
+                  <p className="text-muted-foreground text-sm mb-1">Windmill Food Hall</p>
                 )}
 
-                <p className="text-foreground mb-1">
+                <p className="text-foreground text-sm">
                   {location.address}
                   {!location.comingSoon && `, ${location.city}`}
                 </p>
-                <p className="text-foreground">{location.hours}</p>
+                <p className="text-foreground text-sm">{location.hours}</p>
               </div>
             ))}
           </div>

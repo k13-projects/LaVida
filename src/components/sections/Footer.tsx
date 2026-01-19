@@ -1,12 +1,21 @@
+import Wave from "@/components/common/Wave";
+
 const Footer = () => {
   return (
-    <footer id="contact" className="bg-secondary text-foreground py-12 md:py-16">
-      <div className="container mx-auto px-4">
-        {/* Contact Info Section */}
-        <div className="text-center mb-12">
-          <h4 className="text-2xl md:text-3xl font-bold mb-8">CONTACT INFO</h4>
+    <footer id="contact" className="relative bg-secondary text-foreground min-h-[380px] md:min-h-[420px]">
+      {/* Wave Top - olive (from Instagram section) flowing into pink */}
+      <Wave
+        position="top"
+        variant="deep"
+        fillColor="hsl(var(--primary))"
+      />
 
-          <div className="space-y-3 text-foreground">
+      <div className="container mx-auto px-4 pt-28 md:pt-32 pb-16">
+        {/* Contact Info - Left aligned */}
+        <div className="max-w-md">
+          <h4 className="text-2xl md:text-3xl font-bold mb-6">CONTACT INFO</h4>
+
+          <div className="space-y-2 text-foreground">
             <p>
               890 Palomar Airport Rd
               <br />
@@ -32,22 +41,22 @@ const Footer = () => {
             </p>
           </div>
         </div>
+      </div>
 
-        {/* Logo at bottom */}
-        <div className="flex justify-center mb-8">
-          <img
-            src="/images/logo/logo-color.png"
-            alt="La Vida"
-            className="h-16 md:h-20 w-auto"
-          />
-        </div>
+      {/* Logo at bottom right - absolute positioned */}
+      <div className="absolute right-8 md:right-12 lg:right-16 bottom-16 md:bottom-20">
+        <img
+          src="/images/logo/logo-color.png"
+          alt="La Vida"
+          className="h-20 md:h-28 w-auto"
+        />
+      </div>
 
-        {/* Copyright */}
-        <div className="text-center border-t border-foreground/10 pt-6">
-          <p className="text-muted-foreground text-sm">
-            © {new Date().getFullYear()} La Vida San Diego. All rights reserved.
-          </p>
-        </div>
+      {/* Copyright - bottom */}
+      <div className="absolute bottom-0 left-0 right-0 text-center py-4 border-t border-foreground/10">
+        <p className="text-muted-foreground text-sm">
+          © {new Date().getFullYear()} La Vida San Diego. All rights reserved.
+        </p>
       </div>
     </footer>
   );
