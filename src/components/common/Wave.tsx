@@ -18,10 +18,10 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
       case 'blobLeft':
         // Simple wave for bottom of olive section
         // Pink fills below the curve line all the way to viewBox bottom (230)
-        // Wave: starts flat left, curves UP (olive dips into pink), curves back DOWN, flat right 1/3
+        // Wave: starts higher on left (y=150) for smoother curve, peak at y=50, ends at y=150
         return position === 'bottom'
-          ? "M0,150 C240,150 360,50 600,50 C840,50 960,150 1440,150 L1440,230 L0,230 Z"
-          : "M0,80 C240,80 360,180 600,180 C840,180 960,80 1440,80 L1440,0 L0,0 Z";
+          ? "M0,150 C200,80 400,50 600,50 C840,50 960,150 1440,150 L1440,230 L0,230 Z"
+          : "M0,80 C200,150 400,180 600,180 C840,180 960,80 1440,80 L1440,0 L0,0 Z";
 
       case 'blobRight':
         // Organic blob that dips down on the RIGHT side
