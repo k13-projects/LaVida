@@ -55,12 +55,12 @@ const Menu = () => {
       </div>
     </section>
 
-    {/* Full-bleed food image */}
-    <section className="w-full">
+    {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
+    <section className="w-full h-[41vw] overflow-hidden flex items-start">
       <img
         src="/images/about/part-2.jpg"
         alt="Catering spread"
-        className="w-full h-auto object-contain"
+        className="w-full h-auto -mt-[6vw]"
       />
     </section>
     </>
