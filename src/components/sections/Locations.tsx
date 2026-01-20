@@ -30,6 +30,9 @@ const locations = [
 const Locations: FC = () => {
   return (
     <section id="locations" className="relative bg-[#FDF8F5]">
+      {/* Cream spacer between food image and map */}
+      <div className="h-16 sm:h-20 md:h-24 lg:h-32 bg-[#FDF8F5]"></div>
+
       {/* Map Container - 90% width centered */}
       <div className="relative w-[90%] mx-auto" style={{ aspectRatio: '16 / 9' }}>
         {/* Background Map Image */}
