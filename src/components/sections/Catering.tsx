@@ -23,7 +23,7 @@ const Catering = () => {
       <section className="relative w-full h-[200px] sm:h-[280px] md:h-[360px] lg:h-[450px] overflow-hidden">
         {/* Full-bleed catering image - cropped by container */}
         <img
-          src="/images/catering/LaVida_032125_arleneibarra-034.jpg"
+          src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
           alt="Fresh catering salad"
           className="w-full h-full object-cover object-[center_40%]" style={{ transform: 'scaleX(-1) scaleY(-1)' }}
         />

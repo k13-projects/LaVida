@@ -34,7 +34,7 @@ const Locations: FC = () => {
       <div className="relative w-[90%] mx-auto" style={{ aspectRatio: '16 / 9' }}>
         {/* Background Map Image */}
         <img
-          src="/images/locations/map_only.png"
+          src={`${import.meta.env.BASE_URL}images/locations/map_only.png`}
           alt="La Vida Locations Map"
           className="absolute inset-0 w-full h-full object-cover"
         />

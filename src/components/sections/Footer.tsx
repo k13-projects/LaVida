@@ -39,7 +39,7 @@ const Footer = () => {
           {/* Logo - Right aligned, vertically centered with contact */}
           <div className="hidden sm:block">
             <img
-              src="/images/logo/logo-color.png"
+              src={`${import.meta.env.BASE_URL}images/logo/logo-color.png`}
               alt="La Vida"
               className="h-20 md:h-28 w-auto"
             />

@@ -24,7 +24,7 @@ const Instagram = () => {
   // Fallback to menu items if Behold isn't configured
   const fallbackImages = menuItems.slice(0, 12).map((item, index) => ({
     id: `fallback-${index}`,
-    mediaUrl: item.src,
+    mediaUrl: `${import.meta.env.BASE_URL}${item.src.replace(/^\//, '')}`,
     permalink: "https://www.instagram.com/lavida.sandiego/",
     caption: item.alt,
   }));

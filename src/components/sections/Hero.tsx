@@ -51,7 +51,7 @@ const Hero = () => {
               <CarouselItem key={slide.id} className="h-full pl-0">
                 <div className="relative w-full h-full">
                   <img
-                    src={slide.src}
+                    src={`${import.meta.env.BASE_URL}${slide.src.replace(/^\//, '')}`}
                     alt={slide.alt}
                     className="w-full h-full object-cover"
                     loading={slide.id === 1 ? "eager" : "lazy"}

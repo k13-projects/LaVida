@@ -40,7 +40,7 @@ const Navbar = () => {
           >
             <div className="w-28 h-28 lg:w-32 lg:h-32 bg-primary rounded-full flex items-center justify-center p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
               <img
-                src="/images/logo/logo-white.png"
+                src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                 alt="La Vida"
                 className="w-full h-full object-contain relative z-10"
               />
@@ -114,7 +114,7 @@ const Navbar = () => {
           <a href="#" className="relative z-10">
             <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center p-2 shadow-lg">
               <img
-                src="/images/logo/logo-white.png"
+                src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                 alt="La Vida"
                 className="w-full h-full object-contain"
               />

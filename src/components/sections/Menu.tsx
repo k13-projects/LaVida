@@ -4,7 +4,7 @@ const Menu = () => {
     <section id="menu" className="relative bg-secondary overflow-visible">
       {/* Bowl image - absolute positioned to right half, overlapping into olive section */}
       <img
-        src="/images/about/salad.png"
+        src={`${import.meta.env.BASE_URL}images/about/salad.png`}
         alt="Fresh salad bowl"
         className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
       />
@@ -58,7 +58,7 @@ const Menu = () => {
     {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
     <section className="w-full h-[41vw] overflow-hidden flex items-start">
       <img
-        src="/images/about/part-2.jpg"
+        src={`${import.meta.env.BASE_URL}images/about/part-2.jpg`}
         alt="Catering spread"
         className="w-full h-auto -mt-[6vw]"
       />
