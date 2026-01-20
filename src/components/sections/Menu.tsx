@@ -6,7 +6,7 @@ const Menu = () => {
       <img
         src="/images/about/salad.png"
         alt="Fresh salad bowl"
-        className="absolute top-0 right-0 z-20 w-[81vw] sm:w-[74vw] md:w-[68vw] lg:w-[60vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
+        className="absolute top-0 right-0 z-20 w-[81vw] sm:w-[74vw] md:w-[68vw] lg:w-[60vw] xl:w-[52vw] 2xl:w-[48vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
       />
 
       {/* Content wrapper with min-height to ensure plate has space */}
