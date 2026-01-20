@@ -6,7 +6,7 @@ const Menu = () => {
       <img
         src="/images/about/salad.png"
         alt="Fresh salad bowl"
-        className="absolute top-0 right-0 z-20 w-[81vw] sm:w-[74vw] md:w-[68vw] lg:w-[60vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
+        className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
       />
 
       {/* Content wrapper with min-height to ensure plate has space */}
@@ -55,12 +55,12 @@ const Menu = () => {
       </div>
     </section>
 
-    {/* Full-bleed food image */}
-    <section className="w-full">
+    {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
+    <section className="w-full h-[41vw] overflow-hidden flex items-start">
       <img
         src="/images/about/part-2.jpg"
         alt="Catering spread"
-        className="w-full h-auto object-contain"
+        className="w-full h-auto -mt-[6vw]"
       />
     </section>
     </>
