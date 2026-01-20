@@ -135,10 +135,33 @@ The website is optimized for fast loading:
 
 ## Deployment
 
-The site can be deployed to any static hosting platform:
+### GitHub Pages (Recommended)
+
+This project is configured for automatic deployment to GitHub Pages.
+
+**Setup Steps:**
+
+1. Go to your repository on GitHub
+2. Navigate to **Settings** > **Pages**
+3. Under "Build and deployment", select **GitHub Actions** as the source
+4. Push to the `main` branch to trigger automatic deployment
+
+The site will be available at: `https://<username>.github.io/LaVida/`
+
+**Custom Domain (Optional):**
+
+1. In repository Settings > Pages, add your custom domain
+2. Update `vite.config.ts` and change the base to `'/'`:
+   ```ts
+   base: mode === 'production' ? '/' : '/',
+   ```
+3. Add a `CNAME` file in the `public/` folder with your domain
+
+### Other Platforms
+
+The site can also be deployed to:
 - Vercel
 - Netlify
-- GitHub Pages
 - AWS S3/CloudFront
 
 ```bash
