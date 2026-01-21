@@ -14,15 +14,15 @@ const locations = [
     link: 'https://maps.google.com/?q=890+Palomar+Airport+Rd,+Carlsbad,+CA+92011',
   },
   {
-    id: 'encinitas',
-    cityLabel: 'ENCINITAS',
+    id: 'miramar',
+    cityLabel: 'MIRAMAR',
     subtitle: 'COMING SOON',
     addressLines: [
       '1720 North El Camino Real,',
-      'Encinitas, CA 92024'
+      'San Clemente, CA 92673'
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
-    link: 'https://maps.google.com/?q=1720+N+El+Camino+Real,+Encinitas,+CA+92024',
+    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92673',
   }
 ];
 
