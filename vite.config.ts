@@ -5,9 +5,9 @@ import { componentTagger } from "lovable-tagger";
 
 // https://vitejs.dev/config/
 export default defineConfig(({ mode }) => ({
-  // Base path for GitHub Pages - uses repo name for project sites
-  // For custom domain, set to '/'
-  base: mode === 'production' ? '/LaVida/' : '/',
+  // Base path - use '/' for custom domain (www.lavida.fit)
+  // The CNAME file in public/ configures the custom domain
+  base: '/',
   server: {
     host: "::",
     port: 8080,

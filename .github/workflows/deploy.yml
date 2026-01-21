@@ -43,7 +43,9 @@ jobs:
             echo "ERROR: dist/index.html contains /src/main.tsx - build failed!"
             exit 1
           fi
-          echo "Build verified: dist/index.html references /LaVida/assets/*"
+          echo "=== Verifying CNAME exists ==="
+          cat dist/CNAME
+          echo "Build verified: ready for deployment to custom domain"
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
