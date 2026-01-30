@@ -3,7 +3,7 @@ import { Menu, X, Phone } from "lucide-react";
 
 const leftNavLinks = [
   { name: "About Us", href: "#about" },
-  { name: "Our Menu", href: "#menu" },
+  { name: "Menu", href: "#menu" },
 ];
 
 const rightNavLinks = [
@@ -17,102 +17,86 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm">
       <div className="container mx-auto px-4">
-        {/* Desktop Navigation - Elegant curved layout around logo */}
-        <div className="hidden md:flex items-end justify-center h-28 relative pb-3">
-          {/* Left Navigation - aligned with bottom of logo */}
-          <div className="flex items-end gap-4 lg:gap-6 pr-6 lg:pr-8 pb-1">
-            {leftNavLinks.map((link) => (
-              <a
-                key={link.name}
-                href={link.href}
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
-              >
-                {link.name}
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-            ))}
-          </div>
+        {/* Desktop Navigation */}
+        <div className="hidden md:flex items-end h-20 lg:h-24 relative">
+          {/* Centered nav with logo */}
+          <div className="flex-1 flex items-end justify-center gap-8 lg:gap-10 pb-3">
+            {/* About Us */}
+            <a
+              href="#about"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+            >
+              About Us
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
 
-          {/* Logo Container - centered on bottom border, half overflowing */}
-          <a
-            href="#"
-            className="relative z-10 mx-4 group translate-y-1/2"
-          >
-            <div className="w-28 h-28 lg:w-32 lg:h-32 bg-primary rounded-full flex items-center justify-center p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
-              <img
-                src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
-                alt="La Vida"
-                className="w-full h-full object-contain relative z-10"
-              />
-              {/* Coin shine effect - moves left to right */}
-              <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
-                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+            {/* Menu */}
+            <a
+              href="#menu"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+            >
+              Menu
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
+
+            {/* Logo - inline, bottom half overflows */}
+            <a href="#" className="relative z-10 group translate-y-1/2">
+              <div className="w-20 h-20 lg:w-24 lg:h-24 bg-primary rounded-full flex items-center justify-center p-3 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
+                  alt="La Vida"
+                  className="w-full h-full object-contain relative z-10"
+                />
+                <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+                </div>
               </div>
-            </div>
-            {/* Subtle glow effect */}
-            <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-          </a>
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </a>
 
-          {/* Right Navigation with stacked buttons above on smaller screens */}
-          <div className="flex flex-col items-start pl-6 lg:pl-8">
-            {/* Buttons row - above nav links on md/lg, hidden on xl+ */}
-            <div className="xl:hidden flex items-center gap-3 mb-1">
-              <a
-                href="#contact"
-                className="w-8 h-8 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
-                aria-label="Contact us"
-              >
-                <Phone size={14} className="text-foreground group-hover:text-white transition-colors duration-300" />
-              </a>
-              <a
-                href="#order"
-                className="bg-primary hover:bg-olive-dark text-primary-foreground px-5 py-1.5 rounded-full font-bold text-xs transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
-              >
-                <span className="relative z-10">ORDER ONLINE</span>
-                {/* Button shine effect */}
-                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
-              </a>
-            </div>
-            {/* Nav links */}
-            <div className="flex items-end gap-4 lg:gap-6 pb-1">
-              {rightNavLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
-                >
-                  {link.name}
-                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-                </a>
-              ))}
-            </div>
+            {/* Locations */}
+            <a
+              href="#locations"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+            >
+              Locations
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
+
+            {/* Catering */}
+            <a
+              href="#catering"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+            >
+              Catering
+              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+            </a>
           </div>
 
-          {/* Right side actions - only on xl screens and up */}
-          <div className="hidden xl:flex absolute right-0 bottom-3 items-center gap-4">
+          {/* Action buttons - right side */}
+          <div className="absolute right-0 bottom-3 flex items-center gap-3">
             <a
               href="#contact"
-              className="w-10 h-10 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
+              className="w-9 h-9 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
               aria-label="Contact us"
             >
-              <Phone size={18} className="text-foreground group-hover:text-white transition-colors duration-300" />
+              <Phone size={16} className="text-foreground group-hover:text-white transition-colors duration-300" />
             </a>
             <a
               href="#order"
-              className="bg-primary hover:bg-olive-dark text-primary-foreground px-7 py-2.5 rounded-full font-bold text-base transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
+              className="bg-primary hover:bg-olive-dark text-primary-foreground px-4 py-1.5 rounded-full font-bold text-xs transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
             >
-              <span className="relative z-10">ORDER ONLINE</span>
-              {/* Button shine effect */}
+              <span className="relative z-10">ORDER NOW</span>
               <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
             </a>
           </div>
         </div>
 
         {/* Mobile Header */}
-        <div className="md:hidden flex items-center justify-between h-20">
+        <div className="md:hidden flex items-center justify-between h-16">
           {/* Mobile Logo */}
           <a href="#" className="relative z-10">
-            <div className="w-16 h-16 bg-primary rounded-full flex items-center justify-center p-2 shadow-lg">
+            <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center p-2 shadow-lg">
               <img
                 src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                 alt="La Vida"
