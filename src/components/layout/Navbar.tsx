@@ -18,13 +18,13 @@ const Navbar = () => {
     <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm">
       <div className="container mx-auto px-4">
         {/* Desktop Navigation */}
-        <div className="hidden md:flex items-end h-20 lg:h-24 relative">
+        <div className="hidden md:flex items-end h-20 lg:h-24 xl:h-28 relative">
           {/* Centered nav with logo */}
-          <div className="flex-1 flex items-end justify-center gap-8 lg:gap-10 pb-3">
+          <div className="flex-1 flex items-end justify-center gap-8 lg:gap-10 xl:gap-12 pb-3 xl:pb-4">
             {/* About Us */}
             <a
               href="#about"
-              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
             >
               About Us
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -33,7 +33,7 @@ const Navbar = () => {
             {/* Menu */}
             <a
               href="#menu"
-              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
             >
               Menu
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -41,7 +41,7 @@ const Navbar = () => {
 
             {/* Logo - inline, bottom half overflows */}
             <a href="#" className="relative z-10 group translate-y-1/2">
-              <div className="w-20 h-20 lg:w-24 lg:h-24 bg-primary rounded-full flex items-center justify-center p-3 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+              <div className="w-20 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-primary rounded-full flex items-center justify-center p-3 xl:p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                   alt="La Vida"
@@ -57,7 +57,7 @@ const Navbar = () => {
             {/* Locations */}
             <a
               href="#locations"
-              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
             >
               Locations
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -66,7 +66,7 @@ const Navbar = () => {
             {/* Catering */}
             <a
               href="#catering"
-              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base tracking-wide relative group whitespace-nowrap"
+              className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
             >
               Catering
               <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
@@ -74,17 +74,18 @@ const Navbar = () => {
           </div>
 
           {/* Action buttons - right side */}
-          <div className="absolute right-0 bottom-3 flex items-center gap-3">
+          <div className="absolute right-0 bottom-3 xl:bottom-4 flex items-center gap-3">
             <a
               href="#contact"
-              className="w-9 h-9 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
+              className="w-9 h-9 xl:w-10 xl:h-10 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
               aria-label="Contact us"
             >
-              <Phone size={16} className="text-foreground group-hover:text-white transition-colors duration-300" />
+              <Phone size={16} className="xl:hidden text-foreground group-hover:text-white transition-colors duration-300" />
+              <Phone size={18} className="hidden xl:block text-foreground group-hover:text-white transition-colors duration-300" />
             </a>
             <a
               href="#order"
-              className="bg-primary hover:bg-olive-dark text-primary-foreground px-4 py-1.5 rounded-full font-bold text-xs transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
+              className="bg-primary hover:bg-olive-dark text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group"
             >
               <span className="relative z-10">ORDER NOW</span>
               <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
