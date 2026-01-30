@@ -41,7 +41,7 @@ const Navbar = () => {
 
             {/* Logo - inline, bottom half overflows */}
             <a href="#" className="relative z-10 group translate-y-1/2">
-              <div className="w-20 h-20 lg:w-24 lg:h-24 xl:w-28 xl:h-28 bg-primary rounded-full flex items-center justify-center p-3 xl:p-4 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+              <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                   alt="La Vida"
