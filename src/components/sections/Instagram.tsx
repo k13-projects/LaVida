@@ -152,7 +152,7 @@ const Instagram = () => {
                   onClick={() => setCurrentPage(index)}
                   className={`w-2 h-2 rounded-full transition-all ${
                     index === currentPage
-                      ? "bg-secondary w-6"
+                      ? "bg-olive-dark w-6"
                       : "bg-white/50 hover:bg-white/70"
                   }`}
                   aria-label={`Go to page ${index + 1}`}
@@ -168,7 +168,7 @@ const Instagram = () => {
             href="https://www.instagram.com/lavida.sandiego/"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center justify-center bg-secondary hover:bg-secondary/90 text-foreground px-10 py-3 rounded-full font-semibold transition-all"
+            className="inline-flex items-center justify-center bg-olive-dark hover:bg-olive text-white px-10 py-3 rounded-full font-semibold transition-all"
           >
             FOLLOW US
           </a>

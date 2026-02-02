@@ -39,10 +39,10 @@ const locations = [
     subtitle: 'COMING SOON',
     addressLines: [
       '1720 North El Camino Real,',
-      'San Clemente, CA 92673'
+      'San Clemente, CA 92672'
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
-    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92673',
+    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92672',
   },
 ];
 
