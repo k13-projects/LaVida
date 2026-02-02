@@ -1,4 +1,9 @@
 const Catering = () => {
+  const handleOrderCatering = () => {
+    // Dispatch custom event to open catering modal in Navbar
+    window.dispatchEvent(new CustomEvent('openCateringModal'));
+  };
+
   return (
     <>
       {/* Catering CTA Section */}
@@ -10,12 +15,12 @@ const Catering = () => {
           <p className="text-base md:text-lg text-muted-foreground mb-8">
             Let La Vida cater your next meeting or celebration.
           </p>
-          <a
-            href="mailto:hello@lavidasandiego.com?subject=Catering%20Inquiry"
+          <button
+            onClick={handleOrderCatering}
             className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 py-3 rounded-full font-semibold transition-all"
           >
             ORDER CATERING
-          </a>
+          </button>
         </div>
       </section>
 
