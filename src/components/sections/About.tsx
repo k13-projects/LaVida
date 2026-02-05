@@ -2,14 +2,15 @@ import Wave from "@/components/common/Wave";
 
 const About = () => {
   return (
-    <section id="about" className="relative bg-primary min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden pb-32 md:pb-40">
+    <section id="about" className="relative bg-primary min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden pb-32 md:pb-40" aria-labelledby="about-heading">
       {/* No top wave - olive section flows directly from hero image */}
 
       {/* Content Container - vertically centered */}
       <div className="container mx-auto px-4 md:px-6 relative z-10 py-24 md:py-28">
         <div className="max-w-5xl lg:max-w-6xl mx-auto text-center">
-          {/* Centered paragraph - white text on olive */}
-          <p className="text-sm sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed mb-8">
+          <h2 id="about-heading" className="sr-only">About La Vida San Diego</h2>
+          {/* Centered paragraph - white text on olive - using font-medium ensures WCAG contrast compliance for smaller sizes */}
+          <p className="text-base sm:text-base md:text-lg lg:text-xl xl:text-2xl text-white leading-relaxed mb-8 font-medium">
             Born in sunny San Diego, we bring fresh, feel-good food made with real ingredients and
             <br className="hidden sm:block" />
             <span className="sm:hidden"> </span>

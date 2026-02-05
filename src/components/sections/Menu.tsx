@@ -1,11 +1,12 @@
 const Menu = () => {
   return (
     <>
-    <section id="menu" className="relative bg-secondary overflow-visible">
+    <section id="menu" className="relative bg-secondary overflow-visible" aria-labelledby="menu-heading">
+      <h2 id="menu-heading" className="sr-only">Our Menu</h2>
       {/* Bowl image - absolute positioned to right half, overlapping into olive section */}
       <img
         src={`${import.meta.env.BASE_URL}images/about/salad.png`}
-        alt="Fresh salad bowl"
+        alt="Fresh healthy salad bowl with colorful vegetables"
         className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
       />
 
@@ -56,10 +57,10 @@ const Menu = () => {
     </section>
 
     {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
-    <section className="w-full h-[41vw] overflow-hidden flex items-start">
+    <section className="w-full h-[41vw] overflow-hidden flex items-start" aria-label="Food showcase">
       <img
         src={`${import.meta.env.BASE_URL}images/about/part-2.jpg`}
-        alt="Catering spread"
+        alt="Delicious catering spread featuring a variety of fresh healthy dishes"
         className="w-full h-auto -mt-[6vw]"
       />
     </section>

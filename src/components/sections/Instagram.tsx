@@ -90,26 +90,27 @@ const Instagram = () => {
 
   return (
     <>
-    <section className="relative bg-primary min-h-[400px] md:min-h-[450px] flex items-center">
+    <section className="relative bg-primary min-h-[400px] md:min-h-[450px] flex items-center" aria-labelledby="instagram-heading">
+      <h2 id="instagram-heading" className="sr-only">Follow us on Instagram</h2>
       <div className="container mx-auto px-4 relative z-10 py-20 md:py-24">
         {/* Instagram Grid with Navigation */}
-        <div className="relative max-w-4xl mx-auto">
+        <div className="relative max-w-4xl mx-auto" role="region" aria-label="Instagram photo gallery">
           {/* Navigation Arrows - only show if more than one page */}
           {totalPages > 1 && !loading && (
             <>
               <button
                 onClick={prevPage}
                 className="absolute -left-4 md:-left-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-all"
-                aria-label="Previous photos"
+                aria-label="View previous photos"
               >
-                <ChevronLeft className="w-5 h-5 text-foreground" />
+                <ChevronLeft className="w-5 h-5 text-foreground" aria-hidden="true" />
               </button>
               <button
                 onClick={nextPage}
                 className="absolute -right-4 md:-right-12 top-1/2 -translate-y-1/2 z-20 w-10 h-10 flex items-center justify-center bg-white/90 hover:bg-white rounded-full shadow-lg transition-all"
-                aria-label="Next photos"
+                aria-label="View next photos"
               >
-                <ChevronRight className="w-5 h-5 text-foreground" />
+                <ChevronRight className="w-5 h-5 text-foreground" aria-hidden="true" />
               </button>
             </>
           )}
@@ -132,10 +133,11 @@ const Instagram = () => {
                   target="_blank"
                   rel="noopener noreferrer"
                   className="aspect-square overflow-hidden rounded-lg group"
+                  aria-label={`View Instagram post: ${post.caption || "La Vida food photo"} (opens in new tab)`}
                 >
                   <img
                     src={post.mediaUrl}
-                    alt={post.caption || "Instagram post"}
+                    alt={post.caption || "La Vida San Diego food photo from Instagram"}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                   />
                 </a>
@@ -169,6 +171,7 @@ const Instagram = () => {
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center bg-olive-dark hover:bg-olive text-white px-10 py-3 rounded-full font-semibold transition-all"
+            aria-label="Follow La Vida San Diego on Instagram (opens in new tab)"
           >
             FOLLOW US
           </a>
@@ -184,13 +187,15 @@ const Instagram = () => {
 
     </section>
 
-    {/* Wave transition from olive to pink */}
-    <section className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48">
+    {/* Wave transition from olive to pink - decorative */}
+    <section className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48" aria-hidden="true">
       <svg
         className="w-full h-32 md:h-48 lg:h-56"
         viewBox="0 0 1440 230"
         preserveAspectRatio="none"
         style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+        aria-hidden="true"
+        focusable="false"
       >
         <path
           d="M0,0 L0,150 C200,80 400,50 600,50 C840,50 960,150 1440,150 L1440,230 L0,230 Z"

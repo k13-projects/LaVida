@@ -7,16 +7,6 @@ import {
   DialogTitle,
 } from "@/components/ui/dialog";
 
-const leftNavLinks = [
-  { name: "About Us", href: "#about" },
-  { name: "Menu", href: "#menu" },
-];
-
-const rightNavLinks = [
-  { name: "Locations", href: "#locations" },
-  { name: "Catering", href: "#catering" },
-];
-
 const occasionOptions = [
   "Corporate Event",
   "Wedding",
@@ -113,7 +103,7 @@ ${formData.description}
 
   return (
     <>
-      <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm">
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm" role="navigation" aria-label="Main navigation">
         <div className="container mx-auto px-4">
           {/* Desktop Navigation */}
           <div className="hidden md:flex items-end h-20 lg:h-24 xl:h-28 relative">
@@ -208,15 +198,17 @@ ${formData.description}
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="p-2 text-foreground hover:text-primary transition-colors"
-              aria-label={isOpen ? "Close menu" : "Open menu"}
+              aria-label={isOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
             >
-              {isOpen ? <X size={28} /> : <Menu size={28} />}
+              {isOpen ? <X size={28} aria-hidden="true" /> : <Menu size={28} aria-hidden="true" />}
             </button>
           </div>
 
           {/* Mobile Navigation Menu */}
           {isOpen && (
-            <div className="md:hidden pb-6 animate-fade-in">
+            <div id="mobile-menu" className="md:hidden pb-6 animate-fade-in" role="menu">
               <div className="flex flex-col space-y-4">
                 <a
                   href="#about"
@@ -325,27 +317,25 @@ ${formData.description}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="flex flex-col items-center gap-2 group"
+                  aria-label="Order delivery via Grubhub (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#F63440] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
+                  <div className="w-16 h-16 rounded-full bg-[#F63440] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform" aria-hidden="true">
                     <span className="text-white font-bold text-xs">GH</span>
                   </div>
                   <span className="text-sm text-foreground/80">Grubhub</span>
                 </a>
 
                 {/* DoorDash */}
-                <a
-                  href="#"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex flex-col items-center gap-2 group opacity-60 cursor-not-allowed"
-                  onClick={(e) => e.preventDefault()}
+                <div
+                  className="flex flex-col items-center gap-2 opacity-60"
+                  aria-label="DoorDash delivery coming soon"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#FF3008] flex items-center justify-center shadow-lg">
+                  <div className="w-16 h-16 rounded-full bg-[#FF3008] flex items-center justify-center shadow-lg" aria-hidden="true">
                     <span className="text-white font-bold text-xs">DD</span>
                   </div>
                   <span className="text-sm text-foreground/80">DoorDash</span>
                   <span className="text-xs text-foreground/50">Coming Soon</span>
-                </a>
+                </div>
               </div>
             </div>
           </div>
@@ -414,13 +404,15 @@ ${formData.description}
             <form onSubmit={handleFormSubmit} className="flex flex-col gap-4 py-4">
               {/* Name */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Name *</label>
+                <label htmlFor="catering-name" className="block text-sm font-medium text-foreground mb-1">Name <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                 <input
                   type="text"
+                  id="catering-name"
                   name="name"
                   value={formData.name}
                   onChange={handleFormChange}
                   required
+                  aria-required="true"
                   className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                   placeholder="Your full name"
                 />
@@ -429,30 +421,34 @@ ${formData.description}
               {/* Phone & Email Row */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Phone *</label>
+                  <label htmlFor="catering-phone" className="block text-sm font-medium text-foreground mb-1">Phone <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                   <div className="relative">
-                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+                    <Phone className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" aria-hidden="true" />
                     <input
                       type="tel"
+                      id="catering-phone"
                       name="phone"
                       value={formData.phone}
                       onChange={handleFormChange}
                       required
+                      aria-required="true"
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="(555) 555-5555"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Email *</label>
+                  <label htmlFor="catering-email" className="block text-sm font-medium text-foreground mb-1">Email <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                   <div className="relative">
-                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+                    <Mail className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" aria-hidden="true" />
                     <input
                       type="email"
+                      id="catering-email"
                       name="email"
                       value={formData.email}
                       onChange={handleFormChange}
                       required
+                      aria-required="true"
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="you@email.com"
                     />
@@ -462,15 +458,17 @@ ${formData.description}
 
               {/* Number of People */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Number of People *</label>
+                <label htmlFor="catering-guests" className="block text-sm font-medium text-foreground mb-1">Number of People <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                 <div className="relative">
-                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+                  <Users className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" aria-hidden="true" />
                   <input
                     type="number"
+                    id="catering-guests"
                     name="numberOfPeople"
                     value={formData.numberOfPeople}
                     onChange={handleFormChange}
                     required
+                    aria-required="true"
                     min="1"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     placeholder="Expected guests"
@@ -481,29 +479,33 @@ ${formData.description}
               {/* Date & Time Row */}
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Date *</label>
+                  <label htmlFor="catering-date" className="block text-sm font-medium text-foreground mb-1">Date <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                   <div className="relative">
-                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+                    <Calendar className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" aria-hidden="true" />
                     <input
                       type="date"
+                      id="catering-date"
                       name="date"
                       value={formData.date}
                       onChange={handleFormChange}
                       required
+                      aria-required="true"
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
                   </div>
                 </div>
                 <div>
-                  <label className="block text-sm font-medium text-foreground mb-1">Time *</label>
+                  <label htmlFor="catering-time" className="block text-sm font-medium text-foreground mb-1">Time <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                   <div className="relative">
-                    <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" />
+                    <Clock className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40" aria-hidden="true" />
                     <input
                       type="time"
+                      id="catering-time"
                       name="time"
                       value={formData.time}
                       onChange={handleFormChange}
                       required
+                      aria-required="true"
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
                   </div>
@@ -512,14 +514,16 @@ ${formData.description}
 
               {/* Occasion */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Occasion *</label>
+                <label htmlFor="catering-occasion" className="block text-sm font-medium text-foreground mb-1">Occasion <span aria-hidden="true">*</span><span className="sr-only">(required)</span></label>
                 <div className="relative">
-                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40 pointer-events-none" />
+                  <ChevronDown className="absolute right-3 top-1/2 -translate-y-1/2 w-4 h-4 text-foreground/40 pointer-events-none" aria-hidden="true" />
                   <select
+                    id="catering-occasion"
                     name="occasion"
                     value={formData.occasion}
                     onChange={handleFormChange}
                     required
+                    aria-required="true"
                     className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all appearance-none"
                   >
                     <option value="">Select an occasion</option>
@@ -533,9 +537,9 @@ ${formData.description}
               </div>
 
               {/* Service Type */}
-              <div>
-                <label className="block text-sm font-medium text-foreground mb-2">Service Type *</label>
-                <div className="flex gap-4">
+              <fieldset>
+                <legend className="block text-sm font-medium text-foreground mb-2">Service Type <span aria-hidden="true">*</span><span className="sr-only">(required)</span></legend>
+                <div className="flex gap-4" role="radiogroup" aria-required="true">
                   <label className="flex items-center gap-2 cursor-pointer">
                     <input
                       type="radio"
@@ -559,12 +563,13 @@ ${formData.description}
                     <span className="text-foreground">Delivery</span>
                   </label>
                 </div>
-              </div>
+              </fieldset>
 
               {/* Description */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-1">Description / Requests</label>
+                <label htmlFor="catering-description" className="block text-sm font-medium text-foreground mb-1">Description / Requests</label>
                 <textarea
+                  id="catering-description"
                   name="description"
                   value={formData.description}
                   onChange={handleFormChange}

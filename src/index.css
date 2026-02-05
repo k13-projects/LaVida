@@ -119,6 +119,18 @@
     font-size: 18px;
   }
 
+  /* Respect user's motion preferences - WCAG 2.3.3 */
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+
   body {
     @apply bg-background text-foreground;
     font-family: 'Montserrat', sans-serif;
@@ -127,6 +139,32 @@
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Montserrat', sans-serif;
     font-weight: 700;
+  }
+
+  /* Global focus styles for accessibility - WCAG 2.4.7 */
+  :focus-visible {
+    @apply outline-2 outline-offset-2 outline-primary;
+    outline-style: solid;
+  }
+
+  /* Ensure interactive elements have visible focus */
+  a:focus-visible,
+  button:focus-visible,
+  [role="button"]:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    @apply ring-2 ring-primary ring-offset-2 ring-offset-background outline-none;
+  }
+
+  /* High contrast focus for dark backgrounds */
+  .bg-primary a:focus-visible,
+  .bg-primary button:focus-visible,
+  .bg-olive-dark a:focus-visible,
+  .bg-olive-dark button:focus-visible,
+  [class*="bg-primary"] a:focus-visible,
+  [class*="bg-primary"] button:focus-visible {
+    @apply ring-white ring-offset-primary;
   }
 }
 

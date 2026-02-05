@@ -59,33 +59,34 @@ const LocationCard: FC<{
         {location.cityLabel}
       </h3>
 
-      {/* Subtitle */}
+      {/* Subtitle - font-semibold for WCAG contrast compliance at small sizes */}
       {location.subtitle && (
-        <p className={`text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2 ${isComingSoon ? 'text-white font-semibold tracking-wide' : 'text-white/90'}`}>
+        <p className={`text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2 font-semibold ${isComingSoon ? 'text-white tracking-wide' : 'text-white'}`}>
           {location.subtitle}
         </p>
       )}
 
-      {/* Address Lines */}
+      {/* Address Lines - font-medium for WCAG contrast compliance */}
       <div className="mb-1 sm:mb-2 flex-1 flex flex-col justify-center">
         {location.addressLines.map((line, idx) => (
-          <p key={idx} className="text-[#F5F0E8] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed">
+          <p key={idx} className="text-white text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg leading-snug sm:leading-relaxed font-medium">
             {line}
           </p>
         ))}
       </div>
 
-      {/* Hours */}
-      <p className="text-[#F5F0E8] text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4">
+      {/* Hours - font-medium for WCAG contrast compliance */}
+      <p className="text-white text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-2 sm:mb-3 lg:mb-4 font-medium">
         {location.hoursLabel}
       </p>
 
-      {/* Get Directions Button */}
+      {/* Get Directions Button - using olive-dark text for better contrast */}
       <a
         href={location.link}
         target="_blank"
         rel="noopener noreferrer"
-        className="inline-block bg-[#F5F0E8] hover:bg-white text-primary text-center px-3 xs:px-4 sm:px-5 md:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full font-medium text-[10px] xs:text-xs sm:text-sm md:text-base lg:text-lg transition-colors"
+        className="inline-block bg-[#F5F0E8] hover:bg-white text-olive-dark text-center px-3 xs:px-4 sm:px-5 md:px-6 py-1.5 xs:py-2 sm:py-2.5 rounded-full font-semibold text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg transition-colors"
+        aria-label={`Get directions to ${location.cityLabel} location (opens in new tab)`}
       >
         Get Directions
       </a>
@@ -96,21 +97,25 @@ const LocationCard: FC<{
 // Main Locations Component
 const Locations: FC = () => {
   return (
-    <section id="locations" className="relative bg-[#FDF8F5]">
+    <section id="locations" className="relative bg-[#FDF8F5]" aria-labelledby="locations-heading">
+      <h2 id="locations-heading" className="sr-only">Our Locations</h2>
       {/* Map Container */}
       <div className="relative w-full">
-        {/* Background Map Image */}
+        {/* Background Map Image - decorative */}
         <img
           src={`${import.meta.env.BASE_URL}images/locations/Large_map.png`}
-          alt="La Vida Locations Map"
+          alt=""
+          role="presentation"
           className="w-full h-auto object-cover min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-0"
         />
 
         {/* Cards Overlay - Responsive Grid */}
         <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8">
-          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[1100px]">
+          <div className="grid grid-cols-2 gap-2 sm:gap-3 md:gap-4 lg:gap-6 xl:gap-8 w-full max-w-[95%] sm:max-w-[90%] md:max-w-[85%] lg:max-w-[1100px]" role="list" aria-label="Restaurant locations">
             {locations.map((location) => (
-              <LocationCard key={location.id} location={location} />
+              <div key={location.id} role="listitem">
+                <LocationCard location={location} />
+              </div>
             ))}
           </div>
         </div>
