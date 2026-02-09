@@ -34,9 +34,9 @@ const Hero = () => {
   };
 
   return (
-    <section className="relative h-screen overflow-hidden">
+    <section className="relative h-screen overflow-hidden" aria-label="Hero image slideshow">
       {/* Background Carousel */}
-      <div className="absolute inset-0">
+      <div className="absolute inset-0" role="region" aria-roledescription="carousel" aria-label="Featured images">
         <Carousel
           setApi={setApi}
           opts={{
@@ -67,7 +67,7 @@ const Hero = () => {
             className="absolute left-4 md:left-8 top-1/2 -translate-y-1/2 z-30 p-2 hover:scale-110 transition-transform"
             aria-label="Previous slide"
           >
-            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" aria-hidden="true">
               <path d="M20 4L4 20L20 36" fill="hsl(var(--foreground))" />
             </svg>
           </button>
@@ -76,7 +76,7 @@ const Hero = () => {
             className="absolute right-4 md:right-8 top-1/2 -translate-y-1/2 z-30 p-2 hover:scale-110 transition-transform"
             aria-label="Next slide"
           >
-            <svg width="24" height="40" viewBox="0 0 24 40" fill="none">
+            <svg width="24" height="40" viewBox="0 0 24 40" fill="none" aria-hidden="true">
               <path d="M4 4L20 20L4 36" fill="hsl(var(--foreground))" />
             </svg>
           </button>
