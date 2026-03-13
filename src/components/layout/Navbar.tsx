@@ -348,11 +348,11 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via Grubhub (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#F63440] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Grunhub logo-02.png`}
                       alt=""
-                      className="w-12 h-12 object-contain"
+                      className="w-full h-full object-cover rounded-full"
                     />
                   </div>
                   <span className="text-sm font-semibold text-foreground">Grubhub</span>
@@ -366,11 +366,11 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via DoorDash (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full bg-[#FF3008] flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Doordash logo.png`}
                       alt=""
-                      className="w-12 h-12 object-contain"
+                      className="w-full h-full object-cover rounded-full"
                     />
                   </div>
                   <span className="text-sm font-semibold text-foreground">DoorDash</span>
