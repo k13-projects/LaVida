@@ -2,7 +2,7 @@ import Wave from "@/components/common/Wave";
 
 const About = () => {
   return (
-    <section id="about" className="relative bg-primary min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden pb-32 md:pb-40" aria-labelledby="about-heading">
+    <section id="about" className="relative bg-primary min-h-[550px] md:min-h-[650px] flex items-center overflow-hidden pb-32 md:pb-40 scroll-mt-[120px]" aria-labelledby="about-heading">
       {/* No top wave - olive section flows directly from hero image */}
 
       {/* Content Container - vertically centered */}
@@ -23,13 +23,13 @@ const About = () => {
             your body and vibe with your soul.
           </p>
 
-          {/* Single CTA button */}
-          <a
-            href="#about-full"
+          {/* UPDATED: Opens About Us modal (Task 19) */}
+          <button
+            onClick={() => window.dispatchEvent(new CustomEvent('openAboutModal'))}
             className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-20 py-3 rounded-full font-semibold transition-all text-base"
           >
             ABOUT US
-          </a>
+          </button>
         </div>
       </div>
 

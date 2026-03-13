@@ -114,10 +114,10 @@ const Accessibility = () => {
               <p className="text-foreground mb-2">
                 <strong>Email:</strong>{" "}
                 <a
-                  href="mailto:hello@lavidasandiego.com?subject=Accessibility%20Feedback"
+                  href="mailto:sd.lavidafit@gmail.com?subject=Accessibility%20Feedback"
                   className="text-primary hover:underline"
                 >
-                  hello@lavidasandiego.com
+                  sd.lavidafit@gmail.com
                 </a>
               </p>
               <p className="text-foreground mb-2">

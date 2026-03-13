@@ -5,8 +5,8 @@ const Menu = () => {
       <h2 id="menu-heading" className="sr-only">Our Menu</h2>
       {/* Bowl image - absolute positioned to right half, overlapping into olive section */}
       <img
-        src={`${import.meta.env.BASE_URL}images/about/salad.png`}
-        alt="Fresh healthy salad bowl with colorful vegetables"
+        src={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.png`}
+        alt="Fresh strawberry salad with colorful vegetables"
         className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
       />
 
@@ -36,20 +36,20 @@ const Menu = () => {
 
             {/* Buttons row */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              <a
-                href="https://www.grubhub.com/restaurant/la-vida-890-palomar-airport-rd-carlsbad/"
-                target="_blank"
-                rel="noopener noreferrer"
+              {/* UPDATED: Opens Menu PDF popup (Fix 5) */}
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openMenuModal'))}
                 className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base"
               >
                 SEE MENU
-              </a>
-              <a
-                href="#order"
+              </button>
+              {/* UPDATED: Opens Order Now popup (Fix 4) */}
+              <button
+                onClick={() => window.dispatchEvent(new CustomEvent('openOrderModal'))}
                 className="inline-flex items-center justify-center bg-primary hover:bg-olive-dark text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base"
               >
                 ORDER ONLINE
-              </a>
+              </button>
             </div>
           </div>
         </div>

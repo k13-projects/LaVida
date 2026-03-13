@@ -1,16 +1,18 @@
 import { Link } from "react-router-dom";
+import { Instagram } from "lucide-react";
 
 const Footer = () => {
   return (
-    <footer id="contact" className="relative bg-secondary text-foreground min-h-[200px] md:min-h-[240px]" role="contentinfo" aria-label="Site footer">
+    <footer id="contact" className="relative bg-secondary text-foreground min-h-[280px] md:min-h-[320px]" role="contentinfo" aria-label="Site footer">
 
-      <div className="container mx-auto px-4 -mt-8 md:-mt-12 pb-16">
-        {/* Contact Info and Logo - aligned in flex row */}
-        <div className="flex justify-between items-start">
-          {/* Contact Info - Left aligned */}
-          <div className="max-w-md">
+      <div className="container mx-auto px-4 pt-16 md:pt-20 pb-20">
+        {/* UPDATED: Center-aligned layout (Fix 2) */}
+        <div className="flex flex-col items-center text-center">
+          {/* Contact Info */}
+          <div>
             <h2 className="text-2xl md:text-3xl font-bold mb-4">CONTACT INFO</h2>
 
+            {/* TODO: Update phone number when confirmed by Lorena/Eren */}
             <address className="space-y-2 text-foreground not-italic">
               <p>
                 890 Palomar Airport Rd
@@ -19,33 +21,35 @@ const Footer = () => {
               </p>
               <p>
                 <a
-                  href="mailto:hello@lavidasandiego.com"
+                  href="mailto:sd.lavidafit@gmail.com"
                   className="hover:text-primary transition-colors"
-                  aria-label="Email us at hello@lavidasandiego.com"
+                  aria-label="Email us at sd.lavidafit@gmail.com"
                 >
-                  hello@lavidasandiego.com
+                  sd.lavidafit@gmail.com
                 </a>
               </p>
+              {/* Instagram icon */}
               <p>
                 <a
                   href="https://www.instagram.com/lavida.sandiego/"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="hover:text-primary transition-colors"
-                  aria-label="Follow us on Instagram at lavida.sandiego (opens in new tab)"
+                  className="inline-flex items-center gap-2 hover:text-primary transition-colors justify-center"
+                  aria-label="Follow us on Instagram (opens in new tab)"
                 >
-                  @lavida.sandiego
+                  <Instagram size={20} aria-hidden="true" />
+                  <span className="sr-only">La Vida San Diego on Instagram</span>
                 </a>
               </p>
             </address>
           </div>
 
-          {/* Logo - Right aligned, vertically centered with contact */}
-          <div className="hidden sm:block">
+          {/* Logo - below contact info, centered */}
+          <div className="mt-6">
             <img
               src={`${import.meta.env.BASE_URL}images/logo/logo-color.png`}
               alt="La Vida San Diego logo"
-              className="h-20 md:h-28 w-auto"
+              className="h-16 sm:h-20 md:h-28 w-auto"
             />
           </div>
         </div>

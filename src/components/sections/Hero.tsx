@@ -7,6 +7,7 @@ import {
 } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import { heroSlides } from "@/data/heroSlides";
+import { ChevronDown } from "lucide-react";
 
 const Hero = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -54,6 +55,10 @@ const Hero = () => {
                     src={`${import.meta.env.BASE_URL}${slide.src.replace(/^\//, '')}`}
                     alt={slide.alt}
                     className="w-full h-full object-cover"
+                    style={{
+                      ...(slide.objectPosition ? { objectPosition: slide.objectPosition } : {}),
+                      ...(slide.paddingTop ? { paddingTop: slide.paddingTop } : {}),
+                    }}
                     loading={slide.id === 1 ? "eager" : "lazy"}
                   />
                 </div>
@@ -83,14 +88,17 @@ const Hero = () => {
         </Carousel>
       </div>
 
-      {/* Content Overlay - Just the heading on ONE line, vertically centered like arrows */}
-      <div className="absolute inset-0 flex items-center pointer-events-none">
-        <div className="pl-24 md:pl-32">
-          <h1 className="text-xl md:text-3xl lg:text-5xl text-white font-bold tracking-tight whitespace-nowrap drop-shadow-[0_4px_8px_rgba(0,0,0,0.5)] [text-shadow:_2px_2px_8px_rgb(0_0_0_/_60%),_0_0_20px_rgb(0_0_0_/_40%)]">
-            ALL DAY HEALTH
-          </h1>
-        </div>
-      </div>
+      {/* UPDATED: Removed hero header text overlay (Task 1) */}
+      <h1 className="sr-only">La Vida San Diego — Fresh Healthy Food</h1>
+
+      {/* UPDATED: Animated scroll-down chevron (Task 2) */}
+      <button
+        onClick={() => document.getElementById('about')?.scrollIntoView({ behavior: 'smooth' })}
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 z-30 text-white drop-shadow-lg animate-bounce"
+        aria-label="Scroll down to content"
+      >
+        <ChevronDown size={36} />
+      </button>
     </section>
   );
 };

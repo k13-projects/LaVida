@@ -2,6 +2,8 @@ export interface HeroSlide {
   id: number;
   src: string;
   alt: string;
+  objectPosition?: string;
+  paddingTop?: string;
 }
 
 export const heroSlides: HeroSlide[] = [
@@ -29,5 +31,6 @@ export const heroSlides: HeroSlide[] = [
     id: 5,
     src: "/images/hero/slide-5.jpg",
     alt: "Fresh healthy food spread",
+    objectPosition: "center top",
   },
 ];
