@@ -1,6 +1,7 @@
 import { FC } from 'react';
 
 // Location data
+// UPDATED: All 4 locations now open with confirmed data (Tasks 5+6)
 const locations = [
   {
     id: 'carlsbad',
@@ -12,37 +13,43 @@ const locations = [
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
     link: 'https://maps.google.com/?q=890+Palomar+Airport+Rd,+Carlsbad,+CA+92011',
+    isComingSoon: false,
+  },
+  {
+    id: 'san-clemente',
+    cityLabel: 'SAN CLEMENTE',
+    subtitle: 'Miramar Food Hall',
+    addressLines: [
+      '1720 North El Camino Real,',
+      'CA 92672'
+    ],
+    hoursLabel: '11:00 AM – 9:00 PM',
+    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92672',
+    isComingSoon: true,
+  },
+  {
+    id: 'ucsd',
+    cityLabel: 'UCSD CAMPUS',
+    subtitle: 'Station 8 Public Market',
+    addressLines: [
+      '9165 Theatre District Drive,',
+      'La Jolla, CA 92037'
+    ],
+    hoursLabel: '11:00 AM – 9:00 PM',
+    link: 'https://maps.google.com/?q=9165+Theatre+District+Drive,+La+Jolla,+CA+92037',
+    isComingSoon: true,
   },
   {
     id: 'little-italy',
     cityLabel: 'LITTLE ITALY',
-    subtitle: 'COMING SOON',
+    subtitle: 'Global Fork Food Hall',
     addressLines: [
-      'Location TBD'
+      '550 W Date St Suite B,',
+      'San Diego, CA 92101'
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
-    link: '#',
-  },
-  {
-    id: 'la-jolla',
-    cityLabel: 'LA JOLLA',
-    subtitle: 'COMING SOON',
-    addressLines: [
-      'Location TBD'
-    ],
-    hoursLabel: '11:00 AM – 9:00 PM',
-    link: '#',
-  },
-  {
-    id: 'miramar',
-    cityLabel: 'MIRAMAR',
-    subtitle: 'COMING SOON',
-    addressLines: [
-      '1720 North El Camino Real,',
-      'San Clemente, CA 92672'
-    ],
-    hoursLabel: '11:00 AM – 9:00 PM',
-    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92672',
+    link: 'https://maps.google.com/?q=550+W+Date+St+Suite+B,+San+Diego,+CA+92101',
+    isComingSoon: true,
   },
 ];
 
@@ -50,10 +57,19 @@ const locations = [
 const LocationCard: FC<{
   location: typeof locations[0];
 }> = ({ location }) => {
-  const isComingSoon = location.subtitle === 'COMING SOON';
-
   return (
-    <div className="bg-primary/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 shadow-xl w-full h-full min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[240px] lg:min-h-[280px] xl:min-h-[320px] flex flex-col items-center justify-between text-center border border-[#F5F0E8]/20">
+    <div className="relative bg-primary/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 shadow-xl w-full h-full min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[240px] lg:min-h-[280px] xl:min-h-[320px] flex flex-col items-center justify-between text-center border border-[#F5F0E8]/20 overflow-hidden">
+      {/* Coming Soon Stamp */}
+      {location.isComingSoon && (
+        <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none">
+          <div className="rotate-[-18deg] border-[3px] sm:border-4 border-red-500 rounded-md px-3 sm:px-5 md:px-6 py-1 sm:py-1.5 md:py-2 bg-red-500/10 backdrop-blur-[1px]">
+            <span className="text-red-500 font-extrabold text-xs sm:text-sm md:text-lg lg:text-xl xl:text-2xl tracking-wider whitespace-nowrap drop-shadow-sm">
+              COMING SOON
+            </span>
+          </div>
+        </div>
+      )}
+
       {/* City Label */}
       <h3 className="text-sm xs:text-base sm:text-lg md:text-xl lg:text-2xl xl:text-3xl font-bold text-white mb-0.5 sm:mb-1">
         {location.cityLabel}
@@ -61,7 +77,7 @@ const LocationCard: FC<{
 
       {/* Subtitle - font-semibold for WCAG contrast compliance at small sizes */}
       {location.subtitle && (
-        <p className={`text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2 font-semibold ${isComingSoon ? 'text-white tracking-wide' : 'text-white'}`}>
+        <p className="text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg mb-1 sm:mb-2 font-semibold text-white">
           {location.subtitle}
         </p>
       )}
