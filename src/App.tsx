@@ -7,6 +7,7 @@ import Index from "./pages/Index";
 import Accessibility from "./pages/Accessibility";
 import NotFound from "./pages/NotFound";
 import Decisions from "./pages/Decisions";
+import MenuPage from "./pages/MenuPage";
 
 const queryClient = new QueryClient();
 
@@ -20,6 +21,7 @@ const App = () => (
           <Route path="/" element={<Index />} />
           <Route path="/accessibility" element={<Accessibility />} />
           <Route path="/decisions" element={<Decisions />} />
+          <Route path="/menu" element={<MenuPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
           <Route path="*" element={<NotFound />} />
         </Routes>

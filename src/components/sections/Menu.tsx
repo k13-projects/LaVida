@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const Menu = () => {
   return (
     <>
@@ -43,13 +45,12 @@ const Menu = () => {
 
             {/* Buttons row */}
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
-              {/* UPDATED: Opens Menu PDF popup (Fix 5) */}
-              <button
-                onClick={() => window.dispatchEvent(new CustomEvent('openMenuModal'))}
+              <Link
+                to="/menu"
                 className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base"
               >
                 SEE MENU
-              </button>
+              </Link>
               {/* UPDATED: Opens Order Now popup (Fix 4) */}
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openOrderModal'))}
