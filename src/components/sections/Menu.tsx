@@ -65,8 +65,8 @@ const Menu = () => {
     </section>
 
     {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
-    <section className="w-full h-[41vw] overflow-hidden flex items-start" aria-label="Food showcase">
-      <picture>
+    <section className="w-full h-[41vw] overflow-hidden" aria-label="Food showcase">
+      <picture className="block w-full h-full">
         <source
           srcSet={`${import.meta.env.BASE_URL}images/about/part-2.webp`}
           type="image/webp"
@@ -74,7 +74,7 @@ const Menu = () => {
         <img
           src={`${import.meta.env.BASE_URL}images/about/part-2.jpg`}
           alt="Delicious catering spread featuring a variety of fresh healthy dishes"
-          className="w-full h-auto -mt-[6vw]"
+          className="w-full h-full object-cover object-center"
           loading="lazy"
         />
       </picture>
