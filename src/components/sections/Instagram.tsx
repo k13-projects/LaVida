@@ -21,10 +21,10 @@ const Instagram = () => {
 
   const POSTS_PER_PAGE = 4;
 
-  // Fallback to menu items if Behold isn't configured
+  // Fallback to menu items if Behold isn't configured (using WebP for performance)
   const fallbackImages = menuItems.slice(0, 12).map((item, index) => ({
     id: `fallback-${index}`,
-    mediaUrl: `${import.meta.env.BASE_URL}${item.src.replace(/^\//, '')}`,
+    mediaUrl: `${import.meta.env.BASE_URL}${item.srcWebP.replace(/^\//, '')}`,
     permalink: "https://www.instagram.com/lavida.sandiego/",
     caption: item.alt,
   }));

@@ -51,16 +51,22 @@ const Hero = () => {
             {heroSlides.map((slide) => (
               <CarouselItem key={slide.id} className="h-full pl-0">
                 <div className="relative w-full h-full">
-                  <img
-                    src={`${import.meta.env.BASE_URL}${slide.src.replace(/^\//, '')}`}
-                    alt={slide.alt}
-                    className="w-full h-full object-cover"
-                    style={{
-                      ...(slide.objectPosition ? { objectPosition: slide.objectPosition } : {}),
-                      ...(slide.paddingTop ? { paddingTop: slide.paddingTop } : {}),
-                    }}
-                    loading={slide.id === 1 ? "eager" : "lazy"}
-                  />
+                  <picture>
+                    <source
+                      srcSet={`${import.meta.env.BASE_URL}${slide.srcWebP.replace(/^\//, '')}`}
+                      type="image/webp"
+                    />
+                    <img
+                      src={`${import.meta.env.BASE_URL}${slide.src.replace(/^\//, '')}`}
+                      alt={slide.alt}
+                      className="w-full h-full object-cover"
+                      style={{
+                        ...(slide.objectPosition ? { objectPosition: slide.objectPosition } : {}),
+                        ...(slide.paddingTop ? { paddingTop: slide.paddingTop } : {}),
+                      }}
+                      loading={slide.id === 1 ? "eager" : "lazy"}
+                    />
+                  </picture>
                 </div>
               </CarouselItem>
             ))}

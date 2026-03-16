@@ -4,11 +4,18 @@ const Menu = () => {
     <section id="menu" className="relative bg-secondary overflow-visible" aria-labelledby="menu-heading">
       <h2 id="menu-heading" className="sr-only">Our Menu</h2>
       {/* Bowl image - absolute positioned to right half, overlapping into olive section */}
-      <img
-        src={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.png`}
-        alt="Fresh strawberry salad with colorful vegetables"
-        className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
-      />
+      <picture>
+        <source
+          srcSet={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.webp`}
+          type="image/webp"
+        />
+        <img
+          src={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.png`}
+          alt="Fresh strawberry salad with colorful vegetables"
+          className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88"
+          loading="lazy"
+        />
+      </picture>
 
       {/* Content wrapper with min-height to ensure plate has space */}
       <div className="min-h-[400px] sm:min-h-[450px] md:min-h-[500px] lg:min-h-[550px] pt-8 md:pt-12 pb-8 md:pb-12">
@@ -58,11 +65,18 @@ const Menu = () => {
 
     {/* Full-bleed food image - cropped to 80% height, 10% bottom cropped */}
     <section className="w-full h-[41vw] overflow-hidden flex items-start" aria-label="Food showcase">
-      <img
-        src={`${import.meta.env.BASE_URL}images/about/part-2.jpg`}
-        alt="Delicious catering spread featuring a variety of fresh healthy dishes"
-        className="w-full h-auto -mt-[6vw]"
-      />
+      <picture>
+        <source
+          srcSet={`${import.meta.env.BASE_URL}images/about/part-2.webp`}
+          type="image/webp"
+        />
+        <img
+          src={`${import.meta.env.BASE_URL}images/about/part-2.jpg`}
+          alt="Delicious catering spread featuring a variety of fresh healthy dishes"
+          className="w-full h-auto -mt-[6vw]"
+          loading="lazy"
+        />
+      </picture>
     </section>
     </>
   );

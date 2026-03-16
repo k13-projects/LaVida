@@ -28,11 +28,19 @@ const Catering = () => {
       {/* Catering image with cream wave overlay */}
       <section className="relative w-full h-[200px] sm:h-[280px] md:h-[360px] lg:h-[450px] overflow-hidden" aria-label="Catering food showcase">
         {/* Full-bleed catering image - cropped by container */}
-        <img
-          src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
-          alt="Fresh catering salad with colorful healthy ingredients"
-          className="w-full h-full object-cover object-[center_40%]" style={{ transform: 'scaleX(-1) scaleY(-1)' }}
-        />
+        <picture>
+          <source
+            srcSet={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.webp`}
+            type="image/webp"
+          />
+          <img
+            src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
+            alt="Fresh catering salad with colorful healthy ingredients"
+            className="w-full h-full object-cover object-[center_40%]"
+            loading="lazy"
+            style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+          />
+        </picture>
 
         {/* Cream wave overlay at top - flowing down from cream section (flipped horizontally) - decorative */}
         <svg
