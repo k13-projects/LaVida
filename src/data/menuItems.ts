@@ -57,7 +57,7 @@ export const fullMenuCategories: MenuCategory[] = [
 
 export const fullMenuItems: FullMenuItem[] = [
   // ── BOWLS (all GF) ──
-  { id: 101, name: "Falafel Bowl",             description: "House-made falafel with hummus, seasonal roasted vegetables, garden mix salad, and rice",                         category: "bowls", dietaryTags: ["GF", "V", "DF"] },
+  { id: 101, name: "Falafel Bowl",             description: "House-made falafel with hummus, seasonal roasted vegetables, garden mix salad, and rice",                         category: "bowls", dietaryTags: ["GF", "V", "DF"], image: "falafel-bowl.png" },
   { id: 102, name: "Chicken Bowl",             description: "Grilled chicken with seasonal roasted vegetables, garden mix salad, and rice",                                    category: "bowls", dietaryTags: ["GF", "DF"], image: "chicken-bowl.png" },
   { id: 103, name: "Chimichurri Chicken Bowl", description: "Grilled chicken with fresh herb chimichurri sauce, seasonal roasted vegetables, garden mix salad, and rice",       category: "bowls", dietaryTags: ["GF", "DF"], image: "chimichurri-chicken-bowl.png" },
   { id: 104, name: "Teriyaki Chicken Bowl",    description: "Grilled chicken with house teriyaki glaze, seasonal roasted vegetables, garden mix salad, and rice",               category: "bowls", dietaryTags: ["GF", "DF"], image: "teriyaki-chicken-bowl.png" },
@@ -66,12 +66,12 @@ export const fullMenuItems: FullMenuItem[] = [
   { id: 107, name: "Teriyaki Salmon Bowl",     description: "Oven-roasted salmon with house teriyaki glaze, seasonal roasted vegetables, garden mix salad, and rice",            category: "bowls", dietaryTags: ["GF", "DF"], image: "teriyaki-salmon-bowl.png" },
 
   // ── WRAPS (GFO — gluten-free tortilla option) ──
-  { id: 201, name: "Chicken Teriyaki Wrap",     description: "Chicken, jasmine rice, roasted vegetables, avocado, sesame seeds, house teriyaki glaze",                           category: "wraps", dietaryTags: ["GFO", "DF"] },
+  { id: 201, name: "Chicken Teriyaki Wrap",     description: "Chicken, jasmine rice, roasted vegetables, avocado, sesame seeds, house teriyaki glaze",                           category: "wraps", dietaryTags: ["GFO", "DF"], image: "chicken-teriyaki-wrap.png" },
   { id: 202, name: "Chicken Chimichurri Wrap",  description: "Chicken, jasmine rice, roasted vegetables, avocado, fresh herb chimichurri sauce",                                 category: "wraps", dietaryTags: ["GFO", "DF"], image: "chicken-chimichurri-wrap.png" },
-  { id: 203, name: "Salmon Teriyaki Wrap",      description: "Oven-roasted salmon, jasmine rice, seasonal roasted vegetables, avocado, sesame seeds, house teriyaki glaze, mixed greens", category: "wraps", dietaryTags: ["GFO", "DF"] },
+  { id: 203, name: "Salmon Teriyaki Wrap",      description: "Oven-roasted salmon, jasmine rice, seasonal roasted vegetables, avocado, sesame seeds, house teriyaki glaze, mixed greens", category: "wraps", dietaryTags: ["GFO", "DF"], image: "salmon-teriyaki-wrap.png" },
   { id: 204, name: "Salmon Chimichurri Wrap",   description: "Oven-roasted salmon, jasmine rice, roasted vegetables, avocado, chimichurri sauce, mixed greens",                  category: "wraps", dietaryTags: ["GFO", "DF"], image: "salmon-chimichurri-wrap.png" },
   { id: 205, name: "Falafel Wrap",              description: "Falafel, hummus, cucumber, tomato, mixed greens, avocado, pickled red onion",                                      category: "wraps", dietaryTags: ["GFO", "V", "DF"], image: "falafel-wrap.png" },
-  { id: 206, name: "The Power Wrap",            description: "Pasture-raised fluffy egg, turkey bacon, spinach, sweet potato, mozzarella, avocado with La Vida sauce",            category: "wraps", dietaryTags: ["GFO"] },
+  { id: 206, name: "The Power Wrap",            description: "Pasture-raised fluffy egg, turkey bacon, spinach, sweet potato, mozzarella, avocado with La Vida sauce",            category: "wraps", dietaryTags: ["GFO"], image: "power-wrap.png" },
   { id: 207, name: "Kale Chicken Caesar Wrap",  description: "Antibiotic-free chicken, chopped kale, parmesan, toasted sourdough croutons, our addictive Caesar dressing",        category: "wraps", dietaryTags: ["GFO"], image: "kale-chicken-caesar-wrap.png" },
 
   // ── SANDWICHES & TOAST ──

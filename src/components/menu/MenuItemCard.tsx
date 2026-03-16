@@ -13,7 +13,7 @@ const MenuItemCard = ({ item }: MenuItemCardProps) => {
   return (
     <div className="bg-white rounded-2xl shadow-sm border border-foreground/5 overflow-hidden hover:shadow-md transition-shadow">
       {imagePath && (
-        <div className="aspect-[4/3] overflow-hidden bg-black">
+        <div className="aspect-[3/2] overflow-hidden" style={{ backgroundColor: "#FFF6F0" }}>
           <img
             src={imagePath}
             alt={item.name}
