@@ -145,7 +145,7 @@ const Accessibility = () => {
         <div className="mt-12 pt-8 border-t border-foreground/10">
           <Link
             to="/"
-            className="inline-flex items-center justify-center bg-primary hover:bg-olive-dark text-white px-8 py-3 rounded-full font-semibold transition-all"
+            className="inline-flex items-center justify-center bg-primary text-white px-8 py-3 rounded-full font-semibold transition-all hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
           >
             Return to Home
           </Link>

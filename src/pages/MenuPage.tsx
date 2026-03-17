@@ -114,8 +114,7 @@ const MenuPage = () => {
             href="https://order.toasttab.com/online/la-vida-windmill-food-hall"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex px-6 py-3 rounded-full font-bold text-white transition-all hover:opacity-90"
-            style={{ backgroundColor: "#9F9D58" }}
+            className="inline-flex px-6 py-3 rounded-full font-bold text-white transition-all bg-primary hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
           >
             ORDER NOW
           </a>

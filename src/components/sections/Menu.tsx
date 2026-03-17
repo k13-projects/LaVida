@@ -47,14 +47,14 @@ const Menu = () => {
             <div className="flex flex-col sm:flex-row gap-4 sm:gap-6 justify-center">
               <Link
                 to="/menu"
-                className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base"
+                className="inline-flex items-center justify-center bg-olive-dark text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
               >
                 SEE MENU
               </Link>
               {/* UPDATED: Opens Order Now popup (Fix 4) */}
               <button
                 onClick={() => window.dispatchEvent(new CustomEvent('openOrderModal'))}
-                className="inline-flex items-center justify-center bg-primary hover:bg-olive-dark text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base"
+                className="inline-flex items-center justify-center bg-primary text-white px-10 sm:px-12 py-3 rounded-full font-semibold transition-all text-sm sm:text-base hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
               >
                 ORDER ONLINE
               </button>

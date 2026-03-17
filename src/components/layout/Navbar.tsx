@@ -198,7 +198,7 @@ ${formData.description}
               </a>
               <button
                 onClick={() => setOrderModalOpen(true)}
-                className="bg-primary hover:bg-olive-dark text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group whitespace-nowrap"
+                className="bg-primary text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
               >
                 <span className="relative z-10">ORDER NOW</span>
                 <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
@@ -277,7 +277,7 @@ ${formData.description}
                     setIsOpen(false);
                     setOrderModalOpen(true);
                   }}
-                  className="bg-primary hover:bg-olive-dark text-primary-foreground px-6 py-3 rounded-full font-semibold text-center transition-all mt-2"
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center transition-all mt-2 hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
                 >
                   ORDER ONLINE
                 </button>
@@ -318,7 +318,7 @@ ${formData.description}
               href="https://order.toasttab.com/online/la-vida-windmill-food-hall"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-primary hover:bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-primary text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo/platform logos/TOAST LOGO-03.png`}
@@ -395,7 +395,7 @@ ${formData.description}
                 // For now, show alert - replace with PDF modal when ready
                 alert("Catering menu PDF coming soon!");
               }}
-              className="flex items-center justify-center gap-3 bg-primary hover:bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-primary text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
             >
               <FileText className="w-6 h-6" />
               View Catering Menu (10+ People)
@@ -414,7 +414,7 @@ ${formData.description}
                 setCateringModalOpen(false);
                 setCateringFormOpen(true);
               }}
-              className="flex items-center justify-center gap-3 bg-olive-dark hover:bg-olive text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-125 hover:shadow-xl hover:scale-[1.03]"
             >
               <Mail className="w-6 h-6" />
               Email Us for Custom Orders
@@ -624,7 +624,7 @@ ${formData.description}
               <button
                 type="submit"
                 disabled={formSubmitting}
-                className="w-full bg-primary hover:bg-olive-dark text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                className="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed mt-2"
               >
                 {formSubmitting ? "Opening Email..." : "Send Catering Request"}
               </button>
