@@ -635,7 +635,7 @@ ${formData.description}
 
       {/* About Us Modal — UPDATED: Brand values modal (Task 19) */}
       <Dialog open={aboutModalOpen} onOpenChange={setAboutModalOpen}>
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[780px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">About Us</DialogTitle>
             <DialogDescription className="sr-only">Learn about La Vida San Diego's mission and values</DialogDescription>
