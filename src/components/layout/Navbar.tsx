@@ -307,24 +307,24 @@ ${formData.description}
       {/* Order Now Modal */}
       <Dialog open={orderModalOpen} onOpenChange={setOrderModalOpen}>
         {/* UPDATED: Widened modal (Task 16) */}
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto border-4 border-olive rounded-xl">
+        <DialogContent className="max-w-[380px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] w-[92vw] border-4 border-olive rounded-xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-primary text-center">Order Now</DialogTitle>
+            <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary text-center">Order Now</DialogTitle>
             <DialogDescription className="sr-only">Choose pickup or delivery options</DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col gap-6 py-4">
+          <div className="flex flex-col gap-5 sm:gap-6 lg:gap-7 py-3 sm:py-4 lg:py-5">
             {/* Order Pickup — UPDATED: Toast logo (Task 15) */}
             <a
               href="https://order.toasttab.com/online/la-vida-windmill-food-hall"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-primary text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
+              className="flex items-center justify-center gap-3 bg-primary text-white px-5 sm:px-6 py-3 sm:py-4 lg:py-4 rounded-xl font-semibold text-base sm:text-lg lg:text-xl transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo/platform logos/TOAST LOGO-03.png`}
                 alt=""
                 aria-hidden="true"
-                className="w-8 h-8 object-contain"
+                className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 object-contain"
               />
               Order Pickup
             </a>
@@ -332,14 +332,14 @@ ${formData.description}
             {/* Divider */}
             <div className="flex items-center gap-4">
               <div className="flex-1 h-px bg-foreground/20" />
-              <span className="text-foreground/60 text-sm font-medium">or</span>
+              <span className="text-foreground/60 text-xs sm:text-sm font-medium">or</span>
               <div className="flex-1 h-px bg-foreground/20" />
             </div>
 
             {/* Order Delivery */}
-            <div className="space-y-4">
-              <p className="text-center text-foreground font-semibold">Order Delivery</p>
-              <div className="flex justify-center gap-6">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-5">
+              <p className="text-center text-foreground font-semibold text-sm sm:text-base lg:text-lg">Order Delivery</p>
+              <div className="flex justify-center gap-6 sm:gap-8 lg:gap-10">
                 {/* Grubhub — UPDATED: Real logo (Task 15) */}
                 <a
                   href="https://www.grubhub.com/restaurant/la-vida-890-palomar-airport-rd-carlsbad/11836016"
@@ -348,14 +348,14 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via Grubhub (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Grunhub logo-02.png`}
                       alt=""
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">Grubhub</span>
+                  <span className="text-xs sm:text-sm lg:text-base font-semibold text-foreground">Grubhub</span>
                 </a>
 
                 {/* DoorDash — UPDATED: Real logo (Task 15) */}
@@ -366,14 +366,14 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via DoorDash (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Doordash logo.png`}
                       alt=""
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">DoorDash</span>
+                  <span className="text-xs sm:text-sm lg:text-base font-semibold text-foreground">DoorDash</span>
                 </a>
               </div>
             </div>
