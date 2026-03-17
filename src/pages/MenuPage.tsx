@@ -20,14 +20,27 @@ const MenuPage = () => {
   const [activeSection, setActiveSection] = useState<string>("");
   const observerRef = useRef<IntersectionObserver | null>(null);
 
+  const filteredItems = useMemo(() => {
+    return fullMenuItems.filter((item) => {
+      const matchesSearch =
+        !searchQuery ||
+        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
+        item.description.toLowerCase().includes(searchQuery.toLowerCase());
+
+      const matchesDietary =
+        activeFilters.length === 0 ||
+        activeFilters.every((tag) => item.dietaryTags.includes(tag));
+
+      return matchesSearch && matchesDietary;
+    });
+  }, [searchQuery, activeFilters]);
+
   // Track which menu section is in view
   useEffect(() => {
     observerRef.current = new IntersectionObserver(
       (entries) => {
-        // Find the entry most visible in the viewport
         const visible = entries.filter((e) => e.isIntersecting);
         if (visible.length > 0) {
-          // Pick the one closest to the top
           const top = visible.reduce((a, b) =>
             a.boundingClientRect.top < b.boundingClientRect.top ? a : b
           );
@@ -44,21 +57,6 @@ const MenuPage = () => {
 
     return () => observerRef.current?.disconnect();
   }, [filteredItems]);
-
-  const filteredItems = useMemo(() => {
-    return fullMenuItems.filter((item) => {
-      const matchesSearch =
-        !searchQuery ||
-        item.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-        item.description.toLowerCase().includes(searchQuery.toLowerCase());
-
-      const matchesDietary =
-        activeFilters.length === 0 ||
-        activeFilters.every((tag) => item.dietaryTags.includes(tag));
-
-      return matchesSearch && matchesDietary;
-    });
-  }, [searchQuery, activeFilters]);
 
   const handleToggleFilter = (tag: DietaryTag) => {
     setActiveFilters((prev) =>
