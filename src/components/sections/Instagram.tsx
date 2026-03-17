@@ -24,7 +24,7 @@ const Instagram = () => {
         <h2 id="instagram-heading" className="sr-only">
           Follow us on Instagram
         </h2>
-        <div className="container mx-auto px-4 relative z-10 py-20 md:py-24">
+        <div className="container mx-auto px-4 relative z-10 py-20 md:py-24 lg:py-32">
           {/* Behold Instagram Widget */}
           <div className="max-w-4xl mx-auto mb-8">
             <div data-behold-id={BEHOLD_FEED_ID}></div>
@@ -47,7 +47,7 @@ const Instagram = () => {
 
       {/* Wave transition from olive to pink - decorative */}
       <section
-        className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48"
+        className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48 pb-32 md:pb-40 lg:pb-52"
         aria-hidden="true"
       >
         <svg
