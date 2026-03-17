@@ -24,7 +24,7 @@ const Instagram = () => {
         <h2 id="instagram-heading" className="sr-only">
           Follow us on Instagram
         </h2>
-        <div className="container mx-auto px-4 relative z-10 py-20 md:py-24 lg:py-32">
+        <div className="container mx-auto px-4 relative z-10 pt-20 md:pt-24 lg:pt-32 pb-40 md:pb-52 lg:pb-64">
           {/* Behold Instagram Widget */}
           <div className="max-w-4xl mx-auto mb-8">
             <div data-behold-id={BEHOLD_FEED_ID}></div>
