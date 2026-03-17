@@ -115,7 +115,7 @@ const LocationCard: FC<{
 // Main Locations Component
 const Locations: FC = () => {
   return (
-    <section id="locations" className="relative bg-[#FDF8F5]" aria-labelledby="locations-heading">
+    <section id="locations" className="relative bg-[#FDF8F5] py-16 md:py-24 lg:py-32" aria-labelledby="locations-heading">
       <h2 id="locations-heading" className="sr-only">Our Locations</h2>
       {/* Map Container */}
       <div className="relative w-full">
