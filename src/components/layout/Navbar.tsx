@@ -170,6 +170,14 @@ ${formData.description}
               {/* Locations */}
               <a
                 href="#locations"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("locations");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Locations
@@ -251,7 +259,15 @@ ${formData.description}
                 </a>
                 <a
                   href="#locations"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    const el = document.getElementById("locations");
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
+                  }}
                   className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10"
                 >
                   Locations
