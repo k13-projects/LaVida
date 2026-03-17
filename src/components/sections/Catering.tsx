@@ -18,7 +18,7 @@ const Catering = () => {
           </p>
           <button
             onClick={handleOrderCatering}
-            className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-10 py-3 rounded-full font-semibold transition-all"
+            className="inline-flex items-center justify-center bg-olive-dark text-white px-10 py-3 rounded-full font-semibold transition-all hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
           >
             ORDER CATERING
           </button>

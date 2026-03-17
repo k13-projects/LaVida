@@ -21,7 +21,7 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
           className={`absolute w-full h-40 sm:hidden ${className}`}
           viewBox="0 0 1440 230"
           preserveAspectRatio="none"
-          style={{ bottom: '-2px', left: 0, right: 0 }}
+          style={{ bottom: '-2px', left: 0, right: 0, pointerEvents: 'none' }}
         >
           <path d={path} fill={fillColor} />
         </svg>
@@ -31,7 +31,7 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
           className={`absolute w-full hidden sm:block md:hidden h-52 ${className}`}
           viewBox="0 0 1440 230"
           preserveAspectRatio="none"
-          style={{ bottom: '-2px', left: 0, right: 0 }}
+          style={{ bottom: '-2px', left: 0, right: 0, pointerEvents: 'none' }}
         >
           <path d={path} fill={fillColor} />
         </svg>
@@ -41,7 +41,7 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
           className={`absolute w-full hidden md:block lg:hidden h-72 ${className}`}
           viewBox="0 0 1440 230"
           preserveAspectRatio="none"
-          style={{ bottom: '-2px', left: 0, right: 0 }}
+          style={{ bottom: '-2px', left: 0, right: 0, pointerEvents: 'none' }}
         >
           <path d={path} fill={fillColor} />
         </svg>
@@ -51,7 +51,7 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
           className={`absolute w-full hidden lg:block h-88 ${className}`}
           viewBox="0 0 1440 230"
           preserveAspectRatio="none"
-          style={{ bottom: '-2px', left: 0, right: 0 }}
+          style={{ bottom: '-2px', left: 0, right: 0, pointerEvents: 'none' }}
         >
           <path d={path} fill={fillColor} />
         </svg>
@@ -122,7 +122,7 @@ const Wave = ({ position, variant = 'soft', fillColor, className = '', height }:
       className={`absolute w-full ${getHeight()} ${className}`}
       viewBox={getViewBox()}
       preserveAspectRatio="none"
-      style={positionStyles}
+      style={{ ...positionStyles, pointerEvents: 'none' }}
     >
       <path d={getPath()} fill={fillColor} />
     </svg>

@@ -24,7 +24,7 @@ const Instagram = () => {
         <h2 id="instagram-heading" className="sr-only">
           Follow us on Instagram
         </h2>
-        <div className="container mx-auto px-4 relative z-10 py-20 md:py-24">
+        <div className="container mx-auto px-4 relative z-10 pt-20 md:pt-24 lg:pt-32 pb-40 md:pb-52 lg:pb-64">
           {/* Behold Instagram Widget */}
           <div className="max-w-4xl mx-auto mb-8">
             <div data-behold-id={BEHOLD_FEED_ID}></div>
@@ -36,7 +36,7 @@ const Instagram = () => {
               href="https://www.instagram.com/lavida.sandiego/"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center justify-center bg-olive-dark hover:bg-primary text-white px-10 py-3 rounded-full font-semibold transition-all"
+              className="inline-flex items-center justify-center bg-olive-dark text-white px-10 py-3 rounded-full font-semibold transition-all hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
               aria-label="Follow La Vida San Diego on Instagram (opens in new tab)"
             >
               FOLLOW US
@@ -47,7 +47,7 @@ const Instagram = () => {
 
       {/* Wave transition from olive to pink - decorative */}
       <section
-        className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48"
+        className="relative w-full bg-secondary -mt-32 md:-mt-40 lg:-mt-48 pb-32 md:pb-40 lg:pb-52"
         aria-hidden="true"
       >
         <svg

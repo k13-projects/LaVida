@@ -41,55 +41,29 @@ export const questions: Question[] = [
   {
     id: 1,
     type: "choice",
-    title: "Instagram Feed",
-    description:
-      "We need to connect the real Instagram feed to the website. Right now it's showing placeholder images.",
-    options: [
-      {
-        label: "A",
-        value: "dev_setup",
-        description:
-          "We'll set it up — just confirm the Instagram account is @lavida.sandiego",
-        tooltip:
-          "We'll create a Behold.so account, link your Instagram, and configure the feed widget. You just need to confirm the correct account handle.",
-      },
-      {
-        label: "B",
-        value: "client_setup",
-        description: "You'll set it up and send us the Behold feed ID",
-        tooltip:
-          "You create your own Behold.so account, connect Instagram, and share the feed ID string with us. This gives you full control over the feed settings.",
-      },
-    ],
-    customPlaceholder: "e.g., We already have a feed provider...",
-  },
-  {
-    id: 2,
-    type: "choice",
     title: "Social Media Preview Image",
     description:
-      "When someone shares the website on iMessage, Instagram, or Facebook, a preview image shows up. Right now it's showing a generic placeholder.",
+      "When someone shares the website on iMessage, Instagram, or Facebook, a preview image shows up. We're currently using the salmon bowl hero photo. Want to keep it or swap?",
     options: [
       {
         label: "A",
-        value: "logo_olive",
-        description: "Use the La Vida logo on a branded olive-green background",
+        value: "keep_photo",
+        description: "Keep the current food photo (salmon bowl) — looks good",
         tooltip:
-          "Clean and professional — the logo on your brand color ensures consistent branding across all platforms where the link is shared.",
+          "A vibrant food photo grabs more attention in social feeds and messages. Works great for driving clicks.",
       },
       {
         label: "B",
-        value: "hero_photo",
-        description:
-          "Use a hero food photo (like the acai bowl or salmon bowl)",
+        value: "logo_olive",
+        description: "Use the La Vida logo on a branded olive-green background instead",
         tooltip:
-          "A vibrant food photo grabs more attention in social feeds and messages. Works great for driving clicks but may crop differently on each platform.",
+          "Clean and professional — the logo on your brand color ensures consistent branding across all platforms where the link is shared.",
       },
     ],
     customPlaceholder: "e.g., Use a specific photo we'll send...",
   },
   {
-    id: 3,
+    id: 2,
     type: "choice",
     title: "Catering Section",
     description:
@@ -115,7 +89,7 @@ export const questions: Question[] = [
     customPlaceholder: "e.g., We have a catering PDF to upload...",
   },
   {
-    id: 4,
+    id: 3,
     type: "choice",
     title: '"Coming Soon" Locations',
     description:
@@ -141,7 +115,7 @@ export const questions: Question[] = [
     customPlaceholder: "e.g., Show them but add email waitlist...",
   },
   {
-    id: 5,
+    id: 4,
     type: "choice",
     title: "Customer Quotes",
     description:
@@ -167,32 +141,7 @@ export const questions: Question[] = [
     customPlaceholder: "e.g., Skip this for now, add later...",
   },
   {
-    id: 6,
-    type: "choice",
-    title: "Menu Dietary Labels",
-    description:
-      "We want to tag menu items with dietary icons (V = Vegan, GF = Gluten-Free, DF = Dairy-Free) so customers can quickly find what fits their diet.",
-    options: [
-      {
-        label: "A",
-        value: "client_sends",
-        description: "You send us a list of which items are V, GF, or DF",
-        tooltip:
-          "You provide the definitive dietary classification for each menu item. Most accurate since you know your ingredients and prep methods best.",
-      },
-      {
-        label: "B",
-        value: "dev_labels",
-        description:
-          "We'll label them based on the current menu ingredients — you review and correct",
-        tooltip:
-          "We analyze your menu and make our best guess at dietary labels. You then review and correct any mistakes before we publish. Faster for you upfront.",
-      },
-    ],
-    customPlaceholder: "e.g., We'll update the menu PDF first...",
-  },
-  {
-    id: 7,
+    id: 5,
     type: "choice",
     title: "Catering Form Submissions",
     description:
@@ -217,7 +166,7 @@ export const questions: Question[] = [
     customPlaceholder: "e.g., Use a different email address...",
   },
   {
-    id: 8,
+    id: 6,
     type: "text",
     title: "Business Details Confirmation",
     description:
@@ -233,13 +182,13 @@ export const questions: Question[] = [
         label: "Hours (Carlsbad)",
         key: "hours",
         placeholder: "Edit if incorrect",
-        defaultValue: "Mon-Sat 8AM-8PM, Sun 9AM-6PM",
+        defaultValue: "11:00 AM – 9:00 PM daily",
       },
       {
         label: "Cuisine Type for Google",
         key: "cuisine",
         placeholder: "Edit if incorrect",
-        defaultValue: "Healthy Food",
+        defaultValue: "Healthy Food, Bowls, Smoothies, Wraps",
       },
     ],
   },

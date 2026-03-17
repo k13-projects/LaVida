@@ -26,7 +26,7 @@ const About = () => {
           {/* UPDATED: Opens About Us modal (Task 19) */}
           <button
             onClick={() => window.dispatchEvent(new CustomEvent('openAboutModal'))}
-            className="inline-flex items-center justify-center bg-olive-dark hover:bg-foreground text-white px-20 py-3 rounded-full font-semibold transition-all text-base"
+            className="inline-flex items-center justify-center bg-olive-dark text-white px-20 py-3 rounded-full font-semibold transition-all text-base hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
           >
             ABOUT US
           </button>

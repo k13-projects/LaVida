@@ -28,16 +28,18 @@ const QuestionnaireFlow = () => {
   const [answers, setAnswers] = useState<QuestionnaireAnswers>(saved?.answers || {});
   const [step, setStep] = useState(saved?.step || 0);
   const [editingFromReview, setEditingFromReview] = useState(false);
-  // 0 = name, 1-8 = questions, 9 = review, 10 = submitted
+  // 0 = name, 1-6 = questions, 7 = review, 8 = submitted
 
   const totalQuestions = questions.length;
+  const REVIEW_STEP = totalQuestions + 1;
+  const SUBMITTED_STEP = totalQuestions + 2;
 
   // Persist to localStorage
   useEffect(() => {
-    if (step < 10) {
+    if (step < SUBMITTED_STEP) {
       localStorage.setItem(STORAGE_KEY, JSON.stringify({ name, answers, step }));
     }
-  }, [name, answers, step]);
+  }, [name, answers, step, SUBMITTED_STEP]);
 
   const handleNameSubmit = (submittedName: string) => {
     setName(submittedName);
@@ -49,23 +51,23 @@ const QuestionnaireFlow = () => {
       setAnswers((prev) => ({ ...prev, [questionId]: value }));
       if (editingFromReview) {
         setEditingFromReview(false);
-        setStep(9); // return to review
+        setStep(REVIEW_STEP);
       } else if (questionId < totalQuestions) {
         setStep(questionId + 1);
       } else {
-        setStep(9); // review
+        setStep(REVIEW_STEP);
       }
     },
-    [totalQuestions, editingFromReview]
+    [totalQuestions, editingFromReview, REVIEW_STEP]
   );
 
   const handleBack = () => {
     if (editingFromReview) {
       setEditingFromReview(false);
-      setStep(9); // return to review
+      setStep(REVIEW_STEP);
     } else if (step === 1) {
       setStep(0);
-    } else if (step === 9) {
+    } else if (step === REVIEW_STEP) {
       setStep(totalQuestions);
     } else {
       setStep(step - 1);
@@ -109,11 +111,11 @@ const QuestionnaireFlow = () => {
   const handleSubmit = () => {
     // Clear saved state and move to the send screen
     localStorage.removeItem(STORAGE_KEY);
-    setStep(10);
+    setStep(SUBMITTED_STEP);
   };
 
-  // Progress percentage (0 during name, then 1/8 through 8/8)
-  const progress = step === 0 ? 0 : step >= 9 ? 100 : (step / totalQuestions) * 100;
+  // Progress percentage
+  const progress = step === 0 ? 0 : step >= REVIEW_STEP ? 100 : (step / totalQuestions) * 100;
 
   return (
     <div className="min-h-screen flex flex-col" style={{ backgroundColor: "#FFF8F0" }}>
@@ -129,7 +131,7 @@ const QuestionnaireFlow = () => {
       </div>
 
       {/* Progress bar */}
-      {step > 0 && step < 10 && (
+      {step > 0 && step < SUBMITTED_STEP && (
         <div className="px-6 pt-2 pb-4 max-w-md mx-auto w-full">
           <div className="h-1.5 rounded-full bg-foreground/5 overflow-hidden">
             <div
@@ -172,7 +174,7 @@ const QuestionnaireFlow = () => {
           );
         })()}
 
-        {step === 9 && (
+        {step === REVIEW_STEP && (
           <ReviewScreen
             name={name}
             answers={answers}
@@ -181,7 +183,7 @@ const QuestionnaireFlow = () => {
           />
         )}
 
-        {step === 10 && <ThankYouScreen name={name} resultsText={buildEmailBody()} />}
+        {step === SUBMITTED_STEP && <ThankYouScreen name={name} resultsText={buildEmailBody()} />}
       </div>
     </div>
   );

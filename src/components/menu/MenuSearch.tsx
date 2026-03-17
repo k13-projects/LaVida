@@ -54,8 +54,8 @@ const MenuSearch = ({
               onClick={() => onToggleFilter(tag)}
               className={`px-3.5 py-1.5 rounded-full text-xs font-bold border transition-all ${
                 isActive
-                  ? "bg-olive text-white border-olive shadow-sm"
-                  : "bg-white text-foreground/60 border-foreground/15 hover:border-olive/40"
+                  ? config.activeClassName
+                  : "bg-white text-foreground/60 border-foreground/15 hover:border-foreground/30"
               }`}
               title={config.fullLabel}
             >

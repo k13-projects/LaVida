@@ -170,6 +170,14 @@ ${formData.description}
               {/* Locations */}
               <a
                 href="#locations"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("locations");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Locations
@@ -198,7 +206,7 @@ ${formData.description}
               </a>
               <button
                 onClick={() => setOrderModalOpen(true)}
-                className="bg-primary hover:bg-olive-dark text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 hover:shadow-xl shadow-lg relative overflow-hidden group whitespace-nowrap"
+                className="bg-primary text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
               >
                 <span className="relative z-10">ORDER NOW</span>
                 <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
@@ -251,7 +259,15 @@ ${formData.description}
                 </a>
                 <a
                   href="#locations"
-                  onClick={() => setIsOpen(false)}
+                  onClick={(e) => {
+                    e.preventDefault();
+                    setIsOpen(false);
+                    const el = document.getElementById("locations");
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
+                  }}
                   className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10"
                 >
                   Locations
@@ -277,7 +293,7 @@ ${formData.description}
                     setIsOpen(false);
                     setOrderModalOpen(true);
                   }}
-                  className="bg-primary hover:bg-olive-dark text-primary-foreground px-6 py-3 rounded-full font-semibold text-center transition-all mt-2"
+                  className="bg-primary text-primary-foreground px-6 py-3 rounded-full font-semibold text-center transition-all mt-2 hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
                 >
                   ORDER ONLINE
                 </button>
@@ -289,7 +305,7 @@ ${formData.description}
 
       {/* Menu PDF Modal */}
       <Dialog open={menuModalOpen} onOpenChange={setMenuModalOpen}>
-        <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 overflow-hidden flex flex-col">
+        <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 overflow-hidden flex flex-col border-4 border-olive rounded-xl">
           <DialogHeader className="p-4 pb-2 shrink-0">
             <DialogTitle className="text-xl font-bold text-primary">Our Menu</DialogTitle>
             <DialogDescription className="sr-only">View our full menu as a PDF document</DialogDescription>
@@ -307,24 +323,24 @@ ${formData.description}
       {/* Order Now Modal */}
       <Dialog open={orderModalOpen} onOpenChange={setOrderModalOpen}>
         {/* UPDATED: Widened modal (Task 16) */}
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto">
+        <DialogContent className="max-w-[380px] sm:max-w-[420px] md:max-w-[460px] lg:max-w-[500px] w-[92vw] border-4 border-olive rounded-xl">
           <DialogHeader>
-            <DialogTitle className="text-2xl font-bold text-primary text-center">Order Now</DialogTitle>
+            <DialogTitle className="text-xl sm:text-2xl lg:text-3xl font-bold text-primary text-center">Order Now</DialogTitle>
             <DialogDescription className="sr-only">Choose pickup or delivery options</DialogDescription>
           </DialogHeader>
-          <div className="flex flex-col gap-6 py-4">
+          <div className="flex flex-col gap-5 sm:gap-6 lg:gap-7 py-3 sm:py-4 lg:py-5">
             {/* Order Pickup — UPDATED: Toast logo (Task 15) */}
             <a
               href="https://order.toasttab.com/online/la-vida-windmill-food-hall"
               target="_blank"
               rel="noopener noreferrer"
-              className="flex items-center justify-center gap-3 bg-primary hover:bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-primary text-white px-5 sm:px-6 py-3 sm:py-4 lg:py-4 rounded-xl font-semibold text-base sm:text-lg lg:text-xl transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
             >
               <img
                 src={`${import.meta.env.BASE_URL}images/logo/platform logos/TOAST LOGO-03.png`}
                 alt=""
                 aria-hidden="true"
-                className="w-8 h-8 object-contain"
+                className="w-7 h-7 sm:w-8 sm:h-8 lg:w-9 lg:h-9 object-contain"
               />
               Order Pickup
             </a>
@@ -332,14 +348,14 @@ ${formData.description}
             {/* Divider */}
             <div className="flex items-center gap-4">
               <div className="flex-1 h-px bg-foreground/20" />
-              <span className="text-foreground/60 text-sm font-medium">or</span>
+              <span className="text-foreground/60 text-xs sm:text-sm font-medium">or</span>
               <div className="flex-1 h-px bg-foreground/20" />
             </div>
 
             {/* Order Delivery */}
-            <div className="space-y-4">
-              <p className="text-center text-foreground font-semibold">Order Delivery</p>
-              <div className="flex justify-center gap-6">
+            <div className="space-y-3 sm:space-y-4 lg:space-y-5">
+              <p className="text-center text-foreground font-semibold text-sm sm:text-base lg:text-lg">Order Delivery</p>
+              <div className="flex justify-center gap-6 sm:gap-8 lg:gap-10">
                 {/* Grubhub — UPDATED: Real logo (Task 15) */}
                 <a
                   href="https://www.grubhub.com/restaurant/la-vida-890-palomar-airport-rd-carlsbad/11836016"
@@ -348,14 +364,14 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via Grubhub (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Grunhub logo-02.png`}
                       alt=""
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">Grubhub</span>
+                  <span className="text-xs sm:text-sm lg:text-base font-semibold text-foreground">Grubhub</span>
                 </a>
 
                 {/* DoorDash — UPDATED: Real logo (Task 15) */}
@@ -366,14 +382,14 @@ ${formData.description}
                   className="flex flex-col items-center gap-2 group"
                   aria-label="Order delivery via DoorDash (opens in new tab)"
                 >
-                  <div className="w-16 h-16 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
+                  <div className="w-14 h-14 sm:w-16 sm:h-16 lg:w-18 lg:h-18 rounded-full shadow-lg group-hover:scale-110 transition-transform overflow-hidden" aria-hidden="true">
                     <img
                       src={`${import.meta.env.BASE_URL}images/logo/platform logos/Doordash logo.png`}
                       alt=""
                       className="w-full h-full object-cover rounded-full"
                     />
                   </div>
-                  <span className="text-sm font-semibold text-foreground">DoorDash</span>
+                  <span className="text-xs sm:text-sm lg:text-base font-semibold text-foreground">DoorDash</span>
                 </a>
               </div>
             </div>
@@ -383,7 +399,7 @@ ${formData.description}
 
       {/* Catering Modal — UPDATED: Widened (Task 16) */}
       <Dialog open={cateringModalOpen} onOpenChange={setCateringModalOpen}>
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto">
+        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">Catering Services</DialogTitle>
             <DialogDescription className="sr-only">View catering menu or submit a custom order request</DialogDescription>
@@ -395,7 +411,7 @@ ${formData.description}
                 // For now, show alert - replace with PDF modal when ready
                 alert("Catering menu PDF coming soon!");
               }}
-              className="flex items-center justify-center gap-3 bg-primary hover:bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-primary text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
             >
               <FileText className="w-6 h-6" />
               View Catering Menu (10+ People)
@@ -414,7 +430,7 @@ ${formData.description}
                 setCateringModalOpen(false);
                 setCateringFormOpen(true);
               }}
-              className="flex items-center justify-center gap-3 bg-olive-dark hover:bg-olive text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl"
+              className="flex items-center justify-center gap-3 bg-olive-dark text-white px-6 py-4 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-125 hover:shadow-xl hover:scale-[1.03]"
             >
               <Mail className="w-6 h-6" />
               Email Us for Custom Orders
@@ -425,7 +441,7 @@ ${formData.description}
 
       {/* Catering Form Modal — UPDATED: Widened (Task 16) */}
       <Dialog open={cateringFormOpen} onOpenChange={setCateringFormOpen}>
-        <DialogContent className="max-w-2xl w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">Custom Catering Request</DialogTitle>
             <DialogDescription className="sr-only">Fill out the form to request catering services</DialogDescription>
@@ -624,7 +640,7 @@ ${formData.description}
               <button
                 type="submit"
                 disabled={formSubmitting}
-                className="w-full bg-primary hover:bg-olive-dark text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed mt-2"
+                className="w-full bg-primary text-white px-6 py-3 rounded-xl font-semibold text-lg transition-all shadow-lg hover:brightness-110 hover:shadow-xl hover:scale-[1.03] disabled:opacity-50 disabled:cursor-not-allowed mt-2"
               >
                 {formSubmitting ? "Opening Email..." : "Send Catering Request"}
               </button>
@@ -635,7 +651,7 @@ ${formData.description}
 
       {/* About Us Modal — UPDATED: Brand values modal (Task 19) */}
       <Dialog open={aboutModalOpen} onOpenChange={setAboutModalOpen}>
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[780px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">About Us</DialogTitle>
             <DialogDescription className="sr-only">Learn about La Vida San Diego's mission and values</DialogDescription>

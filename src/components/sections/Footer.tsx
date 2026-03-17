@@ -5,15 +5,15 @@ const Footer = () => {
   return (
     <footer id="contact" className="relative bg-secondary text-foreground min-h-[280px] md:min-h-[320px]" role="contentinfo" aria-label="Site footer">
 
-      <div className="container mx-auto px-4 pt-16 md:pt-20 pb-20">
+      <div className="container mx-auto px-4 pt-4 md:pt-6 pb-36 md:pb-44">
         {/* UPDATED: Center-aligned layout (Fix 2) */}
         <div className="flex flex-col items-center text-center">
           {/* Contact Info */}
           <div>
-            <h2 className="text-2xl md:text-3xl font-bold mb-4">CONTACT INFO</h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">CONTACT INFO</h2>
 
             {/* TODO: Update phone number when confirmed by Lorena/Eren */}
-            <address className="space-y-2 text-foreground not-italic">
+            <address className="space-y-2 text-foreground not-italic text-lg md:text-xl">
               <p>
                 890 Palomar Airport Rd
                 <br />
@@ -37,7 +37,7 @@ const Footer = () => {
                   className="inline-flex items-center gap-2 hover:text-primary transition-colors justify-center"
                   aria-label="Follow us on Instagram (opens in new tab)"
                 >
-                  <Instagram size={20} aria-hidden="true" />
+                  <Instagram size={40} aria-hidden="true" />
                   <span className="sr-only">La Vida San Diego on Instagram</span>
                 </a>
               </p>

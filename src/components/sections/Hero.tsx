@@ -9,30 +9,50 @@ import Autoplay from "embla-carousel-autoplay";
 import { heroSlides } from "@/data/heroSlides";
 import { ChevronDown } from "lucide-react";
 
+const INTERACTION_DELAY = 7000;
+
 const Hero = () => {
   const [api, setApi] = useState<CarouselApi>();
+  const interactionTimer = useRef<ReturnType<typeof setTimeout>>();
   const autoplayRef = useRef(
     Autoplay({
       delay: 5000,
       stopOnInteraction: false,
-      stopOnMouseEnter: true,
+      stopOnMouseEnter: false,
     })
   );
 
   useEffect(() => {
     if (!api) return;
+
+    const onPointerUp = () => {
+      clearTimeout(interactionTimer.current);
+      autoplayRef.current.stop();
+      interactionTimer.current = setTimeout(() => {
+        autoplayRef.current.play();
+      }, INTERACTION_DELAY);
+    };
+
+    api.on('pointerUp', onPointerUp);
+
+    return () => {
+      api.off('pointerUp', onPointerUp);
+      clearTimeout(interactionTimer.current);
+    };
   }, [api]);
 
-  // Reset autoplay timer and scroll
-  const scrollPrev = () => {
-    autoplayRef.current.reset();
-    api?.scrollPrev();
+  // Stop autoplay, scroll, then resume after extended delay
+  const handleInteraction = (scrollFn: () => void) => {
+    clearTimeout(interactionTimer.current);
+    autoplayRef.current.stop();
+    scrollFn();
+    interactionTimer.current = setTimeout(() => {
+      autoplayRef.current.play();
+    }, INTERACTION_DELAY);
   };
 
-  const scrollNext = () => {
-    autoplayRef.current.reset();
-    api?.scrollNext();
-  };
+  const scrollPrev = () => handleInteraction(() => api?.scrollPrev());
+  const scrollNext = () => handleInteraction(() => api?.scrollNext());
 
   return (
     <section className="relative h-screen overflow-hidden" aria-label="Hero image slideshow">

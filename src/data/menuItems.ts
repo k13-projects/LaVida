@@ -22,11 +22,11 @@ export const menuItems: MenuItem[] = [
 
 export type DietaryTag = "V" | "GF" | "DF" | "GFO";
 
-export const DIETARY_TAG_CONFIG: Record<DietaryTag, { label: string; fullLabel: string; className: string }> = {
-  V:   { label: "V",   fullLabel: "Vegan",              className: "bg-green-100 text-green-800 border-green-300" },
-  GF:  { label: "GF",  fullLabel: "Gluten-Free",        className: "bg-amber-100 text-amber-800 border-amber-300" },
-  DF:  { label: "DF",  fullLabel: "Dairy-Free",         className: "bg-blue-100 text-blue-800 border-blue-300" },
-  GFO: { label: "GFO", fullLabel: "Gluten-Free Option", className: "bg-amber-50 text-amber-700 border-amber-200" },
+export const DIETARY_TAG_CONFIG: Record<DietaryTag, { label: string; fullLabel: string; className: string; activeClassName: string }> = {
+  V:   { label: "V",   fullLabel: "Vegan",              className: "bg-green-100 text-green-800 border-green-300",  activeClassName: "bg-green-100 text-green-800 border-green-400 shadow-sm ring-1 ring-green-400" },
+  GF:  { label: "GF",  fullLabel: "Gluten-Free",        className: "bg-amber-100 text-amber-800 border-amber-300",  activeClassName: "bg-amber-100 text-amber-800 border-amber-400 shadow-sm ring-1 ring-amber-400" },
+  DF:  { label: "DF",  fullLabel: "Dairy-Free",         className: "bg-blue-100 text-blue-800 border-blue-300",    activeClassName: "bg-blue-100 text-blue-800 border-blue-400 shadow-sm ring-1 ring-blue-400" },
+  GFO: { label: "GFO", fullLabel: "Gluten-Free Option", className: "bg-amber-50 text-amber-700 border-amber-200",  activeClassName: "bg-amber-50 text-amber-700 border-amber-300 shadow-sm ring-1 ring-amber-300" },
 };
 
 export interface MenuCategory {

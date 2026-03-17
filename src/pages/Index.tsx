@@ -1,3 +1,4 @@
+import { useEffect } from "react";
 import Navbar from "@/components/layout/Navbar";
 import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
@@ -8,6 +9,11 @@ import Instagram from "@/components/sections/Instagram";
 import Footer from "@/components/sections/Footer";
 
 const Index = () => {
+  useEffect(() => {
+    window.history.scrollRestoration = "manual";
+    window.scrollTo(0, 0);
+  }, []);
+
   return (
     <div className="min-h-screen">
       {/* Skip to main content link for keyboard/screen reader users - WCAG 2.4.1 */}

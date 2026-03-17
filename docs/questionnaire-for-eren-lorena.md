@@ -6,24 +6,18 @@
 
 ---
 
-### 1. Instagram Feed
+### ~~1. Instagram Feed~~ — DONE
 
-We need to connect the real Instagram feed to the website. Right now it's showing placeholder images.
-
-**What we need:** The Behold.so feed ID (it looks like a string of letters/numbers from your Behold dashboard).
-
-> If you don't have a Behold account yet:
-> - **A)** We'll set it up — just confirm the Instagram account is `@lavida.sandiego`
-> - **B)** You'll set it up and send us the feed ID
+Instagram feed is now live on the site, pulling real posts from @lavida.sandiego via Behold.
 
 ---
 
 ### 2. Social Media Preview Image
 
-When someone shares the website on iMessage, Instagram, or Facebook, a preview image shows up. Right now it's showing a generic placeholder — not La Vida branding.
+When someone shares the website on iMessage, Instagram, or Facebook, a preview image shows up. We're currently using the salmon bowl hero photo. Want to keep it or swap?
 
-> **A)** Use the La Vida logo on a branded olive-green background
-> **B)** Use a hero food photo (like the acai bowl or salmon bowl)
+> **A)** Keep the current food photo (salmon bowl) — looks good
+> **B)** Use the La Vida logo on a branded olive-green background instead
 
 ---
 
@@ -54,12 +48,9 @@ Adding 2-3 short customer quotes builds trust and helps conversions. We can pull
 
 ---
 
-### 6. Menu Dietary Labels
+### ~~6. Menu Dietary Labels~~ — DONE
 
-We want to tag menu items with dietary icons (V = Vegan, GF = Gluten-Free, DF = Dairy-Free) so customers can quickly find what fits their diet.
-
-> **A)** Send us a list of which items are V, GF, or DF
-> **B)** We'll label them based on the current menu ingredients — you review and correct
+All 34 menu items are now tagged with V (Vegan), GF (Gluten-Free), DF (Dairy-Free), and GFO (Gluten-Free Option) on the new /menu page. Please review the tags and let us know if any corrections are needed.
 
 ---
 
@@ -77,8 +68,8 @@ Right now, catering form submissions open the customer's email app (mailto link)
 For Google search optimization, we need to confirm these details are current:
 
 - **Phone number:** _______________
-- **Hours (Carlsbad):** Currently showing Mon-Sat 8AM-8PM, Sun 9AM-6PM — correct?
-- **Cuisine type for Google:** "Healthy Food" or "Fast Casual" or something else? _______________
+- **Hours (Carlsbad):** Currently showing 11:00 AM – 9:00 PM daily — correct?
+- **Cuisine type for Google:** Currently set to "Healthy Food, Bowls, Smoothies, Wraps" — correct?
 
 ---
 
