@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useFocusTrap } from "@/hooks/use-focus-trap";
 import { Menu, X, Phone, FileText, Mail, Calendar, Clock, Users, ChevronDown } from "lucide-react";
 import {
   Dialog,
@@ -26,7 +27,8 @@ const Navbar = () => {
   const [cateringFormOpen, setCateringFormOpen] = useState(false);
   const [formSubmitting, setFormSubmitting] = useState(false);
   const [formSubmitted, setFormSubmitted] = useState(false);
-  const [aboutModalOpen, setAboutModalOpen] = useState(false); // UPDATED: About Us modal (Task 19)
+  const [aboutModalOpen, setAboutModalOpen] = useState(false);
+  const mobileMenuRef = useFocusTrap(isOpen);
 
   const [formData, setFormData] = useState({
     name: "",
@@ -141,14 +143,14 @@ ${formData.description}
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
 
-              {/* Menu - Opens Modal */}
-              <button
-                onClick={() => setMenuModalOpen(true)}
+              {/* Menu - Links to /menu page */}
+              <a
+                href="/menu"
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Menu
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              </a>
 
               {/* Logo - inline, bottom half overflows */}
               <a href="#" className="relative z-10 group translate-y-1/2">
@@ -231,7 +233,7 @@ ${formData.description}
 
           {/* Mobile Navigation Menu */}
           {isOpen && (
-            <div id="mobile-menu" className="md:hidden pb-6 animate-fade-in" role="menu">
+            <div ref={mobileMenuRef} id="mobile-menu" className="md:hidden pb-6 animate-fade-in" role="menu">
               <div className="flex flex-col space-y-4">
                 <a
                   href="#about"
@@ -240,15 +242,13 @@ ${formData.description}
                 >
                   About Us
                 </a>
-                <button
-                  onClick={() => {
-                    setIsOpen(false);
-                    setMenuModalOpen(true);
-                  }}
-                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10 text-left"
+                <a
+                  href="/menu"
+                  onClick={() => setIsOpen(false)}
+                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10"
                 >
                   Menu
-                </button>
+                </a>
                 <a
                   href="#locations"
                   onClick={() => setIsOpen(false)}

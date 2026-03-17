@@ -118,12 +118,19 @@ const Locations: FC = () => {
       {/* Map Container */}
       <div className="relative w-full">
         {/* Background Map Image - decorative */}
-        <img
-          src={`${import.meta.env.BASE_URL}images/locations/Large_map.png`}
-          alt=""
-          role="presentation"
-          className="w-full h-auto object-cover min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-0"
-        />
+        <picture>
+          <source
+            srcSet={`${import.meta.env.BASE_URL}images/locations/Large_map.webp`}
+            type="image/webp"
+          />
+          <img
+            src={`${import.meta.env.BASE_URL}images/locations/Large_map.png`}
+            alt=""
+            role="presentation"
+            className="w-full h-auto object-cover min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-0"
+            loading="lazy"
+          />
+        </picture>
 
         {/* Cards Overlay - Responsive Grid */}
         <div className="absolute inset-0 flex items-center justify-center p-2 sm:p-4 md:p-6 lg:p-8">
