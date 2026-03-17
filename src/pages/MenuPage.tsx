@@ -42,7 +42,7 @@ const MenuPage = () => {
     <div className="min-h-screen" style={{ backgroundColor: "#FFF8F0" }}>
       {/* Header */}
       <header className="bg-primary py-6 px-4 sm:px-6">
-        <div className="max-w-4xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <Link
             to="/"
             className="inline-flex items-center gap-2 text-primary-foreground/80 hover:text-primary-foreground font-medium text-sm transition-colors mb-4"
@@ -71,7 +71,7 @@ const MenuPage = () => {
       </header>
 
       {/* Content */}
-      <main className="max-w-4xl mx-auto px-4 sm:px-6 py-8">
+      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
         {/* Search + Filters */}
         <div className="mb-8">
           <MenuSearch
