@@ -1,7 +1,7 @@
-import { useState, useMemo } from "react";
+import { useState, useMemo, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft, FileText } from "lucide-react";
-import { fullMenuItems, type DietaryTag } from "@/data/menuItems";
+import { fullMenuItems, fullMenuCategories, type DietaryTag } from "@/data/menuItems";
 import {
   Dialog,
   DialogContent,
@@ -17,6 +17,33 @@ const MenuPage = () => {
   const [activeFilters, setActiveFilters] = useState<DietaryTag[]>([]);
   const [pdfOpen, setPdfOpen] = useState(false);
   const [orderModalOpen, setOrderModalOpen] = useState(false);
+  const [activeSection, setActiveSection] = useState<string>("");
+  const observerRef = useRef<IntersectionObserver | null>(null);
+
+  // Track which menu section is in view
+  useEffect(() => {
+    observerRef.current = new IntersectionObserver(
+      (entries) => {
+        // Find the entry most visible in the viewport
+        const visible = entries.filter((e) => e.isIntersecting);
+        if (visible.length > 0) {
+          // Pick the one closest to the top
+          const top = visible.reduce((a, b) =>
+            a.boundingClientRect.top < b.boundingClientRect.top ? a : b
+          );
+          setActiveSection(top.target.id.replace("section-", ""));
+        }
+      },
+      { rootMargin: "-20% 0px -60% 0px", threshold: 0 }
+    );
+
+    const sections = fullMenuCategories.map((c) =>
+      document.getElementById(`section-${c.id}`)
+    );
+    sections.forEach((el) => el && observerRef.current?.observe(el));
+
+    return () => observerRef.current?.disconnect();
+  }, [filteredItems]);
 
   const filteredItems = useMemo(() => {
     return fullMenuItems.filter((item) => {
@@ -96,53 +123,91 @@ const MenuPage = () => {
       </div>
 
       {/* Content */}
-      <main className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
-        {/* Search + Filters */}
-        <div className="mb-8">
-          <MenuSearch
-            searchQuery={searchQuery}
-            onSearchChange={setSearchQuery}
-            activeFilters={activeFilters}
-            onToggleFilter={handleToggleFilter}
-            onClearFilters={() => setActiveFilters([])}
-          />
-        </div>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex gap-8">
+        {/* Sticky sidebar nav — desktop only */}
+        <aside className="hidden lg:block w-44 shrink-0">
+          <nav className="sticky top-8">
+            <ul className="space-y-1">
+              {fullMenuCategories.map((category) => {
+                const hasItems = filteredItems.some(
+                  (item) => item.category === category.id
+                );
+                if (!hasItems) return null;
+                const isActive = activeSection === category.id;
+                return (
+                  <li key={category.id}>
+                    <a
+                      href={`#section-${category.id}`}
+                      onClick={(e) => {
+                        e.preventDefault();
+                        document
+                          .getElementById(`section-${category.id}`)
+                          ?.scrollIntoView({ behavior: "smooth", block: "start" });
+                      }}
+                      className={`block px-3 py-2 rounded-lg text-sm font-semibold transition-all ${
+                        isActive
+                          ? "bg-primary text-white shadow-sm"
+                          : "text-foreground/60 hover:text-foreground hover:bg-foreground/5"
+                      }`}
+                    >
+                      {category.title}
+                    </a>
+                  </li>
+                );
+              })}
+            </ul>
+          </nav>
+        </aside>
 
-        {/* Results count */}
-        <div className="flex items-center justify-between mb-6">
-          <p className="text-sm font-medium text-foreground/50">
-            {filteredItems.length} item{filteredItems.length !== 1 ? "s" : ""}
-            {activeFilters.length > 0 || searchQuery ? " found" : ""}
-          </p>
-          {/* Mobile PDF button */}
-          <button
-            onClick={() => setPdfOpen(true)}
-            className="sm:hidden flex items-center gap-1.5 text-olive text-sm font-semibold"
-          >
-            <FileText className="w-4 h-4" />
-            PDF Menu
-          </button>
-        </div>
+        {/* Main content */}
+        <main className="flex-1 min-w-0">
+          {/* Search + Filters */}
+          <div className="mb-8">
+            <MenuSearch
+              searchQuery={searchQuery}
+              onSearchChange={setSearchQuery}
+              activeFilters={activeFilters}
+              onToggleFilter={handleToggleFilter}
+              onClearFilters={() => setActiveFilters([])}
+            />
+          </div>
 
-        {/* Menu Grid */}
-        <MenuGrid items={filteredItems} />
+          {/* Results count */}
+          <div className="flex items-center justify-between mb-6">
+            <p className="text-sm font-medium text-foreground/50">
+              {filteredItems.length} item{filteredItems.length !== 1 ? "s" : ""}
+              {activeFilters.length > 0 || searchQuery ? " found" : ""}
+            </p>
+            {/* Mobile PDF button */}
+            <button
+              onClick={() => setPdfOpen(true)}
+              className="sm:hidden flex items-center gap-1.5 text-olive text-sm font-semibold"
+            >
+              <FileText className="w-4 h-4" />
+              PDF Menu
+            </button>
+          </div>
 
-        {/* Order CTA */}
-        <div className="mt-12 text-center bg-white rounded-2xl shadow-sm border border-foreground/5 p-8">
-          <h3 className="text-lg font-bold text-olive-dark mb-2">
-            Ready to order?
-          </h3>
-          <p className="text-sm text-foreground/60 mb-4">
-            Order online for pickup or delivery
-          </p>
-          <button
-            onClick={() => setOrderModalOpen(true)}
-            className="inline-flex px-6 py-3 rounded-full font-bold text-white transition-all bg-primary hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
-          >
-            ORDER NOW
-          </button>
-        </div>
-      </main>
+          {/* Menu Grid */}
+          <MenuGrid items={filteredItems} />
+
+          {/* Order CTA */}
+          <div className="mt-12 text-center bg-white rounded-2xl shadow-sm border border-foreground/5 p-8">
+            <h3 className="text-lg font-bold text-olive-dark mb-2">
+              Ready to order?
+            </h3>
+            <p className="text-sm text-foreground/60 mb-4">
+              Order online for pickup or delivery
+            </p>
+            <button
+              onClick={() => setOrderModalOpen(true)}
+              className="inline-flex px-6 py-3 rounded-full font-bold text-white transition-all bg-primary hover:brightness-110 hover:shadow-lg hover:scale-[1.03]"
+            >
+              ORDER NOW
+            </button>
+          </div>
+        </main>
+      </div>
 
       {/* Order Now Modal */}
       <Dialog open={orderModalOpen} onOpenChange={setOrderModalOpen}>

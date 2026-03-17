@@ -26,7 +26,7 @@ const MenuGrid = ({ items }: MenuGridProps) => {
         if (categoryItems.length === 0) return null;
 
         return (
-          <section key={category.id}>
+          <section key={category.id} id={`section-${category.id}`}>
             <div className="mb-4">
               <h2 className="text-xl font-extrabold text-olive-dark">
                 {category.title}
