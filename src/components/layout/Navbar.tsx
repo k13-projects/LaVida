@@ -289,7 +289,7 @@ ${formData.description}
 
       {/* Menu PDF Modal */}
       <Dialog open={menuModalOpen} onOpenChange={setMenuModalOpen}>
-        <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 overflow-hidden flex flex-col">
+        <DialogContent className="max-w-[96vw] w-[96vw] h-[92vh] p-0 overflow-hidden flex flex-col border-4 border-olive rounded-xl">
           <DialogHeader className="p-4 pb-2 shrink-0">
             <DialogTitle className="text-xl font-bold text-primary">Our Menu</DialogTitle>
             <DialogDescription className="sr-only">View our full menu as a PDF document</DialogDescription>
@@ -307,7 +307,7 @@ ${formData.description}
       {/* Order Now Modal */}
       <Dialog open={orderModalOpen} onOpenChange={setOrderModalOpen}>
         {/* UPDATED: Widened modal (Task 16) */}
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto">
+        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">Order Now</DialogTitle>
             <DialogDescription className="sr-only">Choose pickup or delivery options</DialogDescription>
@@ -383,7 +383,7 @@ ${formData.description}
 
       {/* Catering Modal — UPDATED: Widened (Task 16) */}
       <Dialog open={cateringModalOpen} onOpenChange={setCateringModalOpen}>
-        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto">
+        <DialogContent className="max-w-[700px] w-[95vw] sm:w-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">Catering Services</DialogTitle>
             <DialogDescription className="sr-only">View catering menu or submit a custom order request</DialogDescription>
@@ -425,7 +425,7 @@ ${formData.description}
 
       {/* Catering Form Modal — UPDATED: Widened (Task 16) */}
       <Dialog open={cateringFormOpen} onOpenChange={setCateringFormOpen}>
-        <DialogContent className="max-w-2xl w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-2xl w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">Custom Catering Request</DialogTitle>
             <DialogDescription className="sr-only">Fill out the form to request catering services</DialogDescription>
@@ -635,7 +635,7 @@ ${formData.description}
 
       {/* About Us Modal — UPDATED: Brand values modal (Task 19) */}
       <Dialog open={aboutModalOpen} onOpenChange={setAboutModalOpen}>
-        <DialogContent className="max-w-[780px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto">
+        <DialogContent className="max-w-[780px] w-[95vw] sm:w-auto max-h-[90vh] overflow-y-auto border-4 border-olive rounded-xl">
           <DialogHeader>
             <DialogTitle className="text-2xl font-bold text-primary text-center">About Us</DialogTitle>
             <DialogDescription className="sr-only">Learn about La Vida San Diego's mission and values</DialogDescription>
