@@ -50,16 +50,52 @@ const ChoiceQuestion = ({
     };
   }, []);
 
+  const [optionInputText, setOptionInputText] = useState(
+    currentAnswer && !currentAnswer.startsWith("custom:")
+      ? (() => {
+          const idx = currentAnswer.indexOf(":");
+          const val = idx > -1 ? currentAnswer.slice(0, idx) : currentAnswer;
+          const opt = question.options.find((o) => o.value === val && o.inputPlaceholder);
+          return opt && idx > -1 ? currentAnswer.slice(idx + 1) : "";
+        })()
+      : ""
+  );
+  const optionInputRef = useRef<HTMLTextAreaElement>(null);
+
+  const selectedOptionHasInput = selected
+    ? question.options.find((o) => o.value === selected && o.inputPlaceholder)
+    : null;
+
+  useEffect(() => {
+    if (selectedOptionHasInput && optionInputRef.current) {
+      optionInputRef.current.focus();
+    }
+  }, [selectedOptionHasInput]);
+
   const handleSelect = (value: string) => {
     if (value === "custom") {
       setSelected("custom");
       setShowCustomInput(true);
-      return; // don't auto-advance for custom
+      return;
+    }
+    const opt = question.options.find((o) => o.value === value);
+    if (opt?.inputPlaceholder) {
+      setSelected(value);
+      setShowCustomInput(false);
+      setCustomText("");
+      return; // don't auto-advance, show input
     }
     setSelected(value);
     setShowCustomInput(false);
     setCustomText("");
+    setOptionInputText("");
     setTimeout(() => onAnswer(value), 350);
+  };
+
+  const handleOptionInputSubmit = () => {
+    if (selected && optionInputText.trim()) {
+      onAnswer(`${selected}:${optionInputText.trim()}`);
+    }
   };
 
   const handleCustomSubmit = () => {
@@ -81,7 +117,7 @@ const ChoiceQuestion = ({
 
   return (
     <div className="px-4 sm:px-6 animate-fade-in">
-      <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
+      <div className="max-w-md lg:max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
         {/* Back + counter */}
         <div className="flex items-center justify-between mb-5">
           <button
@@ -101,10 +137,33 @@ const ChoiceQuestion = ({
           <h2 className="text-2xl font-extrabold text-olive-dark mb-2">
             {question.title}
           </h2>
-          <p className="text-foreground/80 text-[15px] font-medium leading-relaxed">
-            {question.description}
-          </p>
+          {question.description.split("\n\n").map((paragraph, i) => (
+            <p
+              key={i}
+              className={`text-foreground/80 text-[15px] font-medium leading-relaxed ${i > 0 ? "mt-3" : ""}`}
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
+
+        {/* Preview image */}
+        {question.image && (
+          <div className="mb-6">
+            <div className="rounded-2xl overflow-hidden shadow-md border border-foreground/5">
+              <img
+                src={`${import.meta.env.BASE_URL}${question.image}`}
+                alt={question.title}
+                className="w-full max-h-48 object-cover"
+              />
+            </div>
+            {question.imageCaption && (
+              <p className="text-xs text-foreground/50 font-medium mt-2 text-center italic">
+                {question.imageCaption}
+              </p>
+            )}
+          </div>
+        )}
 
         {/* Options */}
         <div className="space-y-3">
@@ -153,6 +212,28 @@ const ChoiceQuestion = ({
                   >
                     {option.tooltip}
                     <div className="absolute -top-1.5 left-8 w-3 h-3 bg-olive-dark rotate-45" />
+                  </div>
+                )}
+
+                {/* Inline input for options that need text */}
+                {isSelected && option.inputPlaceholder && (
+                  <div className="mt-3 animate-fade-in">
+                    <textarea
+                      ref={optionInputRef}
+                      value={optionInputText}
+                      onChange={(e) => setOptionInputText(e.target.value)}
+                      placeholder={option.inputPlaceholder}
+                      rows={3}
+                      className="w-full px-4 py-3 text-sm font-medium rounded-xl border border-olive/20 focus:border-olive focus:outline-none transition-colors bg-white shadow-sm resize-none"
+                    />
+                    <button
+                      onClick={handleOptionInputSubmit}
+                      disabled={!optionInputText.trim()}
+                      className="mt-2 w-full py-3 rounded-xl text-sm font-bold text-white transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-md"
+                      style={{ backgroundColor: "#9F9D58" }}
+                    >
+                      Continue
+                    </button>
                   </div>
                 )}
               </div>

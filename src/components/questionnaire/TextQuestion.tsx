@@ -41,7 +41,7 @@ const TextQuestion = ({
 
   return (
     <div className="px-4 sm:px-6 animate-fade-in">
-      <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
+      <div className="max-w-md lg:max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
         {/* Back + counter */}
         <div className="flex items-center justify-between mb-5">
           <button
@@ -61,9 +61,14 @@ const TextQuestion = ({
           <h2 className="text-2xl font-extrabold text-olive-dark mb-2">
             {question.title}
           </h2>
-          <p className="text-foreground/80 text-[15px] font-medium leading-relaxed">
-            {question.description}
-          </p>
+          {question.description.split("\n\n").map((paragraph, i) => (
+            <p
+              key={i}
+              className={`text-foreground/80 text-[15px] font-medium leading-relaxed ${i > 0 ? "mt-3" : ""}`}
+            >
+              {paragraph}
+            </p>
+          ))}
         </div>
 
         {/* Text fields */}
