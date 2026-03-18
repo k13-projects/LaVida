@@ -40,7 +40,7 @@ const ReviewScreen = ({ name, answers, onEdit, onSubmit }: ReviewScreenProps) =>
 
   return (
     <div className="px-4 sm:px-6 animate-fade-in">
-      <div className="max-w-md mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
+      <div className="max-w-md lg:max-w-2xl mx-auto bg-white rounded-3xl shadow-lg p-6 sm:p-8">
         <div className="mb-6 text-center">
           <div className="w-14 h-14 rounded-full bg-olive/10 flex items-center justify-center mx-auto mb-4">
             <Check className="w-7 h-7 text-olive" />

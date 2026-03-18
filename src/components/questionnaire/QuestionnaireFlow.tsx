@@ -28,7 +28,7 @@ const QuestionnaireFlow = () => {
   const [answers, setAnswers] = useState<QuestionnaireAnswers>(saved?.answers || {});
   const [step, setStep] = useState(saved?.step || 0);
   const [editingFromReview, setEditingFromReview] = useState(false);
-  // 0 = name, 1-6 = questions, 7 = review, 8 = submitted
+  // 0 = name, 1-5 = questions, 6 = review, 7 = submitted
 
   const totalQuestions = questions.length;
   const REVIEW_STEP = totalQuestions + 1;
@@ -125,14 +125,14 @@ const QuestionnaireFlow = () => {
           <img
             src={`${import.meta.env.BASE_URL}images/logo/logo-color.png`}
             alt="La Vida"
-            className="h-16 mx-auto"
+            className="h-48 mx-auto"
           />
         </a>
       </div>
 
       {/* Progress bar */}
       {step > 0 && step < SUBMITTED_STEP && (
-        <div className="px-6 pt-2 pb-4 max-w-md mx-auto w-full">
+        <div className="px-6 pt-2 pb-4 max-w-md lg:max-w-2xl mx-auto w-full">
           <div className="h-1.5 rounded-full bg-foreground/5 overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-500 ease-out"

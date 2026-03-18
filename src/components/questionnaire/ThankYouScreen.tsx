@@ -47,7 +47,7 @@ const ThankYouScreen = ({ name, resultsText }: ThankYouScreenProps) => {
 
   return (
     <div className="px-4 sm:px-6 animate-fade-in">
-      <div className="max-w-md mx-auto">
+      <div className="max-w-md lg:max-w-2xl mx-auto">
         {/* Success header */}
         <div className="text-center mb-6">
           <CheckCircle className="w-16 h-16 text-olive mx-auto mb-4" />

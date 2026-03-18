@@ -3,6 +3,7 @@ export interface ChoiceOption {
   value: string;
   description: string;
   tooltip?: string;
+  inputPlaceholder?: string;
 }
 
 export interface TextField {
@@ -17,6 +18,8 @@ export interface ChoiceQuestion {
   type: "choice";
   title: string;
   description: string;
+  image?: string;
+  imageCaption?: string;
   options: [ChoiceOption, ChoiceOption];
   customPlaceholder?: string;
 }
@@ -43,21 +46,26 @@ export const questions: Question[] = [
     type: "choice",
     title: "Social Media Preview Image",
     description:
-      "When someone shares the website on iMessage, Instagram, or Facebook, a preview image shows up. We're currently using the salmon bowl hero photo. Want to keep it or swap?",
+      "When someone shares the La Vida website link on iMessage, Instagram, WhatsApp, or Facebook, the app automatically generates a preview card with an image, title, and short description. This is called an Open Graph (OG) image — it's the first impression people get before they even click.\n\nRight now, the website uses the salmon bowl hero photo as the preview. Below is how it currently appears when shared. Would you like to keep this food-focused image, or switch to the La Vida logo on your branded olive-green background for a cleaner, more consistent look?",
+    image: "images/og-image.jpg",
+    imageCaption:
+      "Current preview when the site link is shared on social media or messaging apps",
     options: [
       {
         label: "A",
         value: "keep_photo",
-        description: "Keep the current food photo (salmon bowl) — looks good",
+        description:
+          "Keep the current food photo (salmon bowl) — it grabs attention in feeds",
         tooltip:
-          "A vibrant food photo grabs more attention in social feeds and messages. Works great for driving clicks.",
+          "A vibrant food photo grabs more attention in social feeds and messages. Works great for driving clicks and showing what La Vida is about at a glance.",
       },
       {
         label: "B",
         value: "logo_olive",
-        description: "Use the La Vida logo on a branded olive-green background instead",
+        description:
+          "Switch to the La Vida logo on a branded olive-green background",
         tooltip:
-          "Clean and professional — the logo on your brand color ensures consistent branding across all platforms where the link is shared.",
+          "Clean and professional — the logo on your brand color ensures consistent branding across all platforms where the link is shared. Looks more polished but less eye-catching in busy feeds.",
       },
     ],
     customPlaceholder: "e.g., Use a specific photo we'll send...",
@@ -65,25 +73,28 @@ export const questions: Question[] = [
   {
     id: 2,
     type: "choice",
-    title: "Catering Section",
+    title: "Catering Section Details",
     description:
-      'The catering section currently says "Good food, good mood, made for sharing" but doesn\'t give visitors any details. We want to add just enough info so people actually inquire.',
+      'The catering section on the homepage is one of the first things potential clients see when considering La Vida for events or group orders. Right now, it only shows a tagline — "Good food, good mood, made for sharing" — with a button to inquire, but no details about what you actually offer.\n\nWithout specifics like group sizes, available packages, or lead time, most visitors won\'t feel confident enough to reach out. Adding even 3–5 bullet points dramatically increases the chance someone submits an inquiry.',
+    image: "images/catering/LaVida_032125_arleneibarra-034.webp",
+    imageCaption: "Current catering section — tagline only, no service details yet",
     options: [
       {
         label: "A",
-        value: "dev_writes",
+        value: "keep_as_is",
         description:
-          'We\'ll write the bullet points (e.g., "Groups of 10-200", "Custom menus available") — you confirm or correct',
+          "Keep it as is for now",
         tooltip:
-          "We draft catering details based on what we know about your business. You review and approve before anything goes live. Fastest path to getting content up.",
+          "The catering section stays with the current tagline. You can always add details in a future update when you're ready.",
       },
       {
         label: "B",
-        value: "client_sends",
+        value: "send_bullets",
         description:
-          "You send us 3-5 bullet points (package names, minimums, lead time, etc.)",
+          "I'll add 3–5 bullet points right now (packages, group sizes, lead time, etc.)",
         tooltip:
-          "You write the exact details you want displayed — package names, pricing info, minimum order sizes, lead time requirements. Most accurate but requires your time.",
+          "Type your catering details directly and we'll format them for the site. Saves a back-and-forth later.",
+        inputPlaceholder: "e.g., Groups of 10–200\nCustom menus available\n48-hour lead time required...",
       },
     ],
     customPlaceholder: "e.g., We have a catering PDF to upload...",
@@ -93,84 +104,60 @@ export const questions: Question[] = [
     type: "choice",
     title: '"Coming Soon" Locations',
     description:
-      'Three locations show "Coming Soon" with no timeline. We\'d like to add either a target date or hide them for now.',
+      'The website currently displays four location cards: Carlsbad (your active location) plus three marked "Coming Soon" — San Clemente (Miramar Food Hall), UCSD Campus (Station 8 Public Market), and Little Italy (Global Fork Food Hall).\n\nThe "Coming Soon" labels don\'t include any timeline, which can make them feel like stale placeholders rather than exciting announcements. We can either add approximate dates to build real anticipation (even rough quarters like "Summer 2026" work well), or temporarily hide the upcoming locations so the site only shows what\'s currently open.\n\nYou can see the current layout at www.lavida.fit — scroll down to the Locations section.',
     options: [
       {
         label: "A",
-        value: "add_dates",
+        value: "keep_locations",
         description:
-          'Give us approximate launch quarters (e.g., "San Clemente — Summer 2026") and we\'ll add them',
+          "Keep it as is for now",
         tooltip:
-          "Adding target dates creates anticipation and lets potential customers know something is actually happening. Even rough quarters (Q3 2026) work well.",
+          "The coming-soon locations stay as they are with no timeline. You can always add dates or hide them in a future update.",
       },
       {
         label: "B",
-        value: "hide_locations",
+        value: "add_dates",
         description:
-          "Hide the coming-soon locations for now and only show Carlsbad",
+          'Give us approximate launch dates (e.g., "San Clemente — Summer 2026") and we\'ll add them to the cards',
         tooltip:
-          "Removes the 'Coming Soon' cards entirely so the site only shows your active location. Cleaner look, but loses the marketing value of upcoming locations.",
+          "Adding target dates creates real anticipation and shows visitors that expansion is happening. Even rough quarters work well. We can always update them later.",
+        inputPlaceholder: "e.g., San Clemente — Summer 2026\nUCSD Campus — Fall 2026\nLittle Italy — Winter 2027",
       },
     ],
-    customPlaceholder: "e.g., Show them but add email waitlist...",
+    customPlaceholder: "e.g., Show them but add an email waitlist...",
   },
   {
     id: 4,
     type: "choice",
-    title: "Customer Quotes",
+    title: "Customer Reviews",
     description:
-      "Adding 2-3 short customer quotes builds trust and helps conversions. We can pull these from your Google or Yelp reviews.",
+      "Here's an idea — adding 2–3 short customer reviews to the homepage could help build trust with first-time visitors. People deciding whether to try La Vida often look for real feedback before making the trip.\n\nThese could come from your existing Google, Yelp, or Instagram reviews — or a mix from each. You could also write your own to highlight exactly what you want customers to know about the experience.",
     options: [
       {
         label: "A",
-        value: "dev_picks",
+        value: "keep_as_is",
         description:
-          "We'll pick 3 strong reviews from Google/Yelp — you just approve them",
+          "Let's leave it as is for now",
         tooltip:
-          "We search your Google and Yelp listings for the most compelling, relevant reviews and present them for your approval before publishing.",
+          "No customer reviews added to the site. You can always revisit this idea later.",
       },
       {
         label: "B",
-        value: "client_sends",
+        value: "add_reviews",
         description:
-          "You send us 3 quotes you'd like featured (with first name or initials)",
+          "We should add customer reviews — I'll provide them shortly",
         tooltip:
-          "You hand-pick the exact quotes and customer names/initials you want displayed. Gives you full control over which feedback represents your brand.",
+          "You send us the reviews you'd like featured and we'll add them to the homepage. Can be from Google, Yelp, Instagram, or written by you.",
       },
     ],
-    customPlaceholder: "e.g., Skip this for now, add later...",
+    customPlaceholder: "e.g., Pull from our Google reviews, I'll pick which ones...",
   },
   {
     id: 5,
-    type: "choice",
-    title: "Catering Form Submissions",
-    description:
-      "Right now, catering form submissions open the customer's email app (mailto link). Some customers may not have email configured, which means lost inquiries.",
-    options: [
-      {
-        label: "A",
-        value: "direct_form",
-        description:
-          "Switch to a form that emails submissions directly to sd.lavidafit@gmail.com",
-        tooltip:
-          "Submissions go straight to your inbox without the customer needing an email app. Works on all devices. Significantly reduces lost inquiries.",
-      },
-      {
-        label: "B",
-        value: "keep_mailto",
-        description: "Keep the current email-app approach",
-        tooltip:
-          "The current mailto approach opens the customer's default email app (Mail, Gmail, etc). Simple but some mobile users don't have email configured, losing those leads.",
-      },
-    ],
-    customPlaceholder: "e.g., Use a different email address...",
-  },
-  {
-    id: 6,
     type: "text",
-    title: "Business Details Confirmation",
+    title: "Business Details for Google",
     description:
-      "For Google search optimization, we need to confirm these details are current.",
+      "For your website to appear correctly in Google Search, Google Maps, and voice assistants like Siri and Alexa, we embed structured data (called Schema markup) behind the scenes. This tells search engines your exact business details — phone number, operating hours, and cuisine type.\n\nIf any of these are outdated or incorrect, it can hurt your search ranking and confuse potential customers. Please confirm or update the details below.",
     fields: [
       {
         label: "Phone Number",
