@@ -470,6 +470,7 @@ ${formData.description}
                   onChange={handleFormChange}
                   required
                   aria-required="true"
+                  maxLength={100}
                   className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                   placeholder="Your full name"
                 />
@@ -489,6 +490,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      maxLength={30}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="(555) 555-5555"
                     />
@@ -506,6 +508,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      maxLength={254}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="you@email.com"
                     />
@@ -527,6 +530,7 @@ ${formData.description}
                     required
                     aria-required="true"
                     min="1"
+                    max="5000"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     placeholder="Expected guests"
                   />
@@ -547,6 +551,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      min={new Date().toISOString().split("T")[0]}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
                   </div>
@@ -631,6 +636,7 @@ ${formData.description}
                   value={formData.description}
                   onChange={handleFormChange}
                   rows={3}
+                  maxLength={2000}
                   className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                   placeholder="Tell us about your event, dietary requirements, or special requests..."
                 />
