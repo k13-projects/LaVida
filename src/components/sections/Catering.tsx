@@ -7,9 +7,11 @@ const Catering = () => {
   return (
     <>
       {/* Catering CTA Section */}
-      <section id="catering" className="relative bg-[#FDF8F5] pt-16 md:pt-20 pb-8 md:pb-12" aria-labelledby="catering-heading">
-        <h2 id="catering-heading" className="sr-only">Catering Services</h2>
+      <section id="catering" className="relative bg-[#FDF8F5] pt-16 md:pt-20 pb-8 md:pb-12 scroll-mt-28" aria-labelledby="catering-heading">
         <div className="container mx-auto px-4 text-center">
+          <h2 id="catering-heading" className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">
+            Catering
+          </h2>
           <p className="text-xl md:text-2xl text-foreground mb-2 font-medium italic">
             Good food, good mood, made for sharing
           </p>

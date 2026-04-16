@@ -152,7 +152,7 @@ ${formData.description}
                   e.preventDefault();
                   const el = document.getElementById("locations");
                   if (el) {
-                    const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                    const y = el.getBoundingClientRect().top + window.scrollY - 112;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
@@ -180,13 +180,21 @@ ${formData.description}
 
             {/* Right nav group */}
             <div className="flex items-end justify-start gap-4 lg:gap-6 pl-6 lg:pl-8 pb-2 flex-1">
-              <button
-                onClick={() => setCateringModalOpen(true)}
+              <a
+                href="#catering"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("catering");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 200;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Catering
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              </a>
               <a
                 href="#contact"
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
@@ -248,7 +256,7 @@ ${formData.description}
                     setIsOpen(false);
                     const el = document.getElementById("locations");
                     if (el) {
-                      const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                      const y = el.getBoundingClientRect().top + window.scrollY - 64;
                       window.scrollTo({ top: y, behavior: "smooth" });
                     }
                   }}
@@ -256,15 +264,21 @@ ${formData.description}
                 >
                   Locations
                 </a>
-                <button
-                  onClick={() => {
+                <a
+                  href="#catering"
+                  onClick={(e) => {
+                    e.preventDefault();
                     setIsOpen(false);
-                    setCateringModalOpen(true);
+                    const el = document.getElementById("catering");
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.scrollY - 64;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
                   }}
-                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10 text-left"
+                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10"
                 >
                   Catering
-                </button>
+                </a>
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
