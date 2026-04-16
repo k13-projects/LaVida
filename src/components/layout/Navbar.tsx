@@ -130,7 +130,7 @@ ${formData.description}
           {/* Desktop Navigation */}
           <div className="hidden md:relative md:flex items-end h-20 lg:h-24 xl:h-28">
 
-            {/* Logo - absolutely centered, always at 50% regardless of nav content */}
+            {/* Logo - absolutely centered */}
             <a href="#" className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-10 group">
               <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
@@ -145,27 +145,25 @@ ${formData.description}
               <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
             </a>
 
-            {/* Nav grid: left links | logo gap | right links — grid guarantees perfect centering */}
-            <div className="grid grid-cols-[1fr_15rem_1fr] lg:grid-cols-[1fr_16rem_1fr] xl:grid-cols-[1fr_18rem_1fr] items-end w-full pb-2">
+            {/* Nav: 3 columns — left links | logo clearance | right links + ORDER NOW */}
+            <div className="grid grid-cols-[1fr_12rem_1fr] lg:grid-cols-[1fr_13rem_1fr] xl:grid-cols-[1fr_15rem_1fr] w-full h-full">
 
-              {/* Left nav — pushed to the right edge of its cell */}
-              <div className="flex items-baseline justify-end gap-10 lg:gap-14 xl:gap-[72px]">
+              {/* Left nav — right-aligned, vertically centered */}
+              <div className="flex items-center justify-end gap-5 lg:gap-7 xl:gap-9 pr-4 lg:pr-5 xl:pr-6">
                 <a
                   href="#about"
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
                 >
                   About Us
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
-
                 <a
                   href="/menu"
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
                 >
                   Menu
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
-
                 <a
                   href="#locations"
                   onClick={(e) => {
@@ -176,37 +174,35 @@ ${formData.description}
                       window.scrollTo({ top: y, behavior: "smooth" });
                     }
                   }}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
                 >
                   Locations
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
               </div>
 
-              {/* Center column — empty, sized to match the logo circle */}
+              {/* Center — logo clearance */}
               <div />
 
-              {/* Right nav + ORDER NOW — left-aligned in its cell, ORDER NOW at far end */}
-              <div className="flex items-baseline gap-10 lg:gap-14 xl:gap-[72px]">
+              {/* Right nav + ORDER NOW — left-aligned with button pushed far right */}
+              <div className="flex items-center gap-5 lg:gap-7 xl:gap-9 pl-4 lg:pl-5 xl:pl-6">
                 <button
                   onClick={() => setCateringModalOpen(true)}
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
                 >
                   Catering
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </button>
-
                 <a
                   href="#contact"
-                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
                 >
                   Contact Us
                   <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
                 </a>
-
                 <button
                   onClick={() => setOrderModalOpen(true)}
-                  className="ml-auto bg-primary text-primary-foreground px-5 xl:px-7 py-2 xl:py-2.5 rounded-full font-bold text-sm xl:text-base transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
+                  className="ml-auto bg-primary text-primary-foreground px-4 lg:px-5 xl:px-6 py-1.5 lg:py-2 xl:py-2.5 rounded-full font-bold text-xs lg:text-sm xl:text-base transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
                 >
                   <span className="relative z-10">ORDER NOW</span>
                   <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
