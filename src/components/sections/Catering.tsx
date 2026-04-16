@@ -50,12 +50,8 @@ const Catering = () => {
           <img
             src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
             alt="Fresh catering salad with colorful healthy ingredients"
-            className="absolute top-1/2 left-1/2 max-w-none"
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-center -scale-x-100"
             loading="lazy"
-            style={{
-              transform: 'translate(-50%, -50%) scaleX(-1) rotate(90deg)',
-              minHeight: '100vw',
-            }}
           />
         </picture>
 

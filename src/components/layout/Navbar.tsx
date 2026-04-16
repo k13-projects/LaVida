@@ -207,15 +207,21 @@ ${formData.description}
           </div>
 
           {/* Mobile Header */}
-          <div className="md:hidden flex items-center justify-between h-16">
-            {/* Mobile Logo */}
-            <a href="#" className="relative z-10">
-              <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center p-2 shadow-lg">
+          <div className="md:hidden flex items-center justify-between h-16 relative">
+            {/* Spacer to balance hamburger */}
+            <div className="w-10" />
+
+            {/* Mobile Logo — centered, overflows into hero like desktop */}
+            <a href="#" className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 z-10 group">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center p-3 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                   alt="La Vida"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain relative z-10"
                 />
+                <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+                </div>
               </div>
             </a>
 
