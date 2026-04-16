@@ -88,7 +88,7 @@ export const fullMenuItems: FullMenuItem[] = [
   // ── SUPERFOOD SMOOTHIES (all GF + V) ──
   { id: 501, name: "Passion Colada",         description: "Pineapple, passion fruit, coconut water, chia seeds",                                                                    category: "smoothies", dietaryTags: ["GF", "V", "DF"], image: "passion-colada.png" },
   { id: 502, name: "Welcome to San Diego",   description: "Organic raw acai, mango, banana, blueberries, hemp seeds",                                                               category: "smoothies", dietaryTags: ["GF", "V", "DF"], image: "welcome-to-san-diego.png" },
-  { id: 503, name: "Choco Fuel",             description: "Banana, peanut butter, honey, grass-fed whey chocolate protein",                                                         category: "smoothies", dietaryTags: ["GF"], image: "choco-fuel.png" },
+  { id: 503, name: "Choco Fuel",             description: "Banana, peanut butter, honey, grass-fed whey chocolate protein",                                                         category: "smoothies", dietaryTags: [], image: "choco-fuel.png" },
   { id: 504, name: "Vitamin Sea",            description: "Banana, strawberry, pineapple, coconut water, lemon juice",                                                              category: "smoothies", dietaryTags: ["GF", "V", "DF"], image: "vitamin-sea.png" },
   { id: 505, name: "The Glow Up",            description: "Blueberry, banana, spinach, almond milk, almond butter, collagen protein",                                               category: "smoothies", dietaryTags: ["GF", "DF"], image: "the-glow-up.png" },
   { id: 506, name: "Very Greens",            description: "Celery, cucumber, pineapple, lemon juice, ginger, and spinach",                                                          category: "smoothies", dietaryTags: ["GF", "V", "DF"], image: "very-greens.png" },
@@ -103,7 +103,7 @@ export const fullMenuItems: FullMenuItem[] = [
   // ── ACAI BOWLS (all GF + V) ──
   { id: 701, name: "La Vida Bliss",  description: "Organic raw acai, banana, strawberry, pineapple, chia seed, shaved coconut, nutella, housemade granola",                         category: "acai", dietaryTags: ["GF", "V", "DF"], image: "la-vida-bliss.png" },
   { id: 702, name: "Beach Body",     description: "Organic raw acai, banana, strawberry, mango, chia seeds, goji berries, cacao nibs, shaved coconut, almond butter, housemade granola", category: "acai", dietaryTags: ["GF", "V", "DF"], image: "beach-body.png" },
-  { id: 703, name: "PB Kiss",        description: "Organic raw acai, banana, strawberry, blueberries, goji berry, peanut butter, shaved coconut, housemade granola",                category: "acai", dietaryTags: ["GF", "V", "DF"], image: "pb-kiss.png" },
+  { id: 703, name: "PB Kiss",        description: "Organic raw acai, banana, strawberry, blueberries, goji berry, peanut butter, shaved coconut, housemade granola",                category: "acai", dietaryTags: ["GF", "DF"], image: "pb-kiss.png" },
 ];
 
 // Legacy export (kept for backward compatibility)

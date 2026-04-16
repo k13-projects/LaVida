@@ -5,6 +5,7 @@ import About from "@/components/sections/About";
 import Menu from "@/components/sections/Menu";
 import Locations from "@/components/sections/Locations";
 import Catering from "@/components/sections/Catering";
+import Reviews from "@/components/sections/Reviews";
 import Instagram from "@/components/sections/Instagram";
 import Footer from "@/components/sections/Footer";
 
@@ -32,6 +33,7 @@ const Index = () => {
         <Menu />
         <Locations />
         <Catering />
+        <Reviews />
         <Instagram />
       </main>
 

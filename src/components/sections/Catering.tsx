@@ -13,9 +13,27 @@ const Catering = () => {
           <p className="text-xl md:text-2xl text-foreground mb-2 font-medium italic">
             Good food, good mood, made for sharing
           </p>
-          <p className="text-base md:text-lg text-muted-foreground mb-8">
+          <p className="text-base md:text-lg text-muted-foreground mb-4">
             Let La Vida cater your next meeting or celebration.
           </p>
+          <ul className="max-w-xl mx-auto mb-8 space-y-3 text-sm md:text-base text-foreground/70">
+            <li className="flex items-start gap-3">
+              <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+              <span>Perfect for groups of 10+ guests, from office lunches to wellness events and celebrations.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+              <span>Flexible catering packages featuring our fresh bowls, wraps, salads, and smoothies.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+              <span>Customizable menu options to fit your group's preferences and dietary needs.</span>
+            </li>
+            <li className="flex items-start gap-3">
+              <span className="shrink-0 w-1.5 h-1.5 rounded-full bg-primary mt-2" />
+              <span>Advance notice recommended to ensure the best experience for your event.</span>
+            </li>
+          </ul>
           <button
             onClick={handleOrderCatering}
             className="inline-flex items-center justify-center bg-olive-dark text-white px-10 py-3 rounded-full font-semibold transition-all hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
@@ -36,9 +54,9 @@ const Catering = () => {
           <img
             src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
             alt="Fresh catering salad with colorful healthy ingredients"
-            className="w-full h-full object-cover object-[center_40%]"
+            className="w-full h-full object-cover object-[center_60%]"
             loading="lazy"
-            style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+            style={{ transform: 'scaleX(-1)' }}
           />
         </picture>
 

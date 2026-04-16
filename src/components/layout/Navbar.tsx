@@ -128,89 +128,91 @@ ${formData.description}
       <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm" role="navigation" aria-label="Main navigation">
         <div className="container mx-auto px-4">
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-end h-20 lg:h-24 xl:h-28">
-            {/* Left spacer - balances right action buttons for true center alignment */}
-            <div className="w-[170px] lg:w-[190px] xl:w-[220px] shrink-0" />
+          <div className="hidden md:relative md:flex items-end h-20 lg:h-24 xl:h-28">
 
-            {/* Centered nav with logo */}
-            <div className="flex-1 flex items-end justify-center gap-6 lg:gap-10 xl:gap-12 pb-3 xl:pb-4">
-              {/* About Us */}
-              <a
-                href="#about"
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
-              >
-                About Us
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-
-              {/* Menu - Links to /menu page */}
-              <a
-                href="/menu"
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
-              >
-                Menu
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
-
-              {/* Logo - inline, bottom half overflows */}
-              <a href="#" className="relative z-10 group translate-y-1/2">
-                <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
-                    alt="La Vida"
-                    className="w-full h-full object-contain relative z-10"
-                  />
-                  <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
-                    <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
-                  </div>
+            {/* Logo - absolutely centered, always at 50% regardless of nav content */}
+            <a href="#" className="absolute left-1/2 -translate-x-1/2 bottom-0 translate-y-1/2 z-10 group">
+              <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
+                  alt="La Vida"
+                  className="w-full h-full object-contain relative z-10"
+                />
+                <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
                 </div>
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </a>
+              </div>
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </a>
 
-              {/* Locations */}
-              <a
-                href="#locations"
-                onClick={(e) => {
-                  e.preventDefault();
-                  const el = document.getElementById("locations");
-                  if (el) {
-                    const y = el.getBoundingClientRect().top + window.scrollY + 160;
-                    window.scrollTo({ top: y, behavior: "smooth" });
-                  }
-                }}
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
-              >
-                Locations
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </a>
+            {/* Nav grid: left links | logo gap | right links — grid guarantees perfect centering */}
+            <div className="grid grid-cols-[1fr_15rem_1fr] lg:grid-cols-[1fr_16rem_1fr] xl:grid-cols-[1fr_18rem_1fr] items-end w-full pb-2">
 
-              {/* Catering - Opens Modal */}
-              <button
-                onClick={() => setCateringModalOpen(true)}
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
-              >
-                Catering
-                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
-            </div>
+              {/* Left nav — pushed to the right edge of its cell */}
+              <div className="flex items-baseline justify-end gap-10 lg:gap-14 xl:gap-[72px]">
+                <a
+                  href="#about"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                >
+                  About Us
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
 
-            {/* Action buttons - right side (in-flow, balances left spacer) */}
-            <div className="w-[170px] lg:w-[190px] xl:w-[220px] shrink-0 flex items-end justify-end pb-3 xl:pb-4 gap-3">
-              <a
-                href="#contact"
-                className="w-9 h-9 xl:w-10 xl:h-10 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
-                aria-label="Contact us"
-              >
-                <Phone size={16} className="xl:hidden text-foreground group-hover:text-white transition-colors duration-300" />
-                <Phone size={18} className="hidden xl:block text-foreground group-hover:text-white transition-colors duration-300" />
-              </a>
-              <button
-                onClick={() => setOrderModalOpen(true)}
-                className="bg-primary text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
-              >
-                <span className="relative z-10">ORDER NOW</span>
-                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
-              </button>
+                <a
+                  href="/menu"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                >
+                  Menu
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+
+                <a
+                  href="#locations"
+                  onClick={(e) => {
+                    e.preventDefault();
+                    const el = document.getElementById("locations");
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
+                  }}
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                >
+                  Locations
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+              </div>
+
+              {/* Center column — empty, sized to match the logo circle */}
+              <div />
+
+              {/* Right nav + ORDER NOW — left-aligned in its cell, ORDER NOW at far end */}
+              <div className="flex items-baseline gap-10 lg:gap-14 xl:gap-[72px]">
+                <button
+                  onClick={() => setCateringModalOpen(true)}
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                >
+                  Catering
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </button>
+
+                <a
+                  href="#contact"
+                  className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-[22px] lg:text-2xl xl:text-[27px] tracking-wide relative group whitespace-nowrap"
+                >
+                  Contact Us
+                  <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
+                </a>
+
+                <button
+                  onClick={() => setOrderModalOpen(true)}
+                  className="ml-auto bg-primary text-primary-foreground px-5 xl:px-7 py-2 xl:py-2.5 rounded-full font-bold text-sm xl:text-base transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
+                >
+                  <span className="relative z-10">ORDER NOW</span>
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
+                </button>
+              </div>
+
             </div>
           </div>
 
