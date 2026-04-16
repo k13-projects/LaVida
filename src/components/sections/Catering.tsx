@@ -7,9 +7,11 @@ const Catering = () => {
   return (
     <>
       {/* Catering CTA Section */}
-      <section id="catering" className="relative bg-[#FDF8F5] pt-16 md:pt-20 pb-8 md:pb-12" aria-labelledby="catering-heading">
-        <h2 id="catering-heading" className="sr-only">Catering Services</h2>
+      <section id="catering" className="relative bg-[#FDF8F5] pt-16 md:pt-20 pb-8 md:pb-12 scroll-mt-28" aria-labelledby="catering-heading">
         <div className="container mx-auto px-4 text-center">
+          <h2 id="catering-heading" className="text-3xl md:text-4xl font-bold text-center text-foreground mb-6">
+            Catering
+          </h2>
           <p className="text-xl md:text-2xl text-foreground mb-2 font-medium italic">
             Good food, good mood, made for sharing
           </p>
@@ -48,12 +50,8 @@ const Catering = () => {
           <img
             src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
             alt="Fresh catering salad with colorful healthy ingredients"
-            className="absolute top-1/2 left-1/2 max-w-none"
+            className="absolute inset-0 w-full h-full object-cover object-top md:object-center -scale-x-100"
             loading="lazy"
-            style={{
-              transform: 'translate(-50%, -50%) scaleX(-1) rotate(90deg)',
-              minHeight: '100vw',
-            }}
           />
         </picture>
 

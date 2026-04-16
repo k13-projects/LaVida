@@ -140,8 +140,7 @@ const Locations: FC = () => {
             src={`${import.meta.env.BASE_URL}images/locations/Large_map.png`}
             alt=""
             role="presentation"
-            className="w-full h-auto object-cover min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-0"
-            loading="lazy"
+            className="w-full h-auto object-cover min-h-[400px] sm:min-h-[500px] md:min-h-[600px] lg:min-h-[700px]"
           />
         </picture>
 

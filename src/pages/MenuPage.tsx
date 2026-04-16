@@ -66,8 +66,8 @@ const MenuPage = () => {
 
   return (
     <div className="min-h-screen" style={{ backgroundColor: "#FFF8F0" }}>
-      {/* Simplified Navbar */}
-      <nav className="bg-secondary/95 backdrop-blur-sm relative z-20">
+      {/* Simplified Navbar — fixed so it stays visible while scrolling */}
+      <nav className="fixed top-0 left-0 right-0 bg-secondary/95 backdrop-blur-sm z-50">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between py-4 md:py-5">
           {/* Back button */}
           <Link
@@ -110,8 +110,8 @@ const MenuPage = () => {
         </div>
       </nav>
 
-      {/* Hero Banner */}
-      <div className="bg-primary relative z-10 pt-14 sm:pt-16 md:pt-20 pb-6 sm:pb-8 text-center">
+      {/* Hero Banner — extra top padding to clear the fixed navbar */}
+      <div className="bg-primary relative z-10 pt-28 sm:pt-32 md:pt-36 pb-6 sm:pb-8 text-center">
         <h1 className="text-3xl sm:text-4xl font-extrabold text-primary-foreground">
           Our Menu
         </h1>
@@ -124,7 +124,7 @@ const MenuPage = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 py-8 flex gap-8">
         {/* Sticky sidebar nav — desktop only */}
         <aside className="hidden lg:block w-44 shrink-0">
-          <nav className="sticky top-8">
+          <nav className="sticky top-24">
             <ul className="space-y-1">
               {fullMenuCategories.map((category) => {
                 const hasItems = filteredItems.some(

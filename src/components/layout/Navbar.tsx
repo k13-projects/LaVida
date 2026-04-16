@@ -152,7 +152,7 @@ ${formData.description}
                   e.preventDefault();
                   const el = document.getElementById("locations");
                   if (el) {
-                    const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                    const y = el.getBoundingClientRect().top + window.scrollY - 112;
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
@@ -180,13 +180,21 @@ ${formData.description}
 
             {/* Right nav group */}
             <div className="flex items-end justify-start gap-4 lg:gap-6 pl-6 lg:pl-8 pb-2 flex-1">
-              <button
-                onClick={() => setCateringModalOpen(true)}
+              <a
+                href="#catering"
+                onClick={(e) => {
+                  e.preventDefault();
+                  const el = document.getElementById("catering");
+                  if (el) {
+                    const y = el.getBoundingClientRect().top + window.scrollY - 200;
+                    window.scrollTo({ top: y, behavior: "smooth" });
+                  }
+                }}
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Catering
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
-              </button>
+              </a>
               <a
                 href="#contact"
                 className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
@@ -199,15 +207,21 @@ ${formData.description}
           </div>
 
           {/* Mobile Header */}
-          <div className="md:hidden flex items-center justify-between h-16">
-            {/* Mobile Logo */}
-            <a href="#" className="relative z-10">
-              <div className="w-14 h-14 bg-primary rounded-full flex items-center justify-center p-2 shadow-lg">
+          <div className="md:hidden flex items-center justify-between h-16 relative">
+            {/* Spacer to balance hamburger */}
+            <div className="w-10" />
+
+            {/* Mobile Logo — centered, overflows into hero like desktop */}
+            <a href="#" className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 z-10 group">
+              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center p-3 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                   alt="La Vida"
-                  className="w-full h-full object-contain"
+                  className="w-full h-full object-contain relative z-10"
                 />
+                <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+                </div>
               </div>
             </a>
 
@@ -248,7 +262,7 @@ ${formData.description}
                     setIsOpen(false);
                     const el = document.getElementById("locations");
                     if (el) {
-                      const y = el.getBoundingClientRect().top + window.scrollY + 160;
+                      const y = el.getBoundingClientRect().top + window.scrollY - 64;
                       window.scrollTo({ top: y, behavior: "smooth" });
                     }
                   }}
@@ -256,15 +270,21 @@ ${formData.description}
                 >
                   Locations
                 </a>
-                <button
-                  onClick={() => {
+                <a
+                  href="#catering"
+                  onClick={(e) => {
+                    e.preventDefault();
                     setIsOpen(false);
-                    setCateringModalOpen(true);
+                    const el = document.getElementById("catering");
+                    if (el) {
+                      const y = el.getBoundingClientRect().top + window.scrollY - 64;
+                      window.scrollTo({ top: y, behavior: "smooth" });
+                    }
                   }}
-                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10 text-left"
+                  className="text-foreground hover:text-primary transition-colors font-medium text-base py-2 border-b border-foreground/10"
                 >
                   Catering
-                </button>
+                </a>
                 <a
                   href="#contact"
                   onClick={() => setIsOpen(false)}
