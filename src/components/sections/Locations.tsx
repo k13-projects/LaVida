@@ -1,8 +1,17 @@
 import { FC } from 'react';
 
-// Location data
-// UPDATED: All 4 locations now open with confirmed data (Tasks 5+6)
-const locations = [
+interface LocationData {
+  id: string;
+  cityLabel: string;
+  subtitle: string;
+  addressLines: string[];
+  hoursLabel: string;
+  link: string;
+  isComingSoon: boolean;
+  openingTimeline?: string;
+}
+
+const locations: LocationData[] = [
   {
     id: 'carlsbad',
     cityLabel: 'CARLSBAD',
@@ -26,6 +35,7 @@ const locations = [
     hoursLabel: '11:00 AM – 9:00 PM',
     link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92672',
     isComingSoon: true,
+    openingTimeline: 'Spring 2026',
   },
   {
     id: 'ucsd',
@@ -38,6 +48,7 @@ const locations = [
     hoursLabel: '11:00 AM – 9:00 PM',
     link: 'https://maps.google.com/?q=9165+Theatre+District+Drive,+La+Jolla,+CA+92037',
     isComingSoon: true,
+    openingTimeline: 'Summer 2026',
   },
   {
     id: 'little-italy',
@@ -50,12 +61,12 @@ const locations = [
     hoursLabel: '11:00 AM – 9:00 PM',
     link: 'https://maps.google.com/?q=550+W+Date+St+Suite+B,+San+Diego,+CA+92101',
     isComingSoon: true,
+    openingTimeline: 'Summer 2026',
   },
 ];
 
-// Location Card Component
 const LocationCard: FC<{
-  location: typeof locations[0];
+  location: LocationData;
 }> = ({ location }) => {
   return (
     <div className={`relative bg-primary/95 backdrop-blur-sm rounded-lg sm:rounded-xl p-3 xs:p-4 sm:p-5 md:p-6 lg:p-8 shadow-xl w-full h-full min-h-[160px] xs:min-h-[180px] sm:min-h-[200px] md:min-h-[240px] lg:min-h-[280px] xl:min-h-[320px] flex flex-col items-center justify-between text-center border overflow-hidden transition-all ${location.isComingSoon ? 'border-[#F5F0E8]/10' : 'border-[#F5F0E8]/20'}`}>
@@ -94,7 +105,7 @@ const LocationCard: FC<{
             <span className="relative inline-flex rounded-full h-2 w-2 sm:h-2.5 sm:w-2.5 bg-amber-400"></span>
           </span>
           <span className="text-[#F5F0E8] font-semibold text-[11px] xs:text-xs sm:text-sm md:text-base lg:text-lg tracking-wide uppercase">
-            Opening Soon
+            {location.openingTimeline ? `Opening ${location.openingTimeline}` : 'Opening Soon'}
           </span>
         </div>
       ) : (

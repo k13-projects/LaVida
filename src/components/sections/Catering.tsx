@@ -16,6 +16,18 @@ const Catering = () => {
           <p className="text-base md:text-lg text-muted-foreground mb-8">
             Let La Vida cater your next meeting or celebration.
           </p>
+          <ul className="max-w-2xl mx-auto mb-10 grid grid-cols-1 sm:grid-cols-2 gap-x-10 gap-y-7 text-sm md:text-base text-foreground/70">
+            {[
+              'Perfect for groups of 10+ guests, from office lunches to wellness events and celebrations.',
+              'Flexible catering packages featuring our fresh bowls, wraps, salads, and smoothies.',
+              'Customizable menu options to fit your group\'s preferences and dietary needs.',
+              'Advance notice recommended to ensure the best experience for your event.',
+            ].map((text, i) => (
+              <li key={i} className="border-l-2 border-olive-dark/25 pl-4 py-1 text-left leading-relaxed">
+                {text}
+              </li>
+            ))}
+          </ul>
           <button
             onClick={handleOrderCatering}
             className="inline-flex items-center justify-center bg-olive-dark text-white px-10 py-3 rounded-full font-semibold transition-all hover:brightness-125 hover:shadow-lg hover:scale-[1.03]"
@@ -36,9 +48,12 @@ const Catering = () => {
           <img
             src={`${import.meta.env.BASE_URL}images/catering/LaVida_032125_arleneibarra-034.jpg`}
             alt="Fresh catering salad with colorful healthy ingredients"
-            className="w-full h-full object-cover object-[center_40%]"
+            className="absolute top-1/2 left-1/2 max-w-none"
             loading="lazy"
-            style={{ transform: 'scaleX(-1) scaleY(-1)' }}
+            style={{
+              transform: 'translate(-50%, -50%) scaleX(-1) rotate(90deg)',
+              minHeight: '100vw',
+            }}
           />
         </picture>
 

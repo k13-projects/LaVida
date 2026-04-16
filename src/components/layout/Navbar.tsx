@@ -127,47 +127,25 @@ ${formData.description}
     <>
       <nav className="fixed top-0 left-0 right-0 z-50 bg-secondary/95 backdrop-blur-sm" role="navigation" aria-label="Main navigation">
         <div className="container mx-auto px-4">
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-end h-20 lg:h-24 xl:h-28">
-            {/* Left spacer - balances right action buttons for true center alignment */}
-            <div className="w-[170px] lg:w-[190px] xl:w-[220px] shrink-0" />
+          {/* Desktop Navigation — flex layout, logo in flow */}
+          <div className="hidden md:flex items-end justify-center h-28 relative pb-2">
 
-            {/* Centered nav with logo */}
-            <div className="flex-1 flex items-end justify-center gap-6 lg:gap-10 xl:gap-12 pb-3 xl:pb-4">
-              {/* About Us */}
+            {/* Left nav group */}
+            <div className="flex items-end justify-end gap-4 lg:gap-6 pr-6 lg:pr-8 pb-2 flex-1">
               <a
                 href="#about"
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
+                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 About Us
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
-
-              {/* Menu - Links to /menu page */}
               <a
                 href="/menu"
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
+                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Menu
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
-
-              {/* Logo - inline, bottom half overflows */}
-              <a href="#" className="relative z-10 group translate-y-1/2">
-                <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
-                  <img
-                    src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
-                    alt="La Vida"
-                    className="w-full h-full object-contain relative z-10"
-                  />
-                  <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
-                    <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
-                  </div>
-                </div>
-                <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
-              </a>
-
-              {/* Locations */}
               <a
                 href="#locations"
                 onClick={(e) => {
@@ -178,40 +156,46 @@ ${formData.description}
                     window.scrollTo({ top: y, behavior: "smooth" });
                   }
                 }}
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
+                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Locations
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
+            </div>
 
-              {/* Catering - Opens Modal */}
+            {/* Logo — inline in flex flow, centering is automatic */}
+            <a href="#" className="relative z-10 mx-4 group translate-y-1/2">
+              <div className="w-36 h-36 lg:w-40 lg:h-40 xl:w-48 xl:h-48 bg-primary rounded-full flex items-center justify-center p-5 lg:p-6 xl:p-7 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+                <img
+                  src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
+                  alt="La Vida"
+                  className="w-full h-full object-contain relative z-10"
+                />
+                <div className="absolute inset-0 z-20 overflow-hidden rounded-full">
+                  <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/40 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-coin-shine" />
+                </div>
+              </div>
+              <div className="absolute inset-0 bg-primary/20 rounded-full blur-xl scale-110 opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+            </a>
+
+            {/* Right nav group */}
+            <div className="flex items-end justify-start gap-4 lg:gap-6 pl-6 lg:pl-8 pb-2 flex-1">
               <button
                 onClick={() => setCateringModalOpen(true)}
-                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-sm lg:text-base xl:text-lg tracking-wide relative group whitespace-nowrap"
+                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
                 Catering
                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </button>
-            </div>
-
-            {/* Action buttons - right side (in-flow, balances left spacer) */}
-            <div className="w-[170px] lg:w-[190px] xl:w-[220px] shrink-0 flex items-end justify-end pb-3 xl:pb-4 gap-3">
               <a
                 href="#contact"
-                className="w-9 h-9 xl:w-10 xl:h-10 rounded-full bg-foreground/10 hover:bg-primary flex items-center justify-center transition-all duration-300 group"
-                aria-label="Contact us"
+                className="text-foreground hover:text-primary transition-all duration-300 font-semibold text-base lg:text-lg tracking-wide relative group whitespace-nowrap"
               >
-                <Phone size={16} className="xl:hidden text-foreground group-hover:text-white transition-colors duration-300" />
-                <Phone size={18} className="hidden xl:block text-foreground group-hover:text-white transition-colors duration-300" />
+                Contact Us
+                <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-primary transition-all duration-300 group-hover:w-full" />
               </a>
-              <button
-                onClick={() => setOrderModalOpen(true)}
-                className="bg-primary text-primary-foreground px-4 xl:px-6 py-1.5 xl:py-2 rounded-full font-bold text-xs xl:text-sm transition-all duration-300 shadow-lg relative overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
-              >
-                <span className="relative z-10">ORDER NOW</span>
-                <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
-              </button>
             </div>
+
           </div>
 
           {/* Mobile Header */}
@@ -301,6 +285,15 @@ ${formData.description}
             </div>
           )}
         </div>
+
+        {/* ORDER NOW — pinned to far right of screen, outside container so it hugs the viewport edge */}
+        <button
+          onClick={() => setOrderModalOpen(true)}
+          className="hidden md:flex items-center absolute right-4 lg:right-6 xl:right-8 top-1/2 -translate-y-1/2 bg-primary text-primary-foreground px-5 lg:px-6 xl:px-7 py-2 lg:py-2.5 rounded-full font-bold text-sm lg:text-base transition-all duration-300 shadow-lg overflow-hidden group whitespace-nowrap hover:brightness-110 hover:shadow-xl hover:scale-[1.03]"
+        >
+          <span className="relative z-10">ORDER NOW</span>
+          <div className="absolute w-[15%] h-[200%] bg-gradient-to-b from-transparent via-white/30 to-transparent -rotate-12 top-1/2 -translate-y-1/2 animate-button-shine" />
+        </button>
       </nav>
 
       {/* Menu PDF Modal */}
@@ -470,6 +463,7 @@ ${formData.description}
                   onChange={handleFormChange}
                   required
                   aria-required="true"
+                  maxLength={100}
                   className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                   placeholder="Your full name"
                 />
@@ -489,6 +483,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      maxLength={30}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="(555) 555-5555"
                     />
@@ -506,6 +501,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      maxLength={254}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                       placeholder="you@email.com"
                     />
@@ -527,6 +523,7 @@ ${formData.description}
                     required
                     aria-required="true"
                     min="1"
+                    max="5000"
                     className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     placeholder="Expected guests"
                   />
@@ -547,6 +544,7 @@ ${formData.description}
                       onChange={handleFormChange}
                       required
                       aria-required="true"
+                      min={new Date().toISOString().split("T")[0]}
                       className="w-full pl-10 pr-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all"
                     />
                   </div>
@@ -631,6 +629,7 @@ ${formData.description}
                   value={formData.description}
                   onChange={handleFormChange}
                   rows={3}
+                  maxLength={2000}
                   className="w-full px-4 py-2.5 rounded-lg border border-foreground/20 bg-background focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary transition-all resize-none"
                   placeholder="Tell us about your event, dietary requirements, or special requests..."
                 />
