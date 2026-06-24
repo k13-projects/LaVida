@@ -8,11 +8,11 @@ const Menu = () => {
       {/* Bowl image - absolute positioned to right half, overlapping into olive section */}
       <picture>
         <source
-          srcSet={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.webp`}
+          srcSet={`${import.meta.env.BASE_URL}images/about/Strawberry%20salad%20web.webp`}
           type="image/webp"
         />
         <img
-          src={`${import.meta.env.BASE_URL}images/about/Strawberry salad web.png`}
+          src={`${import.meta.env.BASE_URL}images/about/Strawberry%20salad%20web.png`}
           alt="Fresh strawberry salad with colorful vegetables"
           className="absolute top-0 right-0 z-20 w-[60vw] 2xl:w-[55vw] h-auto object-contain drop-shadow-2xl -mt-40 sm:-mt-52 md:-mt-72 lg:-mt-88 pointer-events-none"
           loading="lazy"
