@@ -124,8 +124,9 @@ const Reviews = () => {
               }),
             ]}
             className="w-full"
+            aria-label="Customer reviews"
           >
-            <CarouselContent className="-ml-4">
+            <CarouselContent className="-ml-4" aria-live="polite">
               {reviews.map((review) => (
                 <CarouselItem
                   key={review.id}
