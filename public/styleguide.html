@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex">
+<title>La Vida DNA | Design System &amp; Style Guide</title>
+<meta name="description" content="La Vida San Diego / K13 Software Studio design system — the project DNA: colors, typography, motion, and components as used across the website.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  /* Brand — exact hex from the La Vida brand PDF / index.css tokens */
+  --olive:#9F9D58;            /* primary */
+  --olive-dark:#535A3D;       /* forest — foreground / headings */
+  --olive-light:#AEAD85;
+  --peach:#FEBDBA;            /* secondary / blush */
+  --coral:#F28383;           /* accent */
+  --cream:#F4E1C1;
+  --gold:#E2D58F;
+  --sand:#E8DBC9;
+  --offwhite:#FFF6F0;        /* page background */
+  --white:#fff;
+  --gray:#6B6B5E;            /* secondary text */
+  --light-gray:#EAE2D7;      /* borders / dividers */
+  --green:#1f7a44;--amber:#b06a00;--red:#b3261e;
+  --font:'Montserrat',sans-serif;
+  --radius:0.5rem;           /* --radius token (8px) */
+  --shadow:0 10px 30px rgba(83,90,61,.12);
+  --grad:linear-gradient(135deg,#535A3D 0%,#9F9D58 100%);
+  --transition:all .3s ease;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;overflow-x:hidden}
+body{font-family:var(--font);color:var(--olive-dark);line-height:1.7;font-size:16px;background:var(--offwhite);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3,h4{font-weight:700;letter-spacing:.01em;line-height:1.2}
+p{color:var(--gray)}
+code{font-family:'SF Mono',Menlo,Consolas,monospace;font-size:.82em;background:rgba(159,157,88,.12);color:var(--olive-dark);padding:2px 7px;border-radius:5px}
+.wrap{max-width:1080px;margin:0 auto;padding:0 24px}
+.wave{width:100%;line-height:0;overflow:hidden}.wave svg{width:100%;height:80px;display:block}
+
+/* hero */
+.hero{background:var(--grad);color:#fff;text-align:center;padding:46px 24px 72px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:radial-gradient(circle at 72% 22%,rgba(226,213,143,.20),transparent 55%);pointer-events:none}
+.hero-in{position:relative;z-index:1;max-width:920px;margin:0 auto}
+.hero-logo{width:120px;height:120px;border-radius:50%;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.28);margin:0 auto 18px;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden}
+.hero-logo img{width:78px;height:auto}
+.hero-logo::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.55),transparent);transform:skewX(-18deg);animation:coinShine 15s linear infinite}
+.hero .eyebrow{display:inline-block;background:rgba(255,255,255,.16);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 20px;border-radius:40px;font-size:.72rem;font-weight:600;letter-spacing:.2em;text-transform:uppercase;margin-bottom:18px}
+.hero h1{font-size:clamp(2rem,5vw,3.2rem);margin-bottom:12px;text-transform:uppercase;letter-spacing:.04em}
+.hero .sub{font-size:clamp(1rem,2vw,1.25rem);font-style:italic;color:rgba(255,255,255,.92)}
+.hero .meta{margin-top:24px;font-size:.78rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.82)}
+.hero .meta strong{color:#fff}
+
+/* TOC */
+.toc{background:#fff;border-bottom:1px solid var(--light-gray);position:sticky;top:0;z-index:50;box-shadow:0 2px 14px rgba(83,90,61,.06)}
+.toc-in{max-width:1080px;margin:0 auto;padding:12px 24px;display:flex;gap:6px;flex-wrap:wrap;align-items:center;justify-content:center}
+.toc a{font-size:.74rem;letter-spacing:.1em;text-transform:uppercase;font-weight:600;color:var(--olive-dark);text-decoration:none;padding:6px 12px;border-radius:20px;transition:var(--transition)}
+.toc a:hover{background:var(--cream)}
+
+/* section */
+.sg-section{padding:40px 0 20px}
+.sg-label{display:inline-block;background:var(--olive-dark);color:#fff;padding:6px 18px;border-radius:4px;font-size:.7rem;font-weight:600;letter-spacing:.16em;text-transform:uppercase;margin-bottom:14px}
+.sg-section>.wrap>h2{font-size:clamp(1.6rem,3vw,2.2rem);color:var(--olive-dark);margin-bottom:8px}
+.sg-section>.wrap>.intro{max-width:760px;margin-bottom:24px}
+.sub-h{font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--gray);font-weight:700;margin:22px 0 10px}
+
+/* color swatches */
+.sw-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:14px}
+.sw{background:#fff;border:1px solid var(--light-gray);border-radius:10px;overflow:hidden}
+.sw-chip{height:84px;display:flex;align-items:flex-end;padding:8px 12px;font-size:.8rem;font-weight:600;font-family:'SF Mono',Menlo,monospace}
+.sw-meta{padding:12px 14px}.sw-meta b{display:block;font-size:.95rem;color:var(--olive-dark)}.sw-meta code{display:inline-block;margin:3px 0;font-size:.72rem}.sw-meta span{display:block;font-size:.78rem;color:var(--gray)}
+
+/* component item */
+.sg-item{background:#fff;border-radius:var(--radius);box-shadow:var(--shadow);padding:26px;margin-bottom:22px;scroll-margin-top:80px}
+.sg-item-head{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:4px}
+.sg-item-head h3{font-size:1.2rem;color:var(--olive-dark)}
+.sg-ref{margin-left:auto;background:rgba(159,157,88,.14);color:var(--olive);font-weight:600}
+.sg-desc{font-size:.95rem;margin-bottom:18px}
+.sg-demo{display:grid;grid-template-columns:1.1fr .9fr;gap:22px;align-items:start}
+@media(max-width:760px){.sg-demo{grid-template-columns:1fr}}
+.sg-stage{border:1px solid var(--light-gray);border-radius:8px;padding:28px;display:flex;flex-wrap:wrap;gap:16px;align-items:center;justify-content:center;min-height:120px}
+.sg-spec dl{display:grid;grid-template-columns:auto 1fr;gap:6px 14px;font-size:.85rem}
+.sg-spec dt{font-weight:700;color:var(--olive-dark);white-space:nowrap}
+.sg-spec dd{color:var(--gray)}
+.sg-note{margin-top:14px;font-size:.82rem;color:var(--gray);background:var(--cream);border-left:3px solid var(--olive);padding:10px 14px;border-radius:6px}
+
+/* ===== AUTHENTIC LA VIDA COMPONENT STYLES ===== */
+/* signature pill CTA — bg-primary text-white px-10 py-3 rounded-full font-semibold hover:brightness-110 hover:scale-[1.03] */
+.btn-lavida{display:inline-flex;align-items:center;justify-content:center;background:var(--olive);color:#fff;padding:.75rem 2.5rem;border-radius:9999px;font-family:var(--font);font-weight:600;font-size:.95rem;border:none;cursor:pointer;text-decoration:none;transition:var(--transition)}
+.btn-lavida:hover{filter:brightness(1.1);box-shadow:0 10px 20px rgba(83,90,61,.18);transform:scale(1.03)}
+/* shadcn button variants (rounded-md, h-10) */
+.ui-btn{display:inline-flex;align-items:center;justify-content:center;height:40px;padding:0 16px;border-radius:6px;font-family:var(--font);font-size:.875rem;font-weight:500;border:none;cursor:pointer;text-decoration:none;transition:background .2s ease,color .2s ease}
+.ui-default{background:var(--olive);color:#fff}.ui-default:hover{background:rgba(159,157,88,.9)}
+.ui-secondary{background:var(--peach);color:var(--olive-dark)}.ui-secondary:hover{background:rgba(254,189,186,.8)}
+.ui-outline{background:var(--offwhite);color:var(--olive-dark);border:1px solid var(--light-gray)}.ui-outline:hover{background:var(--coral);color:#fff}
+.ui-ghost{background:transparent;color:var(--olive-dark)}.ui-ghost:hover{background:var(--coral);color:#fff}
+.ui-link{background:transparent;color:var(--olive);text-decoration:underline;text-underline-offset:4px}
+/* form field — catering form (React Hook Form + Zod), focus ring olive */
+.fg{text-align:left;width:100%;max-width:340px}
+.fg label{display:block;margin-bottom:6px;font-weight:600;font-size:.875rem;color:var(--olive-dark)}
+.fg input{width:100%;padding:10px 14px;border:1px solid var(--light-gray);border-radius:8px;font-family:var(--font);font-size:1rem;background:#fff;transition:var(--transition)}
+.fg input:focus{outline:2px solid var(--olive);outline-offset:2px;border-color:var(--olive)}
+/* dietary badges — inline-flex px-2 py-0.5 rounded-full text-[11px] font-bold border */
+.diet{display:inline-flex;align-items:center;padding:2px 8px;border-radius:9999px;font-size:11px;font-weight:700;border:1px solid}
+.diet-v{background:#dcfce7;color:#166534;border-color:#86efac}
+.diet-gf{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+.diet-df{background:#dbeafe;color:#1e40af;border-color:#93c5fd}
+.diet-gfo{background:#fffbeb;color:#b45309;border-color:#fde68a}
+/* product / menu card */
+.lv-card{background:#fff;border-radius:12px;box-shadow:var(--shadow);overflow:hidden;width:240px}
+.lv-card .thumb{height:120px;background:linear-gradient(135deg,var(--peach),var(--coral));display:flex;align-items:center;justify-content:center;font-size:2rem}
+.lv-card .body{padding:16px}
+.lv-card h4{font-size:1rem;color:var(--olive-dark);margin-bottom:4px}
+.lv-card p{font-size:.82rem;margin-bottom:10px}
+.lv-card .row{display:flex;gap:6px}
+/* section title */
+.sect-title{text-align:center;font-family:var(--font);font-size:1.8rem;font-weight:700;color:var(--olive-dark);text-transform:uppercase;letter-spacing:.04em}
+/* chips */
+.chip{display:inline-block;padding:4px 16px;border-radius:50px;font-size:.7rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase}
+.chip-olive{background:rgba(159,157,88,.14);color:var(--olive)}
+.chip-coral{background:rgba(242,131,131,.16);color:#c0392b}
+.chip-gold{background:rgba(226,213,143,.32);color:#8a7b2e}
+/* organic + wave */
+.organic{width:120px;height:120px;border-radius:60% 40% 50% 50% / 50% 50% 40% 60%;background:var(--grad)}
+.wave-demo{width:100%;height:60px;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1440 100'%3E%3Cpath fill='%23f5dde0' d='M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z'/%3E%3C/svg%3E");background-size:cover;background-repeat:no-repeat}
+
+/* motion demos */
+.anim-demo{display:flex;gap:14px;flex-wrap:wrap;justify-content:center}
+.anim-box{width:96px;height:64px;border-radius:8px;background:var(--cream);color:var(--olive-dark);display:flex;align-items:center;justify-content:center;font-size:.72rem;font-weight:700;text-align:center;border:1px solid var(--light-gray)}
+.float-demo{animation:float 3s ease-in-out infinite}
+.shine-host{position:relative;overflow:hidden}
+.shine-host::before{content:"";position:absolute;top:0;bottom:0;width:40%;left:-60%;background:linear-gradient(100deg,transparent,rgba(255,255,255,.65),transparent);transform:skewX(-18deg);animation:coinShine 5s linear infinite}
+@keyframes coinShine{0%,2%{left:-60%}40%{left:150%}41%,100%{left:150%}}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+@keyframes fadeUp{from{opacity:0;transform:translateY(30px)}to{opacity:1;transform:none}}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+@keyframes scaleIn{from{opacity:0;transform:scale(.9)}to{opacity:1;transform:none}}
+.demo-fadeup{animation:fadeUp .8s ease-out infinite alternate}
+.demo-scalein{animation:scaleIn .5s ease-out infinite alternate}
+
+footer{background:var(--olive-dark);color:#fff;text-align:center;padding:44px 24px;margin-top:30px}
+footer .fl{font-size:1.4rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;margin-bottom:8px}
+footer p{color:rgba(255,255,255,.8);font-size:.85rem;letter-spacing:.04em}
+footer .studio{margin-top:14px;font-size:.74rem;letter-spacing:.2em;text-transform:uppercase;color:rgba(255,255,255,.6)}
+@media (prefers-reduced-motion:reduce){*{animation:none!important}}
+@media print{body{background:#fff}.sg-item,.sw{box-shadow:none;border:1px solid var(--light-gray)}.toc{display:none}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-in">
+    <div class="hero-logo"><img src="images/logo/logo-white.png" alt="La Vida logo"></div>
+    <div class="eyebrow">Design System &middot; Project DNA</div>
+    <h1>La Vida DNA</h1>
+    <p class="sub">Good food, good mood — the brand, in code.</p>
+    <p class="meta">Carlsbad / San Diego, CA &nbsp;&bull;&nbsp; www.lavida.fit &nbsp;&bull;&nbsp; by <strong>K13 Software Studio</strong></p>
+  </div>
+</header>
+<div class="wave"><svg viewBox="0 0 1440 100" preserveAspectRatio="none" aria-hidden="true"><path d="M0,50 C360,100 1080,0 1440,50 L1440,100 L0,100 Z" fill="#FFF6F0"/></svg></div>
+
+<nav class="toc"><div class="toc-in">
+  <a href="#colors">Colors</a>
+  <a href="#type">Typography</a>
+  <a href="#motion">Motion</a>
+  <a href="#buttons">Buttons</a>
+  <a href="#forms">Forms</a>
+  <a href="#menu">Menu &amp; Badges</a>
+  <a href="#patterns">Patterns</a>
+  <a href="#foundations">Tokens</a>
+</div></nav>
+
+<!-- COLORS -->
+<section class="sg-section" id="colors">
+  <div class="wrap">
+    <span class="sg-label">Foundations</span>
+    <h2>Color Palette</h2>
+    <p class="intro">Straight from the La Vida brand PDF and <code>src/index.css</code>. An uplifting, coastal-wellness palette: olive green leads, with peach &amp; coral warmth on a soft off-white ground. Stored as HSL design tokens; hex shown for reference.</p>
+    <div class="sub-h">Brand</div>
+    <div class="sw-grid">
+      <div class="sw"><div class="sw-chip" style="background:#9F9D58;color:#fff">#9F9D58</div><div class="sw-meta"><b>Olive</b><code>--primary / --olive</code><span>Primary — CTAs, links, headings accent</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#535A3D;color:#fff">#535A3D</div><div class="sw-meta"><b>Forest / Dark Olive</b><code>--olive-dark / --foreground</code><span>Body text, headings, footer</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#AEAD85;color:#3c3c2e">#AEAD85</div><div class="sw-meta"><b>Olive Light</b><code>--olive-light</code><span>Muted olive accents</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#FEBDBA;color:#7a3b38">#FEBDBA</div><div class="sw-meta"><b>Peach / Blush</b><code>--secondary / --blush</code><span>Soft section backgrounds, secondary buttons</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#F28383;color:#fff">#F28383</div><div class="sw-meta"><b>Coral</b><code>--accent / --coral</code><span>Accent, hover fills, highlights</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#F4E1C1;color:#6b5a3a">#F4E1C1</div><div class="sw-meta"><b>Cream</b><code>--cream</code><span>Warm surfaces, notes</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#E2D58F;color:#5c521f">#E2D58F</div><div class="sw-meta"><b>Gold</b><code>--gold</code><span>Muted gold — subtle highlights</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#FFF6F0;color:#535A3D">#FFF6F0</div><div class="sw-meta"><b>Off-White</b><code>--background</code><span>Page background</span></div></div>
+    </div>
+    <div class="sub-h">Neutrals &amp; Support</div>
+    <div class="sw-grid">
+      <div class="sw"><div class="sw-chip" style="background:#ffffff;color:#535A3D">#FFFFFF</div><div class="sw-meta"><b>White</b><code>--card</code><span>Cards, surfaces</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#6B6B5E;color:#fff">#6B6B5E</div><div class="sw-meta"><b>Gray</b><code>--muted-foreground</code><span>Secondary text</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#EAE2D7;color:#535A3D">#EAE2D7</div><div class="sw-meta"><b>Light Border</b><code>--border / --input</code><span>Borders, dividers</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#E8DBC9;color:#5c4f3a">#E8DBC9</div><div class="sw-meta"><b>Sand</b><code>--sand</code><span>Warm neutral fill</span></div></div>
+    </div>
+    <div class="sub-h">Dietary Badge Colors (Tailwind palette)</div>
+    <div class="sw-grid">
+      <div class="sw"><div class="sw-chip" style="background:#dcfce7;color:#166534">V</div><div class="sw-meta"><b>Vegan — green</b><code>green-100/800/300</code><span>Dietary tag</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#fef3c7;color:#92400e">GF</div><div class="sw-meta"><b>Gluten-Free — amber</b><code>amber-100/800/300</code><span>Dietary tag</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#dbeafe;color:#1e40af">DF</div><div class="sw-meta"><b>Dairy-Free — blue</b><code>blue-100/800/300</code><span>Dietary tag</span></div></div>
+      <div class="sw"><div class="sw-chip" style="background:#fffbeb;color:#b45309">GFO</div><div class="sw-meta"><b>GF Option — light amber</b><code>amber-50/700/200</code><span>Dietary tag</span></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TYPOGRAPHY -->
+<section class="sg-section" id="type" style="background:#fff">
+  <div class="wrap">
+    <span class="sg-label">Foundations</span>
+    <h2>Typography</h2>
+    <p class="intro">One family does everything: <strong>Montserrat</strong>. Headings are heavy and a touch uppercase; body is friendly and readable. Root font-size is 18px so the whole site scales up comfortably.</p>
+    <div class="sg-item" id="type-scale">
+      <div class="sg-item-head"><h3>Type Scale</h3><code class="sg-ref">Montserrat 400–800</code></div>
+      <p class="sg-desc">Headings + body exactly as rendered on the site.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:#fff"><div style="text-align:left;width:100%">
+          <div style="font-size:clamp(2rem,5vw,3.2rem);font-weight:800;text-transform:uppercase;color:var(--olive-dark);line-height:1.1">Heading H1</div>
+          <div style="font-size:2rem;font-weight:700;color:var(--olive-dark)">Heading H2</div>
+          <div style="font-size:1.25rem;font-weight:700;color:var(--olive-dark)">Heading H3</div>
+          <p style="margin-top:8px">Body copy — 16–18px, line-height 1.7, color <code>--gray</code> on light surfaces. <strong>Semibold</strong> for emphasis, <span style="color:var(--olive);font-weight:600">olive links</span>.</p>
+        </div></div>
+        <div class="sg-spec"><dl>
+          <dt>Family</dt><dd>'Montserrat', sans-serif (Google Fonts)</dd>
+          <dt>Weights</dt><dd>400 / 500 / 600 / 700 / 800</dd>
+          <dt>Root</dt><dd>html font-size 18px</dd>
+          <dt>H1</dt><dd>clamp(2rem, 5vw, 3.2rem) · 700–800 · uppercase</dd>
+          <dt>H2</dt><dd>~2rem · 700</dd>
+          <dt>H3</dt><dd>1.25rem · 700</dd>
+          <dt>Body</dt><dd>16–18px / 1.7 · gray</dd>
+          <dt>Headings</dt><dd>font-weight 700 globally</dd>
+        </dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MOTION -->
+<section class="sg-section" id="motion">
+  <div class="wrap">
+    <span class="sg-label">Foundations</span>
+    <h2>Motion</h2>
+    <p class="intro">Motion is gentle and brand-led. The signature is <strong>Coin Shine</strong> — a light sweep that travels across the logo and primary button on a 15-second loop, echoing the circular "coin" logo. Everything respects <code>prefers-reduced-motion</code>.</p>
+
+    <div class="sg-item" id="coin-shine">
+      <div class="sg-item-head"><h3>Coin Shine (signature)</h3><code class="sg-ref">.animate-coin-shine / .animate-button-shine</code></div>
+      <p class="sg-desc">A light streak sweeps the logo, travels the gap, then sweeps the CTA — forward then reverse — over a 15s cycle. Demo sped up to ~5s.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--grad)">
+          <div class="shine-host" style="width:80px;height:80px;border-radius:50%;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.3);display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700">LV</div>
+          <a class="btn-lavida shine-host">Order Online</a>
+        </div>
+        <div class="sg-spec"><dl>
+          <dt>Cycle</dt><dd>15s linear infinite</dd>
+          <dt>Path</dt><dd>logo 2–10% → button 12–22% → reverse 24–44%</dd>
+          <dt>Streak</dt><dd>skewed white gradient, left −60% → 150%</dd>
+          <dt>Hover</dt><dd>coinShineHover / buttonShineHover one-shot</dd>
+        </dl></div>
+      </div>
+    </div>
+
+    <div class="sg-item" id="entrances">
+      <div class="sg-item-head"><h3>Entrance &amp; Idle</h3><code class="sg-ref">.animate-fade-up / -fade-in / -scale-in · float</code></div>
+      <p class="sg-desc">Scroll-reveal entrances and a soft idle float used on hero imagery.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--cream)"><div class="anim-demo">
+          <div class="anim-box demo-fadeup">fade-up ↑</div>
+          <div class="anim-box demo-scalein">scale-in ⤢</div>
+          <div class="anim-box float-demo">float ↕</div>
+        </div></div>
+        <div class="sg-spec"><dl>
+          <dt>fadeUp</dt><dd>0.8s ease-out · translateY(30px)→0</dd>
+          <dt>fadeIn</dt><dd>0.6s ease-out</dd>
+          <dt>scaleIn</dt><dd>0.5s ease-out · scale(.9)→1</dd>
+          <dt>float</dt><dd>3s ease-in-out infinite · ±10px</dd>
+          <dt>Stagger</dt><dd>.delay-100 / -200 / -300 / -400</dd>
+          <dt>Carousel</dt><dd>Embla, autoplay (reviews / hero)</dd>
+        </dl><p class="sg-note">Guard: <code>@media (prefers-reduced-motion:reduce)</code> collapses all animation/transition durations to ~0 (WCAG 2.3.3).</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BUTTONS -->
+<section class="sg-section" id="buttons" style="background:#fff">
+  <div class="wrap">
+    <span class="sg-label">Components</span>
+    <h2>Buttons</h2>
+    <p class="intro">The hero CTA is a soft <strong>pill</strong>; the shadcn/ui button (rounded-md) powers everything else.</p>
+
+    <div class="sg-item" id="btn-pill">
+      <div class="sg-item-head"><h3>Primary CTA (pill)</h3><code class="sg-ref">bg-primary rounded-full</code></div>
+      <p class="sg-desc">Signature call-to-action — "Order Online", "View Menu", "Request Catering".</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--cream)"><a class="btn-lavida">Order Online</a></div>
+        <div class="sg-spec"><dl>
+          <dt>Padding</dt><dd>0.75rem 2.5rem (px-10 py-3)</dd>
+          <dt>Font</dt><dd>0.95rem · 600 semibold</dd>
+          <dt>Radius</dt><dd>9999px (rounded-full)</dd>
+          <dt>Bg</dt><dd>--primary (olive) · white text</dd>
+          <dt>Hover</dt><dd>brightness 1.1 · scale 1.03 · shadow-lg</dd>
+        </dl></div>
+      </div>
+    </div>
+
+    <div class="sg-item" id="btn-ui">
+      <div class="sg-item-head"><h3>shadcn/ui Button variants</h3><code class="sg-ref">buttonVariants()</code></div>
+      <p class="sg-desc">cva-driven variants used throughout the UI.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:#fff">
+          <button class="ui-btn ui-default">Default</button>
+          <button class="ui-btn ui-secondary">Secondary</button>
+          <button class="ui-btn ui-outline">Outline</button>
+          <button class="ui-btn ui-ghost">Ghost</button>
+          <a class="ui-btn ui-link">Link</a>
+        </div>
+        <div class="sg-spec"><dl>
+          <dt>Height</dt><dd>40px (h-10) · sm 36 · lg 44</dd>
+          <dt>Radius</dt><dd>6px (rounded-md)</dd>
+          <dt>Font</dt><dd>0.875rem · 500 medium</dd>
+          <dt>default</dt><dd>olive → olive/90</dd>
+          <dt>secondary</dt><dd>peach → peach/80</dd>
+          <dt>outline/ghost</dt><dd>hover → coral (accent) fill</dd>
+          <dt>Focus</dt><dd>ring-2 ring (olive) offset 2</dd>
+        </dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FORMS -->
+<section class="sg-section" id="forms">
+  <div class="wrap">
+    <span class="sg-label">Components</span>
+    <h2>Forms</h2>
+    <p class="intro">The only data-collecting surface is the <strong>catering enquiry form</strong> — validated client-side with React Hook Form + Zod, then handed to the visitor's own mail app (mailto). No server intake.</p>
+    <div class="sg-item" id="form-field">
+      <div class="sg-item-head"><h3>Form field</h3><code class="sg-ref">Label + Input</code></div>
+      <p class="sg-desc">Label + input pair with an olive focus ring.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:#fff"><div class="fg"><label>Full Name *</label><input type="text" placeholder="Jane Doe"></div></div>
+        <div class="sg-spec"><dl>
+          <dt>Label</dt><dd>0.875rem · 600 · forest</dd>
+          <dt>Input pad</dt><dd>10px 14px</dd>
+          <dt>Border</dt><dd>1px solid --border · radius 8px</dd>
+          <dt>Focus</dt><dd>2px olive outline, offset 2 (WCAG 2.4.7)</dd>
+          <dt>Validation</dt><dd>React Hook Form + Zod</dd>
+        </dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MENU & BADGES -->
+<section class="sg-section" id="menu" style="background:#fff">
+  <div class="wrap">
+    <span class="sg-label">Components</span>
+    <h2>Menu &amp; Dietary Badges</h2>
+    <p class="intro">Menu items carry small dietary tags so guests can filter at a glance.</p>
+    <div class="sg-item" id="diet-badges">
+      <div class="sg-item-head"><h3>Dietary badges</h3><code class="sg-ref">.DietaryBadge</code></div>
+      <p class="sg-desc">Pill tags from <code>DIETARY_TAG_CONFIG</code>; full label on hover via <code>title</code>.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--cream)">
+          <span class="diet diet-v" title="Vegan">V</span>
+          <span class="diet diet-gf" title="Gluten-Free">GF</span>
+          <span class="diet diet-df" title="Dairy-Free">DF</span>
+          <span class="diet diet-gfo" title="Gluten-Free Option">GFO</span>
+        </div>
+        <div class="sg-spec"><dl>
+          <dt>Shape</dt><dd>rounded-full · 11px · 700 bold · 1px border</dd>
+          <dt>V</dt><dd>green-100 / 800 / 300</dd>
+          <dt>GF</dt><dd>amber-100 / 800 / 300</dd>
+          <dt>DF</dt><dd>blue-100 / 800 / 300</dd>
+          <dt>GFO</dt><dd>amber-50 / 700 / 200</dd>
+        </dl></div>
+      </div>
+    </div>
+    <div class="sg-item" id="menu-card">
+      <div class="sg-item-head"><h3>Menu item card</h3><code class="sg-ref">.MenuItemCard</code></div>
+      <p class="sg-desc">Image, name, short description, dietary tags.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--offwhite)">
+          <div class="lv-card">
+            <div class="thumb">🥗</div>
+            <div class="body"><h4>Harvest Salad</h4><p>Seasonal greens, roasted veg, citrus vinaigrette.</p><div class="row"><span class="diet diet-v">V</span><span class="diet diet-gf">GF</span></div></div>
+          </div>
+        </div>
+        <div class="sg-spec"><dl>
+          <dt>Surface</dt><dd>white · radius 12px · soft shadow</dd>
+          <dt>Image</dt><dd>top, fixed ratio, lazy-loaded webp</dd>
+          <dt>Title</dt><dd>1rem · 700 · forest</dd>
+          <dt>Tags</dt><dd>dietary badges, bottom row</dd>
+        </dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PATTERNS -->
+<section class="sg-section" id="patterns">
+  <div class="wrap">
+    <span class="sg-label">Components</span>
+    <h2>Patterns &amp; Shapes</h2>
+    <p class="intro">Recurring brand devices: centered section titles, wave dividers between sections, the organic blob mask, and status chips.</p>
+    <div class="sg-item" id="sect-title">
+      <div class="sg-item-head"><h3>Section title</h3><code class="sg-ref">.sect-title</code></div>
+      <p class="sg-desc">Centered uppercase heading atop each site section.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:#fff"><div class="sect-title">Our Menu</div></div>
+        <div class="sg-spec"><dl><dt>Align</dt><dd>center</dd><dt>Transform</dt><dd>uppercase · 700</dd><dt>Color</dt><dd>--olive-dark</dd></dl></div>
+      </div>
+    </div>
+    <div class="sg-item" id="shapes">
+      <div class="sg-item-head"><h3>Wave divider &amp; organic shape</h3><code class="sg-ref">.wave-divider · .organic-shape</code></div>
+      <p class="sg-desc">Soft transitions and blob masks for imagery.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:#fff;flex-direction:column;gap:20px"><div class="organic"></div><div class="wave-demo"></div></div>
+        <div class="sg-spec"><dl>
+          <dt>wave-divider</dt><dd>inline SVG, fill #f5dde0, cover</dd>
+          <dt>organic-shape</dt><dd>border-radius 60% 40% 50% 50% / 50% 50% 40% 60%</dd>
+        </dl></div>
+      </div>
+    </div>
+    <div class="sg-item" id="chips">
+      <div class="sg-item-head"><h3>Status chips</h3><code class="sg-ref">.chip</code></div>
+      <p class="sg-desc">Small uppercase pills for tags / states.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--cream)"><span class="chip chip-olive">New</span><span class="chip chip-coral">Popular</span><span class="chip chip-gold">Seasonal</span></div>
+        <div class="sg-spec"><dl><dt>Shape</dt><dd>rounded-full · 0.7rem · 700</dd><dt>Tracking</dt><dd>0.08em uppercase</dd></dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOUNDATIONS / TOKENS -->
+<section class="sg-section" id="foundations" style="background:#fff">
+  <div class="wrap">
+    <span class="sg-label">Reference</span>
+    <h2>Tokens &amp; Specs</h2>
+    <p class="intro">The numbers behind the look — radius, shadow, breakpoints, and the brand voice.</p>
+    <div class="sg-item">
+      <div class="sg-item-head"><h3>Core tokens</h3><code class="sg-ref">tailwind.config.ts · index.css</code></div>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--offwhite);flex-direction:column;align-items:flex-start;gap:10px">
+          <div style="display:flex;gap:12px;align-items:center"><div style="width:64px;height:40px;border-radius:8px;background:#fff;border:1px solid var(--light-gray);box-shadow:var(--shadow)"></div><span style="font-size:.8rem;color:var(--gray)">radius 8px · soft shadow</span></div>
+          <div style="display:flex;gap:8px"><span class="chip chip-olive">xs 480</span><span class="chip chip-olive">sm 640</span><span class="chip chip-olive">md 768</span><span class="chip chip-olive">lg 1024</span><span class="chip chip-olive">xl 1280</span></div>
+        </div>
+        <div class="sg-spec"><dl>
+          <dt>Radius</dt><dd>--radius 0.5rem (lg) · md −2px · sm −4px</dd>
+          <dt>Shadow</dt><dd>0 10px 30px rgba(83,90,61,.12)</dd>
+          <dt>Container</dt><dd>centered · pad 2rem · max 1400px</dd>
+          <dt>Breakpoints</dt><dd>xs480 sm640 md768 lg1024 xl1280 2xl1536</dd>
+          <dt>Dark mode</dt><dd>class-based (tokens defined, site ships light)</dd>
+        </dl></div>
+      </div>
+    </div>
+    <div class="sg-item">
+      <div class="sg-item-head"><h3>Brand voice</h3><code class="sg-ref">tone</code></div>
+      <p class="sg-desc">Uplifting, wellness-focused, casual San Diego coastal; inclusive of dietary needs.</p>
+      <div class="sg-demo">
+        <div class="sg-stage" style="background:var(--grad);color:#fff"><div style="text-align:center;font-style:italic;font-size:1.15rem;max-width:420px">"Good food, good mood — made for sharing."</div></div>
+        <div class="sg-spec"><dl><dt>Voice</dt><dd>warm, fresh, inclusive</dd><dt>Logo</dt><dd>circular olive "coin" mark w/ shine sweep</dd><dt>Easing</dt><dd>ease-out (primary); float ease-in-out; shine linear</dd></dl></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="fl">La Vida DNA</div>
+  <p>Design System &amp; Style Guide &middot; Carlsbad / San Diego, CA &middot; www.lavida.fit</p>
+  <div class="studio">Prepared by K13 Software Studio</div>
+</footer>
+
+</body>
+</html>
