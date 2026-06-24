@@ -61,6 +61,13 @@ const Footer = () => {
           © {new Date().getFullYear()} La Vida San Diego. All rights reserved.
           {" · "}
           <Link
+            to="/privacy"
+            className="hover:text-primary transition-colors underline"
+          >
+            Privacy Policy
+          </Link>
+          {" · "}
+          <Link
             to="/accessibility"
             className="hover:text-primary transition-colors underline"
           >

@@ -5,6 +5,7 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Index from "./pages/Index";
 import Accessibility from "./pages/Accessibility";
+import PrivacyPolicy from "./pages/PrivacyPolicy";
 import NotFound from "./pages/NotFound";
 import Decisions from "./pages/Decisions";
 import MenuPage from "./pages/MenuPage";
@@ -20,6 +21,7 @@ const App = () => (
         <Routes>
           <Route path="/" element={<Index />} />
           <Route path="/accessibility" element={<Accessibility />} />
+          <Route path="/privacy" element={<PrivacyPolicy />} />
           <Route path="/decisions" element={<Decisions />} />
           <Route path="/menu" element={<MenuPage />} />
           {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
