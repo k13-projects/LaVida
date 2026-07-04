@@ -211,9 +211,31 @@ ${formData.description}
             {/* Spacer to balance hamburger */}
             <div className="w-10" />
 
-            {/* Mobile Logo — centered, overflows into hero like desktop */}
+            {/* Decorative palm sprigs flanking the logo — fixed symmetric offsets from center */}
+            <div aria-hidden="true" className="absolute right-[calc(50%+5.5rem)] top-1/2 -translate-y-1/2 pointer-events-none text-primary/75">
+              <svg width="26" height="18" viewBox="0 0 26 18" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round">
+                <path d="M1 15 C 8 13, 16 8, 25 2" />
+                <path d="M6 13.8 Q 5 9.5 8.5 7.5" />
+                <path d="M11 11.4 Q 10.5 7.5 14 6" />
+                <path d="M16 8.7 Q 16 5.5 19 4.3" />
+                <path d="M6 13.8 Q 8.5 16.5 11.5 16.8" />
+                <path d="M11 11.4 Q 13.5 13.8 16.5 13.6" />
+              </svg>
+            </div>
+            <div aria-hidden="true" className="absolute left-[calc(50%+5.5rem)] top-1/2 -translate-y-1/2 pointer-events-none text-primary/75">
+              <svg width="26" height="18" viewBox="0 0 26 18" fill="none" stroke="currentColor" strokeWidth="1.2" strokeLinecap="round" className="-scale-x-100">
+                <path d="M1 15 C 8 13, 16 8, 25 2" />
+                <path d="M6 13.8 Q 5 9.5 8.5 7.5" />
+                <path d="M11 11.4 Q 10.5 7.5 14 6" />
+                <path d="M16 8.7 Q 16 5.5 19 4.3" />
+                <path d="M6 13.8 Q 8.5 16.5 11.5 16.8" />
+                <path d="M11 11.4 Q 13.5 13.8 16.5 13.6" />
+              </svg>
+            </div>
+
+            {/* Mobile Logo — centered, overflows into hero like desktop; sized so the top rim kisses the top edge */}
             <a href="#" className="absolute left-1/2 -translate-x-1/2 translate-y-1/2 bottom-0 z-10 group">
-              <div className="w-20 h-20 bg-primary rounded-full flex items-center justify-center p-3 shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
+              <div className="w-32 h-32 bg-primary rounded-full flex items-center justify-center p-[18px] shadow-xl transition-all duration-500 group-hover:shadow-2xl group-hover:scale-105 overflow-hidden relative">
                 <img
                   src={`${import.meta.env.BASE_URL}images/logo/logo-white.png`}
                   alt="La Vida"
