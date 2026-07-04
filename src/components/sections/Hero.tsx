@@ -72,6 +72,17 @@ const Hero = () => {
               <CarouselItem key={slide.id} className="h-full pl-0">
                 <div className="relative w-full h-full">
                   <picture>
+                    {/* Art-directed portrait crops for phones; desktop sources below stay untouched */}
+                    <source
+                      media="(max-width: 767px)"
+                      srcSet={`${import.meta.env.BASE_URL}${slide.mobileSrcWebP.replace(/^\//, '')}`}
+                      type="image/webp"
+                    />
+                    <source
+                      media="(max-width: 767px)"
+                      srcSet={`${import.meta.env.BASE_URL}${slide.mobileSrc.replace(/^\//, '')}`}
+                      type="image/jpeg"
+                    />
                     <source
                       srcSet={`${import.meta.env.BASE_URL}${slide.srcWebP.replace(/^\//, '')}`}
                       type="image/webp"

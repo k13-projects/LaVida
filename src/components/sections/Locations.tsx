@@ -29,13 +29,12 @@ const locations: LocationData[] = [
     cityLabel: 'SAN CLEMENTE',
     subtitle: 'Miramar Food Hall',
     addressLines: [
-      '1720 North El Camino Real,',
-      'CA 92672'
+      '150 W Avenida Pico,',
+      'San Clemente, CA 92672'
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
-    link: 'https://maps.google.com/?q=1720+North+El+Camino+Real,+San+Clemente,+CA+92672',
-    isComingSoon: true,
-    openingTimeline: 'Spring 2026',
+    link: 'https://maps.google.com/?q=150+W+Avenida+Pico,+San+Clemente,+CA+92672',
+    isComingSoon: false,
   },
   {
     id: 'ucsd',
@@ -60,8 +59,7 @@ const locations: LocationData[] = [
     ],
     hoursLabel: '11:00 AM – 9:00 PM',
     link: 'https://maps.google.com/?q=550+W+Date+St+Suite+B,+San+Diego,+CA+92101',
-    isComingSoon: true,
-    openingTimeline: 'Summer 2026',
+    isComingSoon: false,
   },
 ];
 
