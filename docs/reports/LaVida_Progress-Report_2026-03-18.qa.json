@@ -1,0 +1,35 @@
+{
+  "report": "LaVida_Progress-Report_2026-03-18.html",
+  "gate": "two-agent-chrome-qa",
+  "date": "2026-08-15",
+  "builder": "rescued archived artifact",
+  "tester": "qa-test-engineer",
+  "viewports": ["1440", "390"],
+  "checks": [
+    { "name": "page loads, no console errors", "result": "pass", "detail": "verified before and after fixes" },
+    { "name": "no horizontal overflow at 1440px", "result": "pass" },
+    { "name": "no horizontal overflow at 390px", "result": "fail-then-pass", "detail": "FOUND: .next-cards used a fixed 5-column grid (grid-template-columns: repeat(5,1fr)) with no responsive override, forcing scrollWidth to 712px against a 390px viewport and permanently squeezing/cutting off the 4th-5th 'What's Next' decision cards on mobile. FIXED: added '.next-cards { grid-template-columns: 1fr; }' inside the existing @media (max-width:768px) block, matching the pattern already used for .feature-cards. Re-verified: single-column stack, no overflow, window.scrollX stays 0 after an attempted horizontal scroll." },
+    { "name": "scroll-reveal animations (.reveal/.reveal-left/.reveal-right/.reveal-scale) trigger correctly on real scroll", "result": "pass", "detail": "55/55 elements gained .visible via IntersectionObserver during a full scroll pass at both viewports" },
+    { "name": "transient pre-reveal transform offsets (.reveal-left/-right start at translateX +/-60px) do not create a real scrollable overflow", "result": "pass", "detail": "documentElement.scrollWidth briefly read 434px pre-reveal, but body{overflow-x:hidden} propagates to the viewport per CSS root-overflow-propagation (confirmed: window.scrollTo(1000,0) then window.scrollX === 0) -- not a user-facing bug" },
+    { "name": "no overlapping/clipped text at either viewport", "result": "pass", "detail": "visually reviewed hero, stats, breakdown cards, performance/SEO section, and decision cards after reveal at both viewports" },
+    { "name": "images render (7 base64-embedded PNG/WebP)", "result": "pass", "detail": "all 7 <img> elements: complete=true, naturalWidth>0; zero broken external refs (grep confirmed no non-data: src)" },
+    { "name": "internal anchor links (sitemap nav) resolve", "result": "pass", "detail": "8/8 hash targets (#hero-section, #nav-section, #about-section, #menu-section, #locations-section, #catering-section, #insta-section, #footer-section) exist in DOM; click-triggered smooth scroll confirmed" },
+    { "name": "external link (lavida.fit/decisions) well-formed", "result": "pass", "detail": "syntax only; live-site uptime out of scope for this report QA" },
+    { "name": "palette consistent with La Vida brand", "result": "pass", "detail": "olive/blush/coral/cream tokens consistent throughout" },
+    { "name": "prefers-reduced-motion respected", "result": "fail-then-pass", "detail": "FOUND: report had zero @media (prefers-reduced-motion:reduce) coverage despite infinite CSS animations (.particle float-particle, .hero-logo logo-glow, .scroll-hint bounce-down) and JS scroll-reveal transitions -- violates house motion rule. FIXED: added a reduced-motion block before </style> that neutralizes .reveal/.reveal-left/.reveal-right/.reveal-scale transitions and disables animation on .particle/.hero-logo/.scroll-hint, plus forces scroll-behavior:auto. Verified selectors exist in DOM (particle, hero-logo, scroll-hint) and file still loads with zero console errors after the edit." },
+    { "name": "standalone / Gmail-safe structure", "result": "pass", "detail": "single self-contained HTML file, all imagery inline as base64 data URIs, one external Google Fonts stylesheet link (progressive enhancement only)" }
+  ],
+  "fixes": [
+    {
+      "issue": "5-column .next-cards grid overflowed and cut off content on mobile (390px)",
+      "fix": "Added '.next-cards { grid-template-columns: 1fr; }' to the existing @media (max-width:768px) block",
+      "file": "docs/reports/LaVida_Progress-Report_2026-03-18.html"
+    },
+    {
+      "issue": "No prefers-reduced-motion support anywhere in the report despite multiple infinite/looping animations",
+      "fix": "Added an @media (prefers-reduced-motion:reduce) block before </style> neutralizing reveal transitions and infinite keyframe animations",
+      "file": "docs/reports/LaVida_Progress-Report_2026-03-18.html"
+    }
+  ],
+  "verdict": "approved"
+}
