@@ -1,0 +1,23 @@
+{
+  "report": "LaVida_Legal-Compliance_2026-06-22.html",
+  "gate": "two-agent-chrome-qa",
+  "date": "2026-08-15",
+  "builder": "rescued archived artifact",
+  "tester": "qa-test-engineer",
+  "viewports": ["1440", "390"],
+  "checks": [
+    { "name": "page loads, no console errors", "result": "pass" },
+    { "name": "no horizontal overflow at 1440px", "result": "pass", "detail": "document.documentElement.scrollWidth === clientWidth" },
+    { "name": "no horizontal overflow at 390px", "result": "pass", "detail": "document.documentElement.scrollWidth === clientWidth" },
+    { "name": "scroll-reveal animations (.fade-in/.slide-left/.slide-right/.scale-in) trigger correctly on real scroll", "result": "pass", "detail": "34/34 elements gained .visible via IntersectionObserver during a full scroll pass" },
+    { "name": "no overlapping/clipped text at either viewport", "result": "pass", "detail": "visually reviewed full-page screenshots at 1440 and 390 after reveal" },
+    { "name": "images render", "result": "n/a", "detail": "report has no raster <img> tags; only inline SVG wave dividers, which render correctly" },
+    { "name": "links work", "result": "n/a", "detail": "report contains no <a> tags" },
+    { "name": "palette consistent with La Vida brand", "result": "pass", "detail": "olive/teal/coral/cream tokens consistent throughout" },
+    { "name": "prefers-reduced-motion respected", "result": "pass", "detail": "existing @media (prefers-reduced-motion: reduce) block at end of <style> disables all .fade-in/.slide-left/.slide-right/.scale-in transitions; verified present in source, not independently forced in headless browser (CDP media emulation not on the allowlist)" },
+    { "name": "responsive table (compliance matrix) scrolls internally, not the page", "result": "pass", "detail": ".tablewrap has overflow-x:auto with min-width:560px table; confirmed no page-level overflow at 390px" },
+    { "name": "standalone / Gmail-safe structure", "result": "pass", "detail": "single self-contained HTML file, inline <style>, one external Google Fonts stylesheet link (progressive enhancement, not required to render), no relative asset paths" }
+  ],
+  "fixes": [],
+  "verdict": "approved"
+}
