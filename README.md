@@ -34,7 +34,7 @@ npm install
 ### Development
 
 ```bash
-# Start development server (port 8080)
+# Start development server (port 9146, the project's fixed K13 dev port)
 npm run dev
 ```
 

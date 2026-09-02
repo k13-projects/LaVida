@@ -10,7 +10,11 @@ export default defineConfig(({ mode }) => ({
   base: '/',
   server: {
     host: "::",
-    port: 8080,
+    // K13 dev port 9146 (registry: War Room starter-kit/CONVENTIONS.md; one fixed port per
+    // project, for life). Was 8080 until 2026-09-02. strictPort: a collision fails loudly
+    // instead of silently moving to the next port.
+    port: 9146,
+    strictPort: true,
     hmr: {
       overlay: false,
     },
